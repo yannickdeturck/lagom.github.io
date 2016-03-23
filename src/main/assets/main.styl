@@ -1,2 +1,86 @@
+lgm-purple =         #652b7c
+lgm-purple-dkr =     #421540
+lgm-purple-ltr =     #bf97c6
+lgm-purple-ltr-ltr = #d3b0d3 /* use this lighter purple for text set on a lgm-purple background */
+
+lb-slate =           #1c3b47
+lb-slate-dkr =       #152c35
+lb-slate-ltr =       #49626c
+
+lb-light-grey =      #c5d0d4
+lb-light-grey-dkr =  #9eb1b7
+lb-light-grey-ltr =  #f3f6f6
+
+white =              #ffffff
+white-ltr =          #f0f3f6
+white-dkr =          #c2d2dc
+
+lb-grey =            #364550
+lb-grey-dkr =        #2a363e
+lb-grey-ltr =        #3e515e
+
+linkcolor =         lgm-purple
+breadBorder =       lgm-purple-ltr
+br =                3px
+tgbr =              10px
+lightbend-fonts =   "Source Sans Pro", "Helvetica Neue", Arial, sans-serif
+
 body
-  font 12px
+  background lgm-purple
+  color lb-slate
+  font-family lightbend-fonts
+  font-smoothing antialiased
+  -webkit-font-size-adjust none
+  text-rendering optimizeLegibility
+
+  .container
+    width 940px
+    margin-left auto
+    margin-right auto
+
+.navbar
+  background-color white
+  border-top solid 5px lgm-purple
+  height 80px
+
+  .logo
+    float left
+
+  .sections
+    float right
+    border-right solid 1px lb-light-grey
+    a
+      display block
+      float left
+      border-left solid 1px lb-light-grey
+      color lgm-purple-dkr
+      height 75px
+      line-height 45px
+      padding 15px
+      font-size 14px
+      font-weight 700
+      text-transform uppercase
+
+.title
+  .large-lagom-logo
+    float left
+    width 300px
+    height 150px
+    padding-right 20px
+  font-size 40px
+  font-weigt 700
+  color white
+
+.lagom-intro
+  clear both
+  margin-left auto
+  margin-right auto
+  width 640px
+
+.page-header
+  height 100px
+  color white
+
+.page
+  width 100%
+  background-color white

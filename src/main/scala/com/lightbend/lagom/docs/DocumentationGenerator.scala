@@ -7,8 +7,6 @@ import play.twirl.api.{Html, Template0}
 
 object DocumentationGenerator extends App {
 
-  println("Generating documentation...")
-
   val outputDir = new File(args(0))
 
   def generatePage(name: String, template: Template0[Html]) = {
@@ -16,12 +14,12 @@ object DocumentationGenerator extends App {
     val file = new File(outputDir, name)
     file.getParentFile.mkdirs()
     Files.write(file.toPath, rendered.body.getBytes("utf-8"))
-    println("Generated " + name)
     file
   }
 
   val generated = Seq(
-    generatePage("index.html", html.index)
+    generatePage("index.html", html.index),
+    generatePage("get-involved.html", html.getinvolved)
   )
 
   val generatedSet = generated.toSet
@@ -34,7 +32,6 @@ object DocumentationGenerator extends App {
       }
     } else {
       if (!generatedSet.contains(file)) {
-        println("Deleting " + file)
         file.delete()
       }
     }

@@ -1,0 +1,13 @@
+@(title: String)(head: Html)(content: Html)
+
+@main(Some(title))(head) {
+    <header class="page-header container">
+        <h1>@title</h1>
+    </header>
+
+    <div class="page">
+        <article class="container">
+        @content
+        </article>
+    </div>
+}

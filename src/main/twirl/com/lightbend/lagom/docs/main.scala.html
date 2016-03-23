@@ -8,29 +8,90 @@
         <meta name="description" content="Lagom">
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
 
-        <link rel="stylesheet" href="/lib/normalize.css/normalize.css" type="text/css">
-        <link rel="stylesheet" href="/lib/foundation/dist/foundation.min.css" type="text/css">
+        <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="/lib/normalize.css/normalize.css" type="text/css"/>
+        <link rel="stylesheet" href="/lib/foundation/dist/foundation.min.css" type="text/css"/>
         <link rel="stylesheet" href="/main.css" type="text/css">
         @head
     </head>
     <body>
 
-        <header class="top-nav">
-            <a class="logo" href="/">Lagom</a>
-            <nav class="sections">
-                <a href="/download.html">Download</a>
-                <a href="/documentation.html">Documentation</a>
-                <a href="/get-involved.html">Get Involved</a>
-            </nav>
-            <nav class="social">
-                <a href="//groups.google.com/forum/#!forum/lagom-framework"><span>Mailing list</span></a>
-                <a href="//twitter.com/lagom"><span>Twitter</span></a>
-                <a href="//github.com/lagom/lagom"><span>Github</span></a>
-                <a href="//stackoverflow.com/questions/tagged/lagom"><span>Stackoverflow</span></a>
-            </nav>
+        <header class="navbar">
+            <div class="container">
+                <a class="logo" href="/">Lagom</a>
+                <nav class="sections">
+                    <a href="/download.html">Download</a>
+                    <a href="/documentation.html">Documentation</a>
+                    <a href="/get-involved.html">Get Involved</a>
+                </nav>
+                <!-- social icons -->
+                <nav class="social">
+                    <a href="//groups.google.com/forum/#!forum/lagom-framework"><span>Mailing list</span></a>
+                    <a href="//twitter.com/lagom"><span>Twitter</span></a>
+                    <a href="//github.com/lagom/lagom"><span>Github</span></a>
+                    <a href="//stackoverflow.com/questions/tagged/lagom"><span>Stackoverflow</span></a>
+                </nav>
+            </div>
         </header>
 
         @content
 
+        <footer>
+            <div class="support">
+                <article class="community">
+                    <h3>Community support</h3>
+                    <ul>
+                        <li><a href="//groups.google.com/forum/#!forum/lagom-framework">Mailing list</a></li>
+                        <li><a href="//stackoverflow.com/questions/tagged/lagom">Stackoverflow</a></li>
+                    </ul>
+                </article>
+                <article class="professional">
+                    <h3>Professional support</h3>
+                    <ul>
+                        <li><a href="//www.lightbend.com/services/expert-support">Lightbend Subscription</a></li>
+                        <li><a href="//www.lightbend.com/services/training">Training</a></li>
+                        <li><a href="//www.lightbend.com/services/consulting">Consulting</a></li>
+                    </ul>
+                </article>
+            </div>
+            <div class="wrapper">
+                <div>
+                    <h3>Lagom</h3>
+                    <ul>
+                        <li><a href="/download">Download</a></li>
+                        <li><a href="/documentation/latest/GettingStarted">Getting Started</a></li>
+                        <li><a href="/documentation">Documentation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Community links</h3>
+                    <ul>
+                        <li><a href="//www.eventbrite.com/directory/?q=lagom&amp;loc=Worldwide">Events <em>via Eventbrite</em></a></li>
+                        <li><a href="http://www.indeed.com/jobs?q=%22lagom%22&amp;l=">Jobs <em>via Indeed</em></a></li>
+                        <li><a href="http://www.scoop.it/lagom">Blogs <em>via Scoop.it</em></a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Code &amp; contribution</h3>
+                    <ul>
+                        <li><a href="//github.com/lagom/lagom/issues">Bug tracker <em>GitHub</em></a></li>
+                        <li><a href="/get-involved">Get involved</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Social networks</h3>
+                    <ul>
+                        <li><a href="//twitter.com/lagom"><span>Twitter</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="credits">
+                <a href="/" class="logo"><img src="/assets/images/logos/play_reverse.svg"></a>
+                <a href="//lightbend.com" class="partner"><img src="/assets/images/logos/lightbend-reverse.svg"></a>
+                <p>
+                    Lagom is released under the Apache 2 License
+                </p>
+            </div>
+        </footer>
     </body>
 </html>
