@@ -9,8 +9,11 @@ libraryDependencies ++= Seq(
   "org.webjars" % "normalize.css" % "3.0.2",
   "org.webjars" % "foundation" % "6.2.0",
   "org.webjars" % "jquery" % "2.2.1",
-  "org.webjars" % "prettify" % "4-Mar-2013"
+  "org.webjars" % "prettify" % "4-Mar-2013",
+  "com.lightbend.markdown" %% "lightbend-markdown-server" % "1.3.1-SNAPSHOT"
 )
+
+resolvers += Resolver.sbtPluginRepo("releases")
 
 val httpServer = AttributeKey[Closeable]("http-server")
 
@@ -63,10 +66,12 @@ val generateHtml = taskKey[Seq[File]]("Generate the site HTML")
 target in generateHtml := WebKeys.webTarget.value / "generated-html"
 generateHtml <<= Def.taskDyn {
   val outputDir = (target in generateHtml).value
+  val docsDir = sourceDirectory.value / "docs"
   Def.task {
     (runMain in Compile).toTask(Seq(
       "com.lightbend.lagom.docs.DocumentationGenerator",
-      outputDir
+      outputDir,
+      docsDir
     ).mkString(" ", " ", "")).value
     outputDir.***.filter(_.isFile).get
   }

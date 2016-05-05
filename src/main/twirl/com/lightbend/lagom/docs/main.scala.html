@@ -1,5 +1,5 @@
 @import com.lightbend.lagom.docs.svg.html._
-@(title: Option[String])(head: Html)(content: Html)
+@(title: Option[String])(footer: Html = HtmlFormat.empty)(content: Html)
 <!DOCTYPE html>
 <html class="noios">
     <head>
@@ -12,7 +12,6 @@
         <link rel="stylesheet" href="/lib/normalize.css/normalize.css" type="text/css"/>
         <link rel="stylesheet" href="/lib/foundation/dist/foundation.min.css" type="text/css"/>
         <link rel="stylesheet" href="/main.css" type="text/css">
-        @head
     </head>
     <body>
         <div class="off-canvas-wrapper">
@@ -28,7 +27,7 @@
                                 <a class="logo" href="/">@lagomFullColor()</a>
                                 <nav class="sections show-for-medium">
                                     <a href="/download.html">Download</a>
-                                    <a href="/documentation.html">Documentation</a>
+                                    <a href="/documentation/1.0.x/Home.html">Documentation</a>
                                     <a href="/get-involved.html">Get Involved</a>
                                 </nav>
                             </div>
@@ -117,8 +116,8 @@
             </div>
         </div>
     </body>
-    <script src="lib/jquery/jquery.min.js"></script>
-    <script src="lib/foundation/dist/foundation.min.js"></script>
+    <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/lib/foundation/dist/foundation.min.js"></script>
     <script src="/scripts/jquery.waypoints.min.js"></script>
     <script src="/scripts/sticky.min.js"></script>
     <script>
@@ -136,4 +135,6 @@
               });
         })(jQuery);
     </script>
+
+    @footer
 </html>
