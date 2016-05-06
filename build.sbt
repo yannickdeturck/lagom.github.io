@@ -67,11 +67,13 @@ target in generateHtml := WebKeys.webTarget.value / "generated-html"
 generateHtml <<= Def.taskDyn {
   val outputDir = (target in generateHtml).value
   val docsDir = sourceDirectory.value / "docs"
+  val markdownDir = (sourceDirectory in Compile).value / "markdown"
   Def.task {
     (runMain in Compile).toTask(Seq(
       "com.lightbend.lagom.docs.DocumentationGenerator",
       outputDir,
-      docsDir
+      docsDir,
+      markdownDir
     ).mkString(" ", " ", "")).value
     outputDir.***.filter(_.isFile).get
   }
@@ -79,4 +81,7 @@ generateHtml <<= Def.taskDyn {
 
 WebKeys.pipeline ++= {
   generateHtml.value pair relativeTo((target in generateHtml).value)
+}
+watchSources ++= {
+  ((sourceDirectory in Compile).value / "markdown").***.get
 }

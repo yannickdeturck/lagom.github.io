@@ -1,5 +1,7 @@
 @import com.lightbend.lagom.docs.svg.html._
-@(title: Option[String])(footer: Html = HtmlFormat.empty)(content: Html)
+@import com.lightbend.lagom.docs.LagomContext
+
+@(title: Option[String])(footer: Html = HtmlFormat.empty)(content: Html)(implicit context: LagomContext)
 <!DOCTYPE html>
 <html class="noios">
     <head>
@@ -27,7 +29,7 @@
                                 <a class="logo" href="/">@lagomFullColor()</a>
                                 <nav class="sections show-for-medium">
                                     <a href="/download.html">Download</a>
-                                    <a href="/documentation/1.0.x/Home.html">Documentation</a>
+                                    <a href="/documentation/@context.currentDocsVersion/Home.html">Documentation</a>
                                     <a href="/get-involved.html">Get Involved</a>
                                 </nav>
                             </div>

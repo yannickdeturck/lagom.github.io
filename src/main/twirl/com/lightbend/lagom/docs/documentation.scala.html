@@ -1,8 +1,9 @@
 @import com.lightbend.docs.Context
 @import com.lightbend.lagom.docs.VersionPage
 @import com.lightbend.lagom.docs.Section
+@import com.lightbend.lagom.docs.LagomContext
 
-@(path: String, content: Html, context: Context, version: String, versions: Seq[VersionPage], nav: List[Section])
+@(path: String, content: Html, context: Context, version: String, versions: Seq[VersionPage], nav: List[Section])(implicit ctx: LagomContext)
 
 @main(Some(context.title)) {
     <style type="text/css">

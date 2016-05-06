@@ -1,4 +1,6 @@
-@(title: String)(head: Html)(content: Html)
+@import com.lightbend.lagom.docs.LagomContext
+
+@(title: String)(head: Html)(content: Html)(implicit context: LagomContext)
 
 @main(Some(title))(head) {
     <header class="page-header container">
@@ -7,9 +9,37 @@
         </div>
     </header>
 
-    <div class="page">
-        <article class="container">
-        @content
-        </article>
-    </div>
+    <article class="page container">
+        <div class="row">
+            <div class="small-12 large-9 columns">
+                @content
+            </div>
+            <div class="small-12 large-3 columns">
+                <h3>Documentation</h3>
+
+                <ul>
+                    <li><a href="/documentation/@context.currentDocsVersion/Installation.html">Installing</a></li>
+                    <li><a href="/documentation/@context.currentDocsVersion/GettingStarted.html">Getting started</a></li>
+                    <li><a href="/documentation/@context.currentDocsVersion/Home.html">Full documentation</a></li>
+                </ul>
+
+                <h3>Find help</h3>
+
+                <ul>
+                    <li><a href="https://gitter.im/lagom/lagom">Gitter channel</a></li>
+                    <li><a href="https://stackoverflow.com/questions/tagged/lagom">Stack overflow</a></li>
+                    <li><a href="https://www.lightbend.com/services/expert-support">Professional support</a></li>
+                </ul>
+
+                <h3>Contribute</h3>
+
+                <ul>
+                    <li><a href="/get-involved.html">Get involved</a></li>
+                    <li><a href="/conduct.html">Code of conduct</a></li>
+                    <li><a href="/community-process.html">Community process</a></li>
+                    <li><a href="/contributing.html">Contributor guidelines</a></li>
+                </ul>
+            </div>
+        </div>
+    </article>
 }
