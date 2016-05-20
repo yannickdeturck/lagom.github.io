@@ -9,8 +9,11 @@ libraryDependencies ++= Seq(
   "org.webjars" % "normalize.css" % "3.0.2",
   "org.webjars" % "foundation" % "6.2.0",
   "org.webjars" % "jquery" % "2.2.1",
-  "org.webjars" % "prettify" % "4-Mar-2013"
+  "org.webjars" % "prettify" % "4-Mar-2013",
+  "com.lightbend.markdown" %% "lightbend-markdown-server" % "1.3.2"
 )
+
+resolvers += Resolver.bintrayIvyRepo("typesafe", "ivy-releases")
 
 val httpServer = AttributeKey[Closeable]("http-server")
 
@@ -35,7 +38,7 @@ val runCommand = Command.make("run") { state =>
       val extracted = Project.extract(state)
       val (webStageState, stageDir) = extracted.runTask(WebKeys.stage, state)
 
-      log.info(s"Running HTTP server on port $port...")
+      log.info(s"\u001b[32mRunning HTTP server on port $port, press ENTER to exit...\u001b[0m")
       val httpServerProcess = Process(s"python -m SimpleHTTPServer $port", stageDir).run(new ProcessLogger {
         override def info(s: => String): Unit = log.info(s)
         override def error(s: => String): Unit = log.info(s)
@@ -63,10 +66,14 @@ val generateHtml = taskKey[Seq[File]]("Generate the site HTML")
 target in generateHtml := WebKeys.webTarget.value / "generated-html"
 generateHtml <<= Def.taskDyn {
   val outputDir = (target in generateHtml).value
+  val docsDir = sourceDirectory.value / "docs"
+  val markdownDir = (sourceDirectory in Compile).value / "markdown"
   Def.task {
     (runMain in Compile).toTask(Seq(
       "com.lightbend.lagom.docs.DocumentationGenerator",
-      outputDir
+      outputDir,
+      docsDir,
+      markdownDir
     ).mkString(" ", " ", "")).value
     outputDir.***.filter(_.isFile).get
   }
@@ -74,4 +81,7 @@ generateHtml <<= Def.taskDyn {
 
 WebKeys.pipeline ++= {
   generateHtml.value pair relativeTo((target in generateHtml).value)
+}
+watchSources ++= {
+  ((sourceDirectory in Compile).value / "markdown").***.get
 }

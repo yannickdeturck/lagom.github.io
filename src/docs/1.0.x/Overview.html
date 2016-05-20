@@ -1,0 +1,12 @@
+<h1 id="Production"><a class="section-marker" href="#Production">§</a>Production</h1><p>Lagom leverages the <a href="http://www.scala-sbt.org/sbt-native-packager/">sbt-native-packager</a> to produce archives of various types. By default zip archives can be produced, but you can also produce tar.gz, MSI, debian, RPM, Docker and more.</p><p>Running a package requires the provision of a service locator implementation i.e. something that provides the ability for your service to be able to lookup the location of another dynamically at runtime. At a technical level, you provide an implementation of a <a href="api/java/index.html?com/lightbend/lagom/javadsl/api/ServiceLocator.html">ServiceLocator</a>.</p><p>When considering a platform to manage your microservices we recommend that you consider the following:</p>
+<ul>
+  <li>a means to manage configuration distinctly from your packaged artifact;</li>
+  <li>consolidated logging across many nodes;</li>
+  <li>a supervisory system whereby if your service(s) terminate unexpectedly then they are automatically restarted;</li>
+  <li>the ability to scale up and down with ease and with speed;</li>
+  <li>handling of network failures, in particular those that can lead to a split brain scenario;</li>
+  <li>automated seed node discovery when requiring more than one instance of your service so that they may share a cluster;</li>
+  <li>the ability to perform rolling updates of your services;</li>
+  <li>support for your services being monitored across a cluster; and</li>
+  <li>the ability to test your services locally prior to them being deployed.</li>
+</ul><p>To this end, we have integrated our ConductR product which takes care of all of the above. However Lagom itself has no dependencies on ConductR and you are free to use something else.</p><p>ConductR is discussed next.</p>
