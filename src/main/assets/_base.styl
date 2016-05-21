@@ -23,12 +23,26 @@ body
 		padding: 60px 0 0 0
 	&.white
 		background: white
-	&.white-ltr
-		background: white-ltr
+	&.lb-off-white
+		background: lb-off-white
+	&.lb-off-white-dkr
+		background: lb-off-white-dkr
 	&.lb-light-grey-ltr
 		background: lb-light-grey-ltr
+	&.lb-grey
+		background: lb-grey
+		h1,h2,h3,h4,h5,h6,p
+			color: white
+	&.lb-grey-dkr
+		background: lb-grey-dkr
+		h1,h2,h3,h4,h5,h6,p
+			color: white
 	&.lgm-purple
 		background: lgm-purple
+		h1,h2,h3,h4,h5,h6,p
+			color: white
+	&.lgm-purple-dkr
+		background: lgm-purple-dkr
 		h1,h2,h3,h4,h5,h6,p
 			color: white
 	&.lb-slate
@@ -142,3 +156,44 @@ body
 	box-shadow: shadow
 	iframe
 		border: 4px solid white
+
+footer
+	ul
+		margin-left: 0
+		list-style: none
+	a:link, a:visited
+		color: lb-light-grey-dkr
+		font-weight: 700
+	a:hover
+		color: lgm-purple-ltr
+		text-decoration: none
+	.support
+		h3
+			font-size: 1.125em
+			font-weight: 700
+			text-transform: uppercase
+			margin: 8px 0 0 0
+		.svg-icon-chat, .svg-icon-lb-icon-reverse
+			width: 60px
+			height: 60px
+			float: left
+			margin-right: 1em
+		ul li
+			display: inline
+			margin-right: 10px
+	.links
+		h3
+			font-size: 1.25em
+			font-weight: 700
+			border-bottom: 1px solid rgba(white,.3)
+			display: block
+			padding: 0px 10px 10px 0px
+	.credits
+		padding: 40px 0
+		p
+			margin: 0
+		.logo img
+			height: 30px
+			margin-right: 40px
+		.partner img
+			height: 30px
