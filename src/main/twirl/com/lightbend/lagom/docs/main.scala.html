@@ -22,7 +22,7 @@
                     Off canvas nav goes here
                 </div>
                 <div class="off-canvas-content" data-off-canvas-content>
-                    <header class="navbar">
+                    <header class="navbar show-for-medium">
                         <div class="row">
                             <div class="small-12 columns">
                                 <button class="menu-icon hide-for-medium" type="button" data-open="offCanvasLeft" data-toggle="offCanvas"></button>
@@ -36,24 +36,32 @@
                         </div>
                     </header>
                     <div class="fw-wrapper flush social-bar">
-                        <button class="menu-icon" type="button" data-open="offCanvasLeft" data-toggle="offCanvas"></button>
-                        <div class="row">
-                            <div class="small-3 columns"></div>
-                            <div class="small-9 columns">
+                        <div class="row hide-for-medium">
+                            <div class="small-12 columns">
+                                <button class="menu-icon" type="button" data-open="offCanvasLeft" data-toggle="offCanvas"></button>
+                                <a class="logo-for-small" href="/">@lagomReverse()</a>
+                            </div>
+                        </div>
+                        <div class="row show-for-medium">
+                            <div class="small-12 columns">
                                 <!-- social icons -->
+                                <a class="logo" href="/">@lagomReverse()</a>
                                 <nav class="social">
                                     <a href="//groups.google.com/forum/#!forum/lagom-framework"><span>Mailing list</span></a>
                                     <a href="//twitter.com/lagom"><span>Twitter</span></a>
                                     <a href="//github.com/lagom/lagom"><span>Github</span></a>
                                     <a href="//stackoverflow.com/questions/tagged/lagom"><span>Stackoverflow</span></a>
                                 </nav>
+                                <nav class="sections-scroll">
+                                    <a href="/download.html">Download</a>
+                                    <a href="/documentation/@context.currentDocsVersion/Home.html">Documentation</a>
+                                    <a href="/get-involved.html">Get Involved</a>
+                                </nav>
                             </div>
                         </div>
                     </div>
 
                     @content
-
-                    
 
                     <footer>
                         <section class="fw-wrapper lb-grey-dkr support">
@@ -114,16 +122,14 @@
 
                         <section class="fw-wrapper lgm-purple-dkr credits">
                             <div class="row">
-                                <div class="small-12 medium-6 columns">
+                                <div class="small-12 medium-3 columns">
                                     <a href="/" class="logo"><img src="/images/logos/lagom-reverse.svg"></a>
+                                </div>
+                                <div class="small-12 medium-3 columns">
                                     <a href="//lightbend.com" class="partner"><img src="/images/logos/lightbend-reverse.svg"></a>
                                 </div>
                                 <div class="small-12 medium-6 columns">
                                     <p>Lagom is released under the Apache 2 License</p>
-                                    <!--<h3>Social networks</h3>
-                                    <ul>
-                                        <li><a href="//twitter.com/lagom"><span>Twitter</span></a></li>
-                                    </ul>-->
                                 </div>
                             </div>
                         </section>
