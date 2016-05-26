@@ -20,6 +20,9 @@ object DocumentationGenerator extends App {
   val currentDocsVersion = "1.0.x"
   val currentLagomVersion = "1.0.0-M2"
 
+  val baseUrl = "http://www.lagomframework.com"
+  val context = ""
+
   // Templated pages to generate
   val templatePages: Seq[(String, Template1[LagomContext, Html])] = Seq(
     "index.html" -> html.index,
@@ -29,7 +32,7 @@ object DocumentationGenerator extends App {
 
   // Redirects
   val redirects: Seq[(String, String)] = Seq(
-    "/documentation/index.html" -> s"/documentation/$currentDocsVersion/Home.html"
+    "/documentation/index.html" -> s"$context/documentation/$currentDocsVersion/Home.html"
   )
 
   val activatorRelease = {
@@ -41,30 +44,35 @@ object DocumentationGenerator extends App {
     }
   }
 
-  implicit val lagomContext = LagomContext(currentLagomVersion, currentDocsVersion, activatorRelease)
+  implicit val lagomContext = LagomContext(context, currentLagomVersion, currentDocsVersion, activatorRelease)
 
   val outputDir = new File(args(0))
   val docsDir = new File(args(1))
   val markdownDir = new File(args(2))
 
-  def generatePage(name: String, template: Template1[LagomContext, Html]): File = {
+  def generatePage(name: String, template: Template1[LagomContext, Html]): OutputFile = {
     savePage(name, template.render(lagomContext))
   }
 
-  def generateRedirect(from: String, to: String): File = {
-    savePage(from, html.redirect(to))
+  def generateRedirect(from: String, to: String): OutputFile = {
+    savePage(from, html.redirect(to), includeInSitemap = false)
   }
 
-  def savePage(name: String, rendered: Html): File = {
+  def savePage(name: String, rendered: Html, includeInSitemap: Boolean = true): OutputFile = {
     val file = new File(outputDir, name)
     file.getParentFile.mkdirs()
     Files.write(file.toPath, rendered.body.getBytes("utf-8"))
-    file
+    val sitemapUrl = name match {
+      case "index.html" => ""
+      case index if index.endsWith("/index.html") => index.stripSuffix("/index.html")
+      case other => other
+    }
+    OutputFile(file, sitemapUrl, includeInSitemap)
   }
 
   val pegdown = new PegDownProcessor(Extensions.ALL)
 
-  def renderMarkdownFiles(path: String, file: File): Seq[File] = {
+  def renderMarkdownFiles(path: String, file: File): Seq[OutputFile] = {
     if (file.isDirectory) {
       new File(outputDir, path).mkdirs()
       file.listFiles().flatMap { child =>
@@ -92,6 +100,8 @@ object DocumentationGenerator extends App {
     docsVersionDir -> Version(docsVersionDir.getName, toc)
   }.sortBy(_._1.getName) // Will need a better sort in future
 
+  val currentVersion = versions.find(_._2.name == currentDocsVersion)
+
   private def getNav(ctx: Context, acc: List[Section] = Nil): List[Section] = {
     ctx.parent match {
       case None => acc
@@ -102,11 +112,12 @@ object DocumentationGenerator extends App {
     }
   }
 
-  def renderDocVersion(version: Version): Seq[File] = {
-    val versionOutputDir = new File(outputDir, "documentation/" + version.name)
+  def renderDocVersion(version: Version): Seq[OutputFile] = {
+    val docsPath = "documentation/" + version.name
+    val versionOutputDir = new File(outputDir, docsPath)
     versionOutputDir.mkdirs()
 
-    def processDocsFile(path: String, file: File): Seq[File] = {
+    def processDocsFile(path: String, file: File): Seq[OutputFile] = {
       if (file.isDirectory) {
         new File(versionOutputDir, path).mkdirs()
         file.listFiles().flatMap { child =>
@@ -115,32 +126,52 @@ object DocumentationGenerator extends App {
         }
       } else {
         val targetFile = new File(versionOutputDir, path)
-        version.toc.mappings.get(path) match {
+        val rendered = version.toc.mappings.get(path) match {
           case Some(context) if !context.nostyle =>
             val fileContent = Html(new String(Files.readAllBytes(file.toPath), "utf-8"))
+
             val versionPages = versions.map(_._2.pageFor(path))
             val nav = getNav(context)
-            val rendered = html.documentation(path, fileContent, context, version.name, versionPages, nav)
+            val canonical = currentVersion.map(_._2.pageFor(path)).collect {
+              case VersionPage(name, true) => s"$baseUrl/documentation/$name/$path"
+            }
+
+            val rendered = html.documentation(path, fileContent, context, version.name, versionPages, nav, canonical)
+
             Files.write(targetFile.toPath, rendered.body.getBytes("utf-8"))
+            OutputFile(targetFile, docsPath + "/" + path, true)
           case _ =>
             // Simply copy the file as is
             if (targetFile.lastModified() < file.lastModified()) {
               Files.copy(file.toPath, targetFile.toPath, StandardCopyOption.REPLACE_EXISTING)
             }
+            OutputFile(targetFile, docsPath + "/" + path, false)
         }
-        Seq(targetFile)
+        Seq(rendered)
       }
     }
 
     processDocsFile("", new File(docsDir, version.name))
   }
 
-  val generatedDocs = versions.map(_._2).flatMap(renderDocVersion)
+  val generatedDocs = versions.map(_._2).map(version => version -> renderDocVersion(version))
 
-  val generated = templatePages.map((generatePage _).tupled)
-  val markdownGenerated = renderMarkdownFiles("", markdownDir)
+  val generated = templatePages.map((generatePage _).tupled) ++ renderMarkdownFiles("", markdownDir)
 
-  val generatedSet = generated.toSet ++ generatedDocs ++ markdownGenerated
+  // sitemaps
+  val mainSitemap = Sitemap("sitemap-main.xml", generated.filter(_.includeInSitemap)
+    .map(file => SitemapUrl(file.sitemapUrl, "1.0")))
+
+  val docsSitemap = Sitemap("sitemap-docs.xml", generatedDocs.find(_._1.name == currentDocsVersion).map {
+    case (_, pages) =>
+      pages.collect {
+        case OutputFile(_, path, true) => SitemapUrl(path, "0.9")
+      }
+  }.getOrElse(Nil))
+
+  val generatedSitemaps = Sitemap.generateSitemaps(outputDir, baseUrl, Seq(mainSitemap, docsSitemap))
+
+  val generatedSet: Set[File] = generated.map(_.file).toSet ++ generatedSitemaps ++ generatedDocs.flatMap(_._2.map(_.file))
 
   def cleanOldFiles(file: File): Unit = {
     if (file.isDirectory) {
@@ -159,6 +190,8 @@ object DocumentationGenerator extends App {
 
 }
 
+case class OutputFile(file: File, sitemapUrl: String, includeInSitemap: Boolean)
+
 /**
   * The context that gets passed to every page in the documentation.
   *
@@ -166,7 +199,7 @@ object DocumentationGenerator extends App {
   * @param currentDocsVersion The current version of the docs.
   * @param activatorRelease The current version of Activator.
   */
-case class LagomContext(currentLagomVersion: String, currentDocsVersion: String, activatorRelease: ActivatorRelease)
+case class LagomContext(path: String, currentLagomVersion: String, currentDocsVersion: String, activatorRelease: ActivatorRelease)
 
 case class ActivatorRelease(url: String, miniUrl: String, version: String, size: String, miniSize: String)
 
