@@ -7,10 +7,10 @@
 
 @main(Some(context.title)) {
     <style type="text/css">
-            @@import "/lib/prettify/prettify.css";
+            @@import "@ctx.path/lib/prettify/prettify.css";
     </style>
-    <script type="text/javascript" charset="utf-8" src="/lib/prettify/prettify.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/lib/prettify/lang-scala.js"></script>
+    <script type="text/javascript" charset="utf-8" src="@ctx.path/lib/prettify/prettify.js"></script>
+    <script type="text/javascript" charset="utf-8" src="@ctx.path/lib/prettify/lang-scala.js"></script>
     <script type="text/javascript">
             jQuery(function(){
                 window.prettyPrint && prettyPrint();
@@ -33,12 +33,12 @@
         <div class="row">
             <div class="small-12 large-7 columns">
                 @* I don't know if breadcrumbs are necessary, but here they are anyway. *@
-                @if(nav) {
+                @if(nav.size > 1) {
                     <nav class="breadcrumbs">
-                        @for(section <- nav) {
-                            <a href="@section.url">@section.title</a> &raquo;
+                        <a href="@nav.head.url">@nav.head.title</a>
+                        @for(section <- nav.drop(1)) {
+                            &raquo; <a href="@section.url">@section.title</a>
                         }
-                        @context.title
                     </nav>
                 }
 
@@ -56,7 +56,7 @@
                     <label for="docs-version">Version:</label>
                     <select id="docs-version">
                     @for(v <- versions) {
-                        <option value="/documentation/@v.name@if(v.exists){/@path}else{/Home.html}"@if(v.name == version){ selected="selected"}>@v.name</option>
+                        <option value="@ctx.path/documentation/@v.name@if(v.exists){/@path}else{/Home.html}"@if(v.name == version){ selected="selected"}>@v.name</option>
                     }
                     </select>
 
@@ -65,7 +65,7 @@
                         <ul>
                         @for(link <- section.children) {
                             @if(link.current) {
-                                <li class="current-page">@link.title</li>
+                                <li class="current-page"><a href="@link.url">@link.title</a></li>
                             } else {
                                 <li><a href="@link.url">@link.title</a></li>
                             }

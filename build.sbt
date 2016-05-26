@@ -9,6 +9,7 @@ libraryDependencies ++= Seq(
   "org.webjars" % "normalize.css" % "3.0.2",
   "org.webjars" % "foundation" % "6.2.0",
   "org.webjars" % "jquery" % "2.2.1",
+  "org.webjars.bower" % "waypoints" % "4.0.0",
   "org.webjars" % "prettify" % "4-Mar-2013",
   "com.lightbend.markdown" %% "lightbend-markdown-server" % "1.3.2"
 )
