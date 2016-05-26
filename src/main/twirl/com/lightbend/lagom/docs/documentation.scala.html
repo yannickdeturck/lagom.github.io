@@ -20,15 +20,18 @@
     }@for(script <- context.resources.scripts) {<script type="text/javascript" src="@script"></script>
     }
 } {
-    <header class="page-header container">
+
+    <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
-            <h1>@context.title</h1>
+            <div class="small-12 columns">
+                <h1>@context.title</h1>
+            </div>
         </div>
     </header>
 
-    <div class="page container">
+    <div class="fw-wrapper documentation-content">
         <div class="row">
-            <div class="small-12 large-8 columns">
+            <div class="small-12 large-7 columns">
                 @* I don't know if breadcrumbs are necessary, but here they are anyway. *@
                 @if(nav) {
                     <nav class="breadcrumbs">

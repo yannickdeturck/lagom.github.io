@@ -6,15 +6,19 @@ body
 	-webkit-font-size-adjust none
 	text-rendering optimizeLegibility
 .off-canvas-content
-	background lgm-purple
+	background: lgm-purple
 	@media screen and (min-width: 40em)
 		background: lgm-purple url("images/ui/lagom-hero.png") no-repeat
 		background-position: center top
 		background-attachment: fixed
 
+@media screen and (min-width: 40em)
+	.columns
+		padding: 0 1.5em
+
 .fw-wrapper
 	padding: 60px 0px
-	background: transparent
+	background: white
 	&.flush
 		padding: 0
 	&.flush-top
@@ -23,12 +27,26 @@ body
 		padding: 60px 0 0 0
 	&.white
 		background: white
-	&.white-ltr
-		background: white-ltr
+	&.lb-off-white
+		background: lb-off-white
+	&.lb-off-white-dkr
+		background: lb-off-white-dkr
 	&.lb-light-grey-ltr
 		background: lb-light-grey-ltr
+	&.lb-grey
+		background: lb-grey
+		h1,h2,h3,h4,h5,h6,p
+			color: white
+	&.lb-grey-dkr
+		background: lb-grey-dkr
+		h1,h2,h3,h4,h5,h6,p
+			color: white
 	&.lgm-purple
 		background: lgm-purple
+		h1,h2,h3,h4,h5,h6,p
+			color: white
+	&.lgm-purple-dkr
+		background: lgm-purple-dkr
 		h1,h2,h3,h4,h5,h6,p
 			color: white
 	&.lb-slate
@@ -44,6 +62,7 @@ body
 		h1,h2,h3,h4,h5,h6,p
 			color: white
 	&.hero-banner
+		padding: 20px 0 102px 0
 		background: transparent
 		br
 			display: none
@@ -52,17 +71,35 @@ body
 				display: block
 		h1
 			color: white
-			font-size: 2.5em
-			line-height: 1.125em
-			margin-bottom: 1.5em
-			font-weight: 400
+			font-size: 2em
+			line-height: 1.25em
+			margin: 0
+			font-weight: 700
 		.logo
-			width: 300px
+			width: 200px
 			display: block
-			margin-bottom: 15px
+			margin-bottom: 10px
 	&.home-content
 		border-top: 2px solid white
 		background: lb-light-grey-ltr url("images/ui/lagom-hexagon-repeat-fade.png") repeat-x center top
+		h1
+			font-weight: 700
+			font-size: 2.25em
+			color: lgm-purple
+	&.page-title
+		padding: 0 0 62px 0
+		background: transparent
+		br
+			display: none
+		@media screen and (min-width: 40em)
+			br
+				display: block
+		h1
+			color: white
+			font-size: 2em
+			line-height: 1.25em
+			margin: 0
+			font-weight: 700
 
 .navbar
 	background-color white
@@ -127,18 +164,76 @@ body
 	margin-right auto
 	width 640px
 
-.page-header
-	height 100px
-	color white
-
-	h1
-		color: white
-
-.page
-	width 100%
-	background-color white
-
 .flex-video
 	box-shadow: shadow
 	iframe
 		border: 4px solid white
+
+.inset-icons
+	p
+		padding-left: 50px
+	h2::before
+		border: 0px solid red
+		content: ''
+		width: 50px
+		height: 50px
+		margin-right: 5px
+		margin-left: -7px
+		margin-bottom: -12px
+		display: inline-block
+		background: transparent url("images/ui/involved.png") no-repeat left top
+		background-size: 100%
+		background-position: 0 4px
+	h2.stack::before
+		background-position: 0 -200px
+	h2.bug::before
+		background-position: 0 -98px
+	h2.patch::before
+		background-position: 0 -147px
+	@media screen and (min-width: 1300px)
+		h2::before
+			margin-left: -55px
+		p
+			padding-left: 0
+
+footer
+	ul
+		margin-left: 0
+		list-style: none
+	a:link, a:visited
+		color: lb-light-grey-dkr
+		font-weight: 700
+	a:hover
+		color: lgm-purple-ltr
+		text-decoration: none
+	.support
+		h3
+			font-size: 1.125em
+			font-weight: 700
+			text-transform: uppercase
+			margin: 8px 0 0 0
+		.svg-icon-chat, .svg-icon-lb-icon-reverse
+			width: 60px
+			height: 60px
+			float: left
+			margin-right: 1em
+		ul li
+			display: inline
+			margin-right: 10px
+	.links
+		h3
+			font-size: 1.25em
+			font-weight: 700
+			border-bottom: 1px solid rgba(white,.3)
+			display: block
+			padding: 0px 10px 10px 0px
+	.credits
+		padding: 40px 0
+		p
+			margin: 0
+			font-size: .85em
+		.logo img
+			height: 30px
+			margin-right: 40px
+		.partner img
+			height: 30px

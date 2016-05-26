@@ -22,7 +22,7 @@
                     Off canvas nav goes here
                 </div>
                 <div class="off-canvas-content" data-off-canvas-content>
-                    <header class="navbar">
+                    <header class="navbar show-for-medium">
                         <div class="row">
                             <div class="small-12 columns">
                                 <button class="menu-icon hide-for-medium" type="button" data-open="offCanvasLeft" data-toggle="offCanvas"></button>
@@ -36,16 +36,26 @@
                         </div>
                     </header>
                     <div class="fw-wrapper flush social-bar">
-                        <button class="menu-icon" type="button" data-open="offCanvasLeft" data-toggle="offCanvas"></button>
-                        <div class="row">
-                            <div class="small-3 columns"></div>
-                            <div class="small-9 columns">
+                        <div class="row hide-for-medium">
+                            <div class="small-12 columns">
+                                <button class="menu-icon" type="button" data-open="offCanvasLeft" data-toggle="offCanvas"></button>
+                                <a class="logo-for-small" href="/">@lagomReverse()</a>
+                            </div>
+                        </div>
+                        <div class="row show-for-medium">
+                            <div class="small-12 columns">
                                 <!-- social icons -->
+                                <a class="logo" href="/">@lagomReverse()</a>
                                 <nav class="social">
                                     <a href="//groups.google.com/forum/#!forum/lagom-framework"><span>Mailing list</span></a>
                                     <a href="//twitter.com/lagom"><span>Twitter</span></a>
                                     <a href="//github.com/lagom/lagom"><span>Github</span></a>
                                     <a href="//stackoverflow.com/questions/tagged/lagom"><span>Stackoverflow</span></a>
+                                </nav>
+                                <nav class="sections-scroll">
+                                    <a href="/download.html">Download</a>
+                                    <a href="/documentation/@context.currentDocsVersion/Home.html">Documentation</a>
+                                    <a href="/get-involved.html">Get Involved</a>
                                 </nav>
                             </div>
                         </div>
@@ -53,67 +63,79 @@
 
                     @content
 
-                    <footer class="fw-wrapper lb-slate-dkr">
-                        <div class="row">
-                            <div class="small-12 columns">
-                                <div class="support">
-                                    <article class="community">
-                                        <h3>Community support</h3>
-                                        <ul>
-                                            <li><a href="//groups.google.com/forum/#!forum/lagom-framework">Mailing list</a></li>
-                                            <li><a href="//stackoverflow.com/questions/tagged/lagom">Stackoverflow</a></li>
-                                        </ul>
-                                    </article>
-                                    <article class="professional">
-                                        <h3>Professional support</h3>
-                                        <ul>
-                                            <li><a href="//www.lightbend.com/services/expert-support">Lightbend Subscription</a></li>
-                                            <li><a href="//www.lightbend.com/services/training">Training</a></li>
-                                            <li><a href="//www.lightbend.com/services/consulting">Consulting</a></li>
-                                        </ul>
-                                    </article>
+                    <footer>
+                        <section class="fw-wrapper lb-grey-dkr support">
+                            <div class="row">
+                                <div class="small-12 medium-6 columns">
+                                    @chat()
+                                    <h3>Community support</h3>
+                                    <ul>
+                                        <li><a href="//groups.google.com/forum/#!forum/lagom-framework">Mailing list</a></li>
+                                        <li><a href="//stackoverflow.com/questions/tagged/lagom">Stackoverflow</a></li>
+                                    </ul>
                                 </div>
-                                <div class="wrapper">
-                                    <div>
-                                        <h3>Lagom</h3>
-                                        <ul>
-                                            <li><a href="/download">Download</a></li>
-                                            <li><a href="/documentation/latest/GettingStarted">Getting Started</a></li>
-                                            <li><a href="/documentation">Documentation</a></li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h3>Community links</h3>
-                                        <ul>
-                                            <li><a href="//www.eventbrite.com/directory/?q=lagom&amp;loc=Worldwide">Events <em>via Eventbrite</em></a></li>
-                                            <li><a href="http://www.indeed.com/jobs?q=%22lagom%22&amp;l=">Jobs <em>via Indeed</em></a></li>
-                                            <li><a href="http://www.scoop.it/lagom">Blogs <em>via Scoop.it</em></a></li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h3>Code &amp; contribution</h3>
-                                        <ul>
-                                            <li><a href="//github.com/lagom/lagom/issues">Bug tracker <em>GitHub</em></a></li>
-                                            <li><a href="/get-involved">Get involved</a></li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h3>Social networks</h3>
-                                        <ul>
-                                            <li><a href="//twitter.com/lagom"><span>Twitter</span></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="credits">
-                                    <a href="/" class="logo"><img src="/images/logos/lagom-reverse.svg"></a>
-                                    <a href="//lightbend.com" class="partner"><img src="/images/logos/lightbend-reverse.svg"></a>
-                                    <p>
-                                        Lagom is released under the Apache 2 License
-                                    </p>
+                                <div class="small-12 medium-6 columns">
+                                    @lightbendIconReverse()
+                                    <h3>Professional support</h3>
+                                    <ul>
+                                        <li><a href="//www.lightbend.com/services/expert-support">Lightbend Subscription</a></li>
+                                        <li><a href="//www.lightbend.com/services/training">Training</a></li>
+                                        <li><a href="//www.lightbend.com/services/consulting">Consulting</a></li>
+                                    </ul>
                                 </div>
                             </div>
-                        </div>
+                        </section>
+
+                        <section class="fw-wrapper lb-grey links">
+                            <div class="row">
+                                <div class="small-12 medium-6 large-3 columns">
+                                    <h3>Lagom</h3>
+                                    <ul class="no-bullet">
+                                        <li><a href="/download">Download</a></li>
+                                        <li><a href="/documentation/latest/GettingStarted">Getting Started</a></li>
+                                        <li><a href="/documentation">Documentation</a></li>
+                                    </ul>
+                                </div>
+                                <div class="small-12 medium-6 large-3 columns">
+                                    <h3>Community links</h3>
+                                    <ul>
+                                        <li><a href="//www.eventbrite.com/directory/?q=lagom&amp;loc=Worldwide">Events <em>via Eventbrite</em></a></li>
+                                        <li><a href="http://www.indeed.com/jobs?q=%22lagom%22&amp;l=">Jobs <em>via Indeed</em></a></li>
+                                        <li><a href="http://www.scoop.it/lagom">Blogs <em>via Scoop.it</em></a></li>
+                                    </ul>
+                                </div>
+                                <div class="small-12 medium-6 large-3 columns">
+                                    <h3>Code &amp; contribution</h3>
+                                    <ul>
+                                        <li><a href="//github.com/lagom/lagom/issues">Bug tracker <em>GitHub</em></a></li>
+                                        <li><a href="/get-involved">Get involved</a></li>
+                                    </ul>
+                                </div>
+                                <div class="small-12 medium-6 large-3 columns">
+                                    <h3>Social networks</h3>
+                                    <ul>
+                                        <li><a href="//twitter.com/lagom"><span>Twitter</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="fw-wrapper lgm-purple-dkr credits">
+                            <div class="row">
+                                <div class="small-12 medium-3 columns">
+                                    <a href="/" class="logo"><img src="/images/logos/lagom-reverse.svg"></a>
+                                </div>
+                                <div class="small-12 medium-3 columns">
+                                    <a href="//lightbend.com" class="partner"><img src="/images/logos/lightbend-reverse.svg"></a>
+                                </div>
+                                <div class="small-12 medium-6 columns">
+                                    <p>Lagom is released under the Apache 2 License</p>
+                                </div>
+                            </div>
+                        </section>
+
                     </footer>
+
                 </div>
             </div>
         </div>
