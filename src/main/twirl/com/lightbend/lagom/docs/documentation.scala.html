@@ -6,16 +6,6 @@
 @(path: String, content: Html, context: Context, version: String, versions: Seq[VersionPage], nav: List[Section], canonical: Option[String])(implicit ctx: LagomContext)
 
 @main(Some(context.title), canonical) {
-    <style type="text/css">
-            @@import "@ctx.path/lib/prettify/prettify.css";
-    </style>
-    <script type="text/javascript" charset="utf-8" src="@ctx.path/lib/prettify/prettify.js"></script>
-    <script type="text/javascript" charset="utf-8" src="@ctx.path/lib/prettify/lang-scala.js"></script>
-    <script type="text/javascript">
-            jQuery(function(){
-                window.prettyPrint && prettyPrint();
-            });
-    </script>
     @for(css <- context.resources.stylesheets) {<link rel="stylesheet" type="text/css" href="@css"/>
     }@for(script <- context.resources.scripts) {<script type="text/javascript" src="@script"></script>
     }

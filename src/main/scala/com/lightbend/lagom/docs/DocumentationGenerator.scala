@@ -20,8 +20,11 @@ object DocumentationGenerator extends App {
   val currentDocsVersion = "1.0.x"
   val currentLagomVersion = "1.0.0-M2"
 
+  //val baseUrl = "http://jroper.github.io/lagom.github.io"
+  //val context = "/lagom.github.io"
   val baseUrl = "http://www.lagomframework.com"
   val context = ""
+
 
   // Templated pages to generate
   val templatePages: Seq[(String, Template1[LagomContext, Html])] = Seq(

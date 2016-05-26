@@ -80,6 +80,26 @@ generateHtml <<= Def.taskDyn {
   }
 }
 
+Concat.groups := Seq(
+  "all-styles-concat.css" -> group(Seq(
+      "lib/foundation/dist/foundation.min.css",
+      "lib/prettify/prettify.css",
+      "main.min.css"
+  )),
+  "all-scripts-concat.js" -> group(Seq(
+    "lib/jquery/jquery.min.js",
+    "lib/foundation/dist/foundation.min.js",
+    "lib/waypoints/lib/jquery.waypoints.min.js",
+    "lib/waypoints/lib/shortcuts/sticky.min.js",
+    "lib/prettify/prettify.js",
+    "lib/prettify/lang-scala.js",
+    "main.min.js"
+  ))
+)
+
+StylusKeys.compress := true
+
+pipelineStages := Seq(uglify, concat)
 WebKeys.pipeline ++= {
   generateHtml.value pair relativeTo((target in generateHtml).value)
 }
