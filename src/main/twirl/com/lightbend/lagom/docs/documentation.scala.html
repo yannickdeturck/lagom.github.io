@@ -3,9 +3,9 @@
 @import com.lightbend.lagom.docs.Section
 @import com.lightbend.lagom.docs.LagomContext
 
-@(path: String, content: Html, context: Context, version: String, versions: Seq[VersionPage], nav: List[Section])(implicit ctx: LagomContext)
+@(path: String, content: Html, context: Context, version: String, versions: Seq[VersionPage], nav: List[Section], canonical: Option[String])(implicit ctx: LagomContext)
 
-@main(Some(context.title)) {
+@main(Some(context.title), canonical) {
     <style type="text/css">
             @@import "@ctx.path/lib/prettify/prettify.css";
     </style>

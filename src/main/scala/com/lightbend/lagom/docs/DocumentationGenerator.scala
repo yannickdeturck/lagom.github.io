@@ -100,6 +100,8 @@ object DocumentationGenerator extends App {
     docsVersionDir -> Version(docsVersionDir.getName, toc)
   }.sortBy(_._1.getName) // Will need a better sort in future
 
+  val currentVersion = versions.find(_._2.name == currentDocsVersion)
+
   private def getNav(ctx: Context, acc: List[Section] = Nil): List[Section] = {
     ctx.parent match {
       case None => acc
@@ -127,9 +129,15 @@ object DocumentationGenerator extends App {
         val rendered = version.toc.mappings.get(path) match {
           case Some(context) if !context.nostyle =>
             val fileContent = Html(new String(Files.readAllBytes(file.toPath), "utf-8"))
+
             val versionPages = versions.map(_._2.pageFor(path))
             val nav = getNav(context)
-            val rendered = html.documentation(path, fileContent, context, version.name, versionPages, nav)
+            val canonical = currentVersion.map(_._2.pageFor(path)).collect {
+              case VersionPage(name, true) => s"$baseUrl/documentation/$name/$path"
+            }
+
+            val rendered = html.documentation(path, fileContent, context, version.name, versionPages, nav, canonical)
+
             Files.write(targetFile.toPath, rendered.body.getBytes("utf-8"))
             OutputFile(targetFile, docsPath + "/" + path, true)
           case _ =>
