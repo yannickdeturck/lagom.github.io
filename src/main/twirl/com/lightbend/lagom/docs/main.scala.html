@@ -20,7 +20,14 @@
         <div class="off-canvas-wrapper">
             <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
                 <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas >
-                    Off canvas nav goes here
+                    <nav>
+                        <button class="close-button" aria-label="Close menu" type="button" data-close>
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <a href="@context.path/download.html">Download</a>
+                        <a href="@context.path/documentation/@context.currentDocsVersion/Home.html">Documentation</a>
+                        <a href="@context.path/get-involved.html">Get Involved</a>
+                    </nav>
                 </div>
                 <div class="off-canvas-content" data-off-canvas-content>
                     <header class="navbar show-for-medium">
