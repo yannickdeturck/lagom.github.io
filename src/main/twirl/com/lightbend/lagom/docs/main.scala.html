@@ -1,7 +1,7 @@
 @import com.lightbend.lagom.docs.svg.html._
 @import com.lightbend.lagom.docs.LagomContext
 
-@(title: Option[String], canonical: Option[String] = None)(footer: Html = HtmlFormat.empty)(content: Html)(implicit context: LagomContext)
+@(title: Option[String], canonical: Option[String] = None)(header: Html = HtmlFormat.empty)(footer: Html = HtmlFormat.empty)(content: Html)(implicit context: LagomContext)
 <!DOCTYPE html>
 <html class="noios">
     <head>
@@ -15,6 +15,7 @@
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="@context.path/all-styles-concat.css" type="text/css">
+        @header
     </head>
     <body>
         <div class="off-canvas-wrapper">
