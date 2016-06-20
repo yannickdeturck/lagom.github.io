@@ -1,8 +1,8 @@
 @import com.lightbend.lagom.docs.LagomContext
 
-@(title: String)(head: Html)(content: Html)(implicit context: LagomContext)
+@(title: String)(content: Html)(implicit context: LagomContext)
 
-@main(Some(title))(head) {
+@main(Some(title))()() {
 
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
