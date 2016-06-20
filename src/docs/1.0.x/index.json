@@ -130,6 +130,10 @@
         "title" : "Message serializers",
         "url" : "MessageSerializers.html",
         "sourceUrl" : "https://github.com/lagom/lagom/tree/new-website-docs/docs/manual/guide/services/MessageSerializers.md"
+      }, {
+        "title" : "Error handling",
+        "url" : "ServiceErrorHandling.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/tree/new-website-docs/docs/manual/guide/services/ServiceErrorHandling.md"
       } ]
     }, {
       "title" : "Writing persistent and clustered services",
@@ -186,6 +190,10 @@
         "title" : "Integrating with Akka",
         "url" : "Akka.html",
         "sourceUrl" : "https://github.com/lagom/lagom/tree/new-website-docs/docs/manual/guide/advanced/Akka.md"
+      }, {
+        "title" : "Integrating with non Lagom services",
+        "url" : "IntegratingNonLagom.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/tree/new-website-docs/docs/manual/guide/advanced/IntegratingNonLagom.md"
       } ]
     } ]
   }, {

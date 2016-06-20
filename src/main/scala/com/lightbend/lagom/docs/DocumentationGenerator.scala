@@ -35,7 +35,8 @@ object DocumentationGenerator extends App {
 
   // Redirects
   val redirects: Seq[(String, String)] = Seq(
-    "/documentation/index.html" -> s"$context/documentation/$currentDocsVersion/Home.html"
+    "/documentation/index.html" -> s"$context/documentation/$currentDocsVersion/java/Home.html",
+    "/documentation/java/index.html" -> s"$context/documentation/$currentDocsVersion/java/Home.html"
   )
 
   val activatorRelease = {
@@ -116,7 +117,7 @@ object DocumentationGenerator extends App {
   }
 
   def renderDocVersion(version: Version): Seq[OutputFile] = {
-    val docsPath = "documentation/" + version.name
+    val docsPath = s"documentation/${version.name}/java"
     val versionOutputDir = new File(outputDir, docsPath)
     versionOutputDir.mkdirs()
 
@@ -136,7 +137,7 @@ object DocumentationGenerator extends App {
             val versionPages = versions.map(_._2.pageFor(path))
             val nav = getNav(context)
             val canonical = currentVersion.map(_._2.pageFor(path)).collect {
-              case VersionPage(name, true) => s"$baseUrl/documentation/$name/$path"
+              case VersionPage(name, true) => s"$baseUrl/documentation/$name/java/$path"
             }
 
             val rendered = html.documentation(path, fileContent, context, version.name, versionPages, nav, canonical)
