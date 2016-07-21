@@ -1,0 +1,48 @@
+@import com.lightbend.lagom.docs.BlogPost
+@import com.lightbend.lagom.docs.LagomContext
+
+@(blogPost: BlogPost, content: Html)(implicit context: LagomContext)
+
+@main(Some(blogPost.title))()() {
+
+    <header class="fw-wrapper lgm-purple page-title">
+        <div class="row">
+            <div class="small-12 columns">
+                <div class="blog-meta">
+                    <div class="blog-author-image">
+                        <a href="@blogPost.author.url">
+                            <img src="@blogPost.author.avatar"/>
+                        </a>
+                    </div>
+                    <div class="blog-meta-details">
+                        <a class="blog-author-name" href="@blogPost.author.url">@blogPost.author.name</a>
+                        |
+                        <span class="blog-post-date">@blogPost.date.toString("MMMM d, yyyy")</span>
+                        <div class="blog-meta-tags">
+                            @if(blogPost.tags.nonEmpty) {
+                                <img src="@context.path/images/entypo/white/entypo_tag.svg" class="svg-icon"/>
+                                @for(tag <- blogPost.tags) {
+                                    <span class="blog-tag"><a href="tags/@{encodePathSegment(tag)}.html">@tag</a></span>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <h1>@blogPost.title</h1>
+            </div>
+        </div>
+    </header>
+
+    <article class="fw-wrapper page-content">
+        <div class="row">
+            <div class="small-12 large-7 columns">
+                @content
+            </div>
+            <aside class="show-for-medium small-12 large-4 columns">
+            @blogNav()
+            </aside>
+        </div>
+    </article>
+
+
+}

@@ -7,7 +7,8 @@ import java.nio.file.{Files, StandardCopyOption}
 import com.lightbend.docs.{Context, TOC}
 import org.pegdown.{Extensions, PegDownProcessor}
 import play.api.libs.json.{Json, Reads}
-import play.twirl.api.{Html, HtmlFormat, Template1}
+import play.twirl.api.{Html, Template1}
+import play.utils.UriEncoding
 
 import scala.collection.JavaConverters._
 
@@ -48,11 +49,26 @@ object DocumentationGenerator extends App {
     }
   }
 
-  implicit val lagomContext = LagomContext(context, currentLagomVersion, currentDocsVersion, activatorRelease)
-
   val outputDir = new File(args(0))
   val docsDir = new File(args(1))
   val markdownDir = new File(args(2))
+  val blogDir = new File(args(3))
+
+  val pegdown = new PegDownProcessor(Extensions.ALL)
+
+  val blogPosts = Blog.findBlogPosts(blogDir)
+  val blogPostSummaries = blogPosts.map { post =>
+    post -> Html(pegdown.markdownToHtml(post.summary))
+  }
+  val blogPostTags = blogPosts.flatMap(_.tags).distinct.sorted
+  val blogPostsByTag = blogPostTags.map(tag => tag -> blogPosts.filter(_.tags.contains(tag)))
+  val blogSummary = {
+    BlogSummary(blogPosts.take(3), blogPostsByTag.map {
+      case (tag, posts) => tag -> posts.size
+    })
+  }
+
+  implicit val lagomContext = LagomContext(context, currentLagomVersion, currentDocsVersion, activatorRelease, blogSummary)
 
   def generatePage(name: String, template: Template1[LagomContext, Html]): OutputFile = {
     savePage(name, template.render(lagomContext))
@@ -62,7 +78,8 @@ object DocumentationGenerator extends App {
     savePage(from, html.redirect(to), includeInSitemap = false)
   }
 
-  def savePage(name: String, rendered: Html, includeInSitemap: Boolean = true): OutputFile = {
+  def savePage(name: String, rendered: Html, includeInSitemap: Boolean = true,
+               sitemapPriority: String = "1.0"): OutputFile = {
     val file = new File(outputDir, name)
     file.getParentFile.mkdirs()
     Files.write(file.toPath, rendered.body.getBytes("utf-8"))
@@ -71,10 +88,8 @@ object DocumentationGenerator extends App {
       case index if index.endsWith("/index.html") => index.stripSuffix("/index.html")
       case other => other
     }
-    OutputFile(file, sitemapUrl, includeInSitemap)
+    OutputFile(file, sitemapUrl, includeInSitemap, sitemapPriority)
   }
-
-  val pegdown = new PegDownProcessor(Extensions.ALL)
 
   def renderMarkdownFiles(path: String, file: File): Seq[OutputFile] = {
     if (file.isDirectory) {
@@ -94,6 +109,25 @@ object DocumentationGenerator extends App {
         case Nil => throw new IllegalArgumentException("Markdown files must start with a heading using the # syntax")
       }
     }
+  }
+
+  // Blog
+  val blogPostFiles = blogPosts.map { post =>
+    // render markdown
+    val renderedPost = Html(pegdown.markdownToHtml(post.markdown))
+    val page = html.blogPost(post, renderedPost)
+    savePage(s"blog/${post.id}.html", page, sitemapPriority = "0.8")
+  } ++ blogPostsByTag.map {
+    // Tag pages
+    case (tag, posts) =>
+      val postSummaries = posts.flatMap{ post =>
+        blogPostSummaries.find(_._1.id == post.id)
+      }
+      savePage(s"blog/tags/$tag.html", html.blog(s"Blog posts tagged with $tag", renderRecent = true, postSummaries))
+  } :+ {
+    // Index page
+    savePage("blog/index.html", html.blog("Blog", renderRecent = false, blogPostSummaries.take(10)),
+      sitemapPriority = "0.5")
   }
 
   // Discover versions
@@ -143,13 +177,13 @@ object DocumentationGenerator extends App {
             val rendered = html.documentation(path, fileContent, context, version.name, versionPages, nav, canonical)
 
             Files.write(targetFile.toPath, rendered.body.getBytes("utf-8"))
-            OutputFile(targetFile, docsPath + "/" + path, true)
+            OutputFile(targetFile, docsPath + "/" + path, includeInSitemap = true, "0.9")
           case _ =>
             // Simply copy the file as is
             if (targetFile.lastModified() < file.lastModified()) {
               Files.copy(file.toPath, targetFile.toPath, StandardCopyOption.REPLACE_EXISTING)
             }
-            OutputFile(targetFile, docsPath + "/" + path, false)
+            OutputFile(targetFile, docsPath + "/" + path, includeInSitemap = false, "")
         }
         Seq(rendered)
       }
@@ -160,16 +194,16 @@ object DocumentationGenerator extends App {
 
   val generatedDocs = versions.map(_._2).map(version => version -> renderDocVersion(version))
 
-  val generated = templatePages.map((generatePage _).tupled) ++ renderMarkdownFiles("", markdownDir)
+  val generated = templatePages.map((generatePage _).tupled) ++ renderMarkdownFiles("", markdownDir) ++ blogPostFiles
 
   // sitemaps
   val mainSitemap = Sitemap("sitemap-main.xml", generated.filter(_.includeInSitemap)
-    .map(file => SitemapUrl(file.sitemapUrl, "1.0")))
+    .map(file => SitemapUrl(file.sitemapUrl, file.sitemapPriority)))
 
   val docsSitemap = Sitemap("sitemap-docs.xml", generatedDocs.find(_._1.name == currentDocsVersion).map {
     case (_, pages) =>
       pages.collect {
-        case OutputFile(_, path, true) => SitemapUrl(path, "0.9")
+        case OutputFile(_, path, true, sitemapPriority) => SitemapUrl(path, sitemapPriority)
       }
   }.getOrElse(Nil))
 
@@ -194,7 +228,7 @@ object DocumentationGenerator extends App {
 
 }
 
-case class OutputFile(file: File, sitemapUrl: String, includeInSitemap: Boolean)
+case class OutputFile(file: File, sitemapUrl: String, includeInSitemap: Boolean, sitemapPriority: String)
 
 /**
   * The context that gets passed to every page in the documentation.
@@ -203,7 +237,7 @@ case class OutputFile(file: File, sitemapUrl: String, includeInSitemap: Boolean)
   * @param currentDocsVersion The current version of the docs.
   * @param activatorRelease The current version of Activator.
   */
-case class LagomContext(path: String, currentLagomVersion: String, currentDocsVersion: String, activatorRelease: ActivatorRelease)
+case class LagomContext(path: String, currentLagomVersion: String, currentDocsVersion: String, activatorRelease: ActivatorRelease, blogSummary: BlogSummary)
 
 case class ActivatorRelease(url: String, miniUrl: String, version: String, size: String, miniSize: String)
 
@@ -239,3 +273,9 @@ case class NavLink(title: String, url: String, current: Boolean)
   * A documentation section
   */
 case class Section(title: String, url: String, children: Seq[NavLink])
+
+package object html {
+  def encodePathSegment(url: String): String = {
+    UriEncoding.encodePathSegment(url, "utf-8")
+  }
+}

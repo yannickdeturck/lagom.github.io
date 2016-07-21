@@ -11,7 +11,8 @@ libraryDependencies ++= Seq(
   "org.webjars" % "jquery" % "2.2.1",
   "org.webjars.bower" % "waypoints" % "4.0.0",
   "org.webjars" % "prettify" % "4-Mar-2013",
-  "com.lightbend.markdown" %% "lightbend-markdown-server" % "1.3.2"
+  "com.lightbend.markdown" %% "lightbend-markdown-server" % "1.3.2",
+  "org.yaml" % "snakeyaml" % "1.12"
 )
 
 resolvers += Resolver.bintrayIvyRepo("typesafe", "ivy-releases")
@@ -69,12 +70,14 @@ generateHtml <<= Def.taskDyn {
   val outputDir = (target in generateHtml).value
   val docsDir = sourceDirectory.value / "docs"
   val markdownDir = (sourceDirectory in Compile).value / "markdown"
+  val blogDir = sourceDirectory.value / "blog"
   Def.task {
     (runMain in Compile).toTask(Seq(
       "com.lightbend.lagom.docs.DocumentationGenerator",
       outputDir,
       docsDir,
-      markdownDir
+      markdownDir,
+      blogDir
     ).mkString(" ", " ", "")).value
     outputDir.***.filter(_.isFile).get
   }
@@ -104,5 +107,6 @@ WebKeys.pipeline ++= {
   generateHtml.value pair relativeTo((target in generateHtml).value)
 }
 watchSources ++= {
-  ((sourceDirectory in Compile).value / "markdown").***.get
+  ((sourceDirectory in Compile).value / "markdown").***.get ++
+    (sourceDirectory.value / "blog").***.get
 }
