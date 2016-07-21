@@ -17,4 +17,5 @@ git commit -m "Website build"
 git push ../../.. master -f
 
 # Push the repo to the website
-git push origin master
+cd ../../..
+git push origin master -f
