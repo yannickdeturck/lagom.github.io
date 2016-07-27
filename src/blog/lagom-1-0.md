@@ -40,7 +40,7 @@ Updates to code are reflected immediately, with Lagom hot reloading services whe
 
 ### Production
 
-Out of the box, Lagom utilizes Typesafe ConductR for deployment. ConductR manages the deployment and scaling of each service, configures nodes of a service to cluster together via Akka clustering, provides databases and database configuration, and gives operations the tools necessary to manage and visualise the system.
+Out of the box, Lagom utilizes Lightbend ConductR for deployment. ConductR manages the deployment and scaling of each service, configures nodes of a service to cluster together via Akka clustering, provides databases and database configuration, and gives operations the tools necessary to manage and visualise the system.
 
 Lagom services can be built as ConductR bundles, and will use the ConductR implementation of the service locator with zero configuration.
 
