@@ -68,7 +68,8 @@ object DocumentationGenerator extends App {
     })
   }
 
-  implicit val lagomContext = LagomContext(context, currentLagomVersion, currentDocsVersion, activatorRelease, blogSummary)
+  implicit val lagomContext = LagomContext(baseUrl, context, currentLagomVersion, currentDocsVersion,
+    activatorRelease, blogSummary)
 
   def generatePage(name: String, template: Template1[LagomContext, Html]): OutputFile = {
     savePage(name, template.render(lagomContext))
@@ -237,7 +238,8 @@ case class OutputFile(file: File, sitemapUrl: String, includeInSitemap: Boolean,
   * @param currentDocsVersion The current version of the docs.
   * @param activatorRelease The current version of Activator.
   */
-case class LagomContext(path: String, currentLagomVersion: String, currentDocsVersion: String, activatorRelease: ActivatorRelease, blogSummary: BlogSummary)
+case class LagomContext(baseUrl: String, path: String, currentLagomVersion: String, currentDocsVersion: String,
+                        activatorRelease: ActivatorRelease, blogSummary: BlogSummary)
 
 case class ActivatorRelease(url: String, miniUrl: String, version: String, size: String, miniSize: String)
 
@@ -278,4 +280,5 @@ package object html {
   def encodePathSegment(url: String): String = {
     UriEncoding.encodePathSegment(url, "utf-8")
   }
+
 }
