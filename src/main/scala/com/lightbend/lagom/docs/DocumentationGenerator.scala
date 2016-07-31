@@ -11,6 +11,7 @@ import play.twirl.api.{Html, Template1}
 import play.utils.UriEncoding
 
 import scala.collection.JavaConverters._
+import scala.xml.XML
 
 object DocumentationGenerator extends App {
 
@@ -113,22 +114,36 @@ object DocumentationGenerator extends App {
   }
 
   // Blog
-  val blogPostFiles = blogPosts.map { post =>
-    // render markdown
-    val renderedPost = Html(pegdown.markdownToHtml(post.markdown))
-    val page = html.blogPost(post, renderedPost)
-    savePage(s"blog/${post.id}.html", page, sitemapPriority = "0.8")
-  } ++ blogPostsByTag.map {
-    // Tag pages
-    case (tag, posts) =>
-      val postSummaries = posts.flatMap{ post =>
-        blogPostSummaries.find(_._1.id == post.id)
-      }
-      savePage(s"blog/tags/$tag.html", html.blog(s"Blog posts tagged with $tag", renderRecent = true, postSummaries))
-  } :+ {
-    // Index page
-    savePage("blog/index.html", html.blog("Blog", renderRecent = false, blogPostSummaries.take(10)),
-      sitemapPriority = "0.5")
+  val blogPostFiles = {
+    val renderedBlogPosts = blogPosts.map { post =>
+      val renderedPost = Html(pegdown.markdownToHtml(post.markdown))
+      post -> renderedPost
+    }
+
+    renderedBlogPosts.map {
+      case (post, renderedPost) =>
+        val page = html.blogPost(post, renderedPost)
+        savePage(s"blog/${post.id}.html", page, sitemapPriority = "0.8")
+    } ++ blogPostsByTag.map {
+      // Tag pages
+      case (tag, posts) =>
+        val postSummaries = posts.flatMap{ post =>
+          blogPostSummaries.find(_._1.id == post.id)
+        }
+        savePage(s"blog/tags/$tag.html", html.blog(s"Blog posts tagged with $tag", renderRecent = true, postSummaries))
+    } :+ {
+      // Index page
+      savePage("blog/index.html", html.blog("Blog", renderRecent = false, blogPostSummaries.take(10)),
+        sitemapPriority = "0.5")
+    } :+ {
+      // Feed
+      val file = new File(outputDir, "blog/atom.xml")
+      file.getParentFile.mkdirs()
+
+      XML.save(file.getAbsolutePath, FeedFormatter.atom(renderedBlogPosts.take(10)), enc = "utf-8")
+
+      OutputFile(file, "", includeInSitemap = false, sitemapPriority = "")
+    }
   }
 
   // Discover versions

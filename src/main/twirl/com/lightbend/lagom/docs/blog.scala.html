@@ -3,7 +3,9 @@
 
 @(title: String, renderRecent: Boolean, posts: Seq[(BlogPost, Html)])(implicit context: LagomContext)
 
-@main(Some(title))()() {
+@main(Some(title)){
+    <link href="@context.path/blog/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed" />
+}() {
 
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
