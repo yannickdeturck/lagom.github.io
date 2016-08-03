@@ -3,9 +3,24 @@
 
 @(blogPost: BlogPost, content: Html)(implicit context: LagomContext)
 
-@main(Some(blogPost.title)){
+@main(Some(blogPost.title)){ @* head *@
     <link href="@context.path/blog/atom.xml" type="application/atom+xml" rel="home" title="ATOM Feed" />
-}() {
+} { @* footer *@
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57a0eb1ac33f75f8"></script>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "@{context.baseUrl}/blog/@{blogPost.id}.html";
+            this.page.identifier = "@blogPost.id";
+            this.page.title = "@{Html(JavaScriptFormat.escape(blogPost.title).body)}";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = '//lagomframework.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+} {
 
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
@@ -40,20 +55,13 @@
             <div class="small-12 large-7 columns">
                 @content
 
+                <h2>Share</h2>
+                <div class="addthis_sharing_toolbox"></div>
+
+                <br/>
+
+                <h2>Discuss</h2>
                 <div id="disqus_thread"></div>
-                <script>
-                    var disqus_config = function () {
-                        this.page.url = "@{context.baseUrl}/blog/@{blogPost.id}.html";
-                        this.page.identifier = "@blogPost.id";
-                        this.page.title = "@{Html(JavaScriptFormat.escape(blogPost.title).body)}";
-                    };
-                    (function() { // DON'T EDIT BELOW THIS LINE
-                        var d = document, s = d.createElement('script');
-                        s.src = '//lagomframework.disqus.com/embed.js';
-                        s.setAttribute('data-timestamp', +new Date());
-                        (d.head || d.body).appendChild(s);
-                    })();
-                </script>
                 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
             </div>

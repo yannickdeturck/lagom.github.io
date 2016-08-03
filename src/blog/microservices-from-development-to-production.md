@@ -2,7 +2,7 @@
 title: Microservices - From development to production
 date: 2016-07-26
 author_github: huntc
-tags: microservices+ConductR+production+video
+tags: conductr screencast
 summary: >
     Let’s face it, microservices sound great, but they’re sure hard to set up and get going. There are service gateways to consider, setting up service discovery, consolidated logging, rolling updates, resiliency concerns… the list is almost endless. Distributed systems benefit the business, not so much the developer.
 
