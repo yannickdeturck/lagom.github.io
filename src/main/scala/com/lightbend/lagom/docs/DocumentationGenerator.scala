@@ -5,8 +5,9 @@ import java.net.URL
 import java.nio.file.{Files, StandardCopyOption}
 
 import com.lightbend.docs.{Context, TOC}
-import org.pegdown.{Extensions, PegDownProcessor}
+import org.pegdown.{Extensions, LinkRenderer, PegDownProcessor, VerbatimSerializer}
 import play.api.libs.json.{Json, Reads}
+import play.doc.PrettifyVerbatimSerializer
 import play.twirl.api.{Html, Template1}
 import play.utils.UriEncoding
 
@@ -56,10 +57,14 @@ object DocumentationGenerator extends App {
   val blogDir = new File(args(3))
 
   val pegdown = new PegDownProcessor(Extensions.ALL)
+  def markdownToHtml(markdown: String) = {
+    pegdown.markdownToHtml(markdown, new LinkRenderer,
+      Map[String, VerbatimSerializer](VerbatimSerializer.DEFAULT -> PrettifyVerbatimSerializer).asJava)
+  }
 
   val blogPosts = Blog.findBlogPosts(blogDir)
   val blogPostSummaries = blogPosts.map { post =>
-    post -> Html(pegdown.markdownToHtml(post.summary))
+    post -> Html(markdownToHtml(post.summary))
   }
   val blogPostTags = blogPosts.flatMap(_.tags).distinct.sorted
   val blogPostsByTag = blogPostTags.map(tag => tag -> blogPosts.filter(_.tags.contains(tag)))
@@ -105,7 +110,7 @@ object DocumentationGenerator extends App {
       lines.dropWhile(!_.startsWith("#")) match {
         case title :: rest =>
           val strippedTitle = title.dropWhile(c => c == '#' || c == ' ')
-          val rendered = pegdown.markdownToHtml(rest.mkString("\n"))
+          val rendered = markdownToHtml(rest.mkString("\n"))
           val page = html.markdown(strippedTitle, Html(rendered))
           Seq(savePage(path.replaceAll("\\.md$", ".html"), page))
         case Nil => throw new IllegalArgumentException("Markdown files must start with a heading using the # syntax")
@@ -116,7 +121,7 @@ object DocumentationGenerator extends App {
   // Blog
   val blogPostFiles = {
     val renderedBlogPosts = blogPosts.map { post =>
-      val renderedPost = Html(pegdown.markdownToHtml(post.markdown))
+      val renderedPost = Html(markdownToHtml(post.markdown))
       post -> renderedPost
     }
 
