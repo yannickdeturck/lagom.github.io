@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+var methods = {"i0":6,"i1":17,"i2":17,"i3":17,"i4":38};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraContactPoint.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.ReadSideHandlerBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence.cassandra"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../../index.html?com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.html" target="_top">Frames</a></li>
@@ -72,7 +72,7 @@ var activeTableTab = "activeTableTab";
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
@@ -100,14 +100,36 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">CassandraReadSide</span></pre>
-<div class="block">At system startup all <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra"><code>CassandraReadSideProcessor</code></a> classes must be registered here
- with <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRegistry.html#register-java.lang.Class-"><code>PersistentEntityRegistry.register(java.lang.Class&lt;? extends com.lightbend.lagom.javadsl.persistence.PersistentEntity&lt;C, E, S&gt;&gt;)</code></a>.</div>
+<div class="block">Cassandra read side support.
+
+ This should be used to build and register readside</div>
 </li>
 </ul>
 </div>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="nested.class.summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Nested Class Summary table, listing nested classes, and an explanation">
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Interface and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static interface&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.ReadSideHandlerBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSide.ReadSideHandlerBuilder</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.ReadSideHandlerBuilder.html" title="type parameter in CassandraReadSide.ReadSideHandlerBuilder">Event</a> extends <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;<a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.ReadSideHandlerBuilder.html" title="type parameter in CassandraReadSide.ReadSideHandlerBuilder">Event</a>&gt;&gt;</span></code>
+<div class="block">Builder for the handler.</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -115,16 +137,41 @@ var activeTableTab = "activeTableTab";
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>&lt;Event extends <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;<br><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.ReadSideHandlerBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSide.ReadSideHandlerBuilder</a>&lt;Event&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.html#builder-java.lang.String-">builder</a></span>(String&nbsp;offsetTableName)</code>
+<div class="block">Create a builder for a Cassandra read side event handler.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>static java.util.concurrent.CompletionStage&lt;java.util.List&lt;com.datastax.driver.core.BoundStatement&gt;&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.html#completedStatement-com.datastax.driver.core.BoundStatement-">completedStatement</a></span>(com.datastax.driver.core.BoundStatement&nbsp;statement)</code>
+<div class="block">Convenience method to create an already completed <code>CompletionStage</code> with one <code>BoundStatement</code>.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>static java.util.concurrent.CompletionStage&lt;java.util.List&lt;com.datastax.driver.core.BoundStatement&gt;&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.html#completedStatements--">completedStatements</a></span>()</code>
+<div class="block">Convenience method to create an already completed <code>CompletionStage</code> with no <code>BoundStatement</code>.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>static java.util.concurrent.CompletionStage&lt;java.util.List&lt;com.datastax.driver.core.BoundStatement&gt;&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.html#completedStatements-java.util.List-">completedStatements</a></span>(java.util.List&lt;com.datastax.driver.core.BoundStatement&gt;&nbsp;statements)</code>
+<div class="block">Convenience method to create an already completed <code>CompletionStage</code> with several <code>BoundStatement</code>.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>&lt;Event extends <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;<br>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.html#register-java.lang.Class-">register</a></span>(Class&lt;? extends <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor</a>&lt;Event&gt;&gt;&nbsp;processorClass)</code>
-<div class="block">At system startup all <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra"><code>CassandraReadSideProcessor</code></a> classes must be registered
- with this method.</div>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">Use the builder method to create and register a Cassandra read side processor.</span></div>
+</div>
 </td>
 </tr>
 </table>
@@ -145,12 +192,58 @@ var activeTableTab = "activeTableTab";
 <a name="register-java.lang.Class-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>register</h4>
-<pre>&lt;Event extends <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;&nbsp;void&nbsp;register(Class&lt;? extends <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor</a>&lt;Event&gt;&gt;&nbsp;processorClass)</pre>
+<pre>@Deprecated
+&lt;Event extends <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;&nbsp;void&nbsp;register(Class&lt;? extends <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor</a>&lt;Event&gt;&gt;&nbsp;processorClass)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Use the builder method to create and register a Cassandra read side processor.</span></div>
 <div class="block">At system startup all <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra"><code>CassandraReadSideProcessor</code></a> classes must be registered
  with this method.</div>
+</li>
+</ul>
+<a name="builder-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>builder</h4>
+<pre>&lt;Event extends <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;&nbsp;<a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.ReadSideHandlerBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSide.ReadSideHandlerBuilder</a>&lt;Event&gt;&nbsp;builder(String&nbsp;offsetTableName)</pre>
+<div class="block">Create a builder for a Cassandra read side event handler.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The builder.</dd>
+</dl>
+</li>
+</ul>
+<a name="completedStatement-com.datastax.driver.core.BoundStatement-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>completedStatement</h4>
+<pre>static&nbsp;java.util.concurrent.CompletionStage&lt;java.util.List&lt;com.datastax.driver.core.BoundStatement&gt;&gt;&nbsp;completedStatement(com.datastax.driver.core.BoundStatement&nbsp;statement)</pre>
+<div class="block">Convenience method to create an already completed <code>CompletionStage</code> with one <code>BoundStatement</code>.</div>
+</li>
+</ul>
+<a name="completedStatements-java.util.List-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>completedStatements</h4>
+<pre>static&nbsp;java.util.concurrent.CompletionStage&lt;java.util.List&lt;com.datastax.driver.core.BoundStatement&gt;&gt;&nbsp;completedStatements(java.util.List&lt;com.datastax.driver.core.BoundStatement&gt;&nbsp;statements)</pre>
+<div class="block">Convenience method to create an already completed <code>CompletionStage</code> with several <code>BoundStatement</code>.</div>
+</li>
+</ul>
+<a name="completedStatements--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>completedStatements</h4>
+<pre>static&nbsp;java.util.concurrent.CompletionStage&lt;java.util.List&lt;com.datastax.driver.core.BoundStatement&gt;&gt;&nbsp;completedStatements()</pre>
+<div class="block">Convenience method to create an already completed <code>CompletionStage</code> with no <code>BoundStatement</code>.</div>
 </li>
 </ul>
 </li>
@@ -186,7 +279,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraContactPoint.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.ReadSideHandlerBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence.cassandra"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../../index.html?com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.html" target="_top">Frames</a></li>
@@ -210,7 +303,7 @@ var activeTableTab = "activeTableTab";
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>

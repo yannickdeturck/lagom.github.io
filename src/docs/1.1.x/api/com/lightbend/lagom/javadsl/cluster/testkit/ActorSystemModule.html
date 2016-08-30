@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -161,6 +161,14 @@ extends com.google.inject.AbstractModule</pre>
 <td class="colFirst"><code>akka.actor.ActorSystem</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/cluster/testkit/ActorSystemModule.html#provideActorSystem--">provideActorSystem</a></span>()</code>&nbsp;</td>
 </tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>scala.concurrent.ExecutionContext</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/cluster/testkit/ActorSystemModule.html#provideExecutionContext--">provideExecutionContext</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>akka.stream.Materializer</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/cluster/testkit/ActorSystemModule.html#provideMaterializer--">provideMaterializer</a></span>()</code>&nbsp;</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.com.google.inject.AbstractModule">
@@ -223,10 +231,28 @@ extends com.google.inject.AbstractModule</pre>
 <a name="provideActorSystem--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>provideActorSystem</h4>
 <pre>public&nbsp;akka.actor.ActorSystem&nbsp;provideActorSystem()</pre>
+</li>
+</ul>
+<a name="provideMaterializer--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>provideMaterializer</h4>
+<pre>public&nbsp;akka.stream.Materializer&nbsp;provideMaterializer()</pre>
+</li>
+</ul>
+<a name="provideExecutionContext--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>provideExecutionContext</h4>
+<pre>public&nbsp;scala.concurrent.ExecutionContext&nbsp;provideExecutionContext()</pre>
 </li>
 </ul>
 </li>
