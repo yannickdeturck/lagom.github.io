@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":10,"i1":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -179,52 +179,6 @@ extends Object</pre>
 <div class="block">Factory method of <a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>AggregateEventTag</code></a>.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html#selectShard-int-java.lang.String-">selectShard</a></span>(int&nbsp;numShards,
-           String&nbsp;entityId)</code>
-<div class="block">Select a shard given the number of shards and the ID of the entity.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>&lt;Event extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;<br><a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a>&lt;Event&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html#shard-java.lang.Class-int-java.lang.String-">shard</a></span>(Class&lt;Event&gt;&nbsp;eventType,
-     int&nbsp;numShards,
-     String&nbsp;entityId)</code>
-<div class="block">Create a sharded aggregate event tag.</div>
-</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>&lt;Event extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;<br><a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a>&lt;Event&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html#shard-java.lang.Class-java.lang.String-int-java.lang.String-">shard</a></span>(Class&lt;Event&gt;&nbsp;eventType,
-     String&nbsp;baseTagName,
-     int&nbsp;numShards,
-     String&nbsp;entityId)</code>
-<div class="block">Create a sharded aggregate event tag.</div>
-</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>&lt;Event extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;<br>org.pcollections.PSequence&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a>&lt;Event&gt;&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html#shards-java.lang.Class-int-">shards</a></span>(Class&lt;Event&gt;&nbsp;eventType,
-      int&nbsp;numShards)</code>
-<div class="block">Create a sequence of sharded tags according to the number of shards.</div>
-</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>&lt;Event extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;<br>org.pcollections.PSequence&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a>&lt;Event&gt;&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html#shards-java.lang.Class-java.lang.String-int-">shards</a></span>(Class&lt;Event&gt;&nbsp;eventType,
-      String&nbsp;baseTagName,
-      int&nbsp;numShards)</code>
-<div class="block">Create a sequence of sharded tags according to the number of shards.</div>
-</td>
-</tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code>String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html#shardTag-java.lang.String-int-">shardTag</a></span>(String&nbsp;baseTagName,
-        int&nbsp;shardNo)</code>
-<div class="block">Generate a shard tag according to the base tag name and the shard number.</div>
-</td>
-</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.Object">
@@ -298,160 +252,12 @@ extends Object</pre>
 <a name="of-java.lang.Class-java.lang.String-">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>of</h4>
 <pre>public&nbsp;&lt;Event extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a>&lt;Event&gt;&nbsp;of(Class&lt;Event&gt;&nbsp;eventType,
                                                                          String&nbsp;tag)</pre>
 <div class="block">Factory method of <a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>AggregateEventTag</code></a>.</div>
-</li>
-</ul>
-<a name="shard-java.lang.Class-int-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>shard</h4>
-<pre>public&nbsp;&lt;Event extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a>&lt;Event&gt;&nbsp;shard(Class&lt;Event&gt;&nbsp;eventType,
-                                                                            int&nbsp;numShards,
-                                                                            String&nbsp;entityId)</pre>
-<div class="block">Create a sharded aggregate event tag.
- <p>
- This is a convenience function that uses the name of the class as the tag name. Note that if the class name
- changes, the tag name must be retained, and so this method will no longer be suitable for use.
- <p>
- A tag will be selected based on a hash function that combines the <code>entityId</code> and <code>numShards</code>.
- <p>
- The <code>numShards</code> should be selected up front, and shouldn't change. If it does change, events for the
- same entity will be produced by different event streams and handled by different shards in the read side
- processor, leading to out of order event handling.
- <p></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>eventType</code> - The type of the event.</dd>
-<dd><code>numShards</code> - The number of shards.</dd>
-<dd><code>entityId</code> - The ID of the entity.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>The aggregate event tag.</dd>
-</dl>
-</li>
-</ul>
-<a name="shard-java.lang.Class-java.lang.String-int-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>shard</h4>
-<pre>public&nbsp;&lt;Event extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a>&lt;Event&gt;&nbsp;shard(Class&lt;Event&gt;&nbsp;eventType,
-                                                                            String&nbsp;baseTagName,
-                                                                            int&nbsp;numShards,
-                                                                            String&nbsp;entityId)</pre>
-<div class="block">Create a sharded aggregate event tag.
- <p>
- A tag will be selected based on a hash function that combines the <code>entityId</code> and <code>numShards</code>.
- <p>
- The <code>numShards</code> should be selected up front, and shouldn't change. If it does change, events for the
- same entity will be produced by different event streams and handled by different shards in the read side
- processor, leading to out of order event handling.
- <p></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>eventType</code> - The type of the event.</dd>
-<dd><code>baseTagName</code> - The base name for the tag, this will be combined with the shard number to form the tag name.</dd>
-<dd><code>numShards</code> - The number of shards.</dd>
-<dd><code>entityId</code> - The ID of the entity.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>The aggregate event tag.</dd>
-</dl>
-</li>
-</ul>
-<a name="shards-java.lang.Class-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>shards</h4>
-<pre>public&nbsp;&lt;Event extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;&nbsp;org.pcollections.PSequence&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a>&lt;Event&gt;&gt;&nbsp;shards(Class&lt;Event&gt;&nbsp;eventType,
-                                                                                                         int&nbsp;numShards)</pre>
-<div class="block">Create a sequence of sharded tags according to the number of shards.
- <p>
- This is a convenience function that uses the name of the class as the tag name. Note that if the class name
- changes, the tag name must be retained, and so this method will no longer be suitable for use.
- <p>
- The <code>numShards</code> should be selected up front, and shouldn't change. If it does change, events for the
- same entity will be produced by different event streams and handled by different shards in the read side
- processor, leading to out of order event handling.
- <p></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>eventType</code> - The type of the event.</dd>
-<dd><code>numShards</code> - The number of shards.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>The aggregate event tag.</dd>
-</dl>
-</li>
-</ul>
-<a name="shards-java.lang.Class-java.lang.String-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>shards</h4>
-<pre>public&nbsp;&lt;Event extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;&nbsp;org.pcollections.PSequence&lt;<a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a>&lt;Event&gt;&gt;&nbsp;shards(Class&lt;Event&gt;&nbsp;eventType,
-                                                                                                         String&nbsp;baseTagName,
-                                                                                                         int&nbsp;numShards)</pre>
-<div class="block">Create a sequence of sharded tags according to the number of shards.
- <p>
- The <code>numShards</code> should be selected up front, and shouldn't change. If it does change, events for the
- same entity will be produced by different event streams and handled by different shards in the read side
- processor, leading to out of order event handling.
- <p></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>eventType</code> - The type of the event.</dd>
-<dd><code>baseTagName</code> - The base tag name.</dd>
-<dd><code>numShards</code> - The number of shards.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>The aggregate event tag.</dd>
-</dl>
-</li>
-</ul>
-<a name="selectShard-int-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>selectShard</h4>
-<pre>public&nbsp;int&nbsp;selectShard(int&nbsp;numShards,
-                       String&nbsp;entityId)</pre>
-<div class="block">Select a shard given the number of shards and the ID of the entity.
- <p></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>numShards</code> - The number of shards.</dd>
-<dd><code>entityId</code> - The ID of the entity.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>The selected shard number.</dd>
-</dl>
-</li>
-</ul>
-<a name="shardTag-java.lang.String-int-">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>shardTag</h4>
-<pre>public&nbsp;String&nbsp;shardTag(String&nbsp;baseTagName,
-                       int&nbsp;shardNo)</pre>
-<div class="block">Generate a shard tag according to the base tag name and the shard number.
- <p></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>baseTagName</code> - The base tag name.</dd>
-<dd><code>shardNo</code> - The shard number.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>The name of the shard tag.</dd>
-</dl>
 </li>
 </ul>
 </li>

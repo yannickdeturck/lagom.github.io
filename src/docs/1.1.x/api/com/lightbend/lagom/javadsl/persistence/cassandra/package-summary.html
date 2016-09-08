@@ -87,13 +87,8 @@
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.html" title="interface in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSide</a></td>
 <td class="colLast">
-<div class="block">Cassandra read side support.</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.ReadSideHandlerBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSide.ReadSideHandlerBuilder</a>&lt;Event extends <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;</td>
-<td class="colLast">
-<div class="block">Builder for the handler.</div>
+<div class="block">At system startup all <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra"><code>CassandraReadSideProcessor</code></a> classes must be registered here
+ with <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRegistry.html#register-java.lang.Class-"><code>PersistentEntityRegistry.register(java.lang.Class&lt;? extends com.lightbend.lagom.javadsl.persistence.PersistentEntity&lt;C, E, S&gt;&gt;)</code></a>.</div>
 </td>
 </tr>
 </tbody>
