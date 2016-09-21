@@ -1,10 +1,10 @@
 # Lagom Change Log
 
-## Lagom 1.1.0-RC1
+## Lagom 1.1.0
 
-*Released 18 August 2016*
+*Released 21 September 2016*
 
-Release candidate to 1.1.0.  The primary feature of this release is Maven support.
+The primary feature of this release is Maven support.
 
 * [101](https://github.com/lagom/lagom/issues/101) Assign service ports from ephemeral port range.
 * [112](https://github.com/lagom/lagom/issues/112) Maven support.
