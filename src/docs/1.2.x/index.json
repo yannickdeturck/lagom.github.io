@@ -114,6 +114,10 @@
           "title" : "Cassandra Server",
           "url" : "CassandraServer.html",
           "sourceUrl" : "https://github.com/lagom/lagom/tree/master/docs/manual/guide/devmode/detailedTopics/CassandraServer.md"
+        }, {
+          "title" : "Kafka Server",
+          "url" : "KafkaServer.html",
+          "sourceUrl" : "https://github.com/lagom/lagom/tree/master/docs/manual/guide/devmode/detailedTopics/KafkaServer.md"
         } ]
       } ]
     }, {

@@ -163,20 +163,22 @@ extends Object</pre>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/ServiceManager.html#startExternalProject-org.eclipse.aether.graph.Dependency-int-scala.Option-scala.Option-java.lang.String-boolean-">startExternalProject</a></span>(org.eclipse.aether.graph.Dependency&nbsp;dependency,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/ServiceManager.html#startExternalProject-org.eclipse.aether.graph.Dependency-int-scala.Option-scala.Option-java.lang.String-java.lang.String-boolean-">startExternalProject</a></span>(org.eclipse.aether.graph.Dependency&nbsp;dependency,
                     int&nbsp;port,
                     scala.Option&lt;String&gt;&nbsp;serviceLocatorUrl,
                     scala.Option&lt;Object&gt;&nbsp;cassandraPort,
                     String&nbsp;cassandraKeyspace,
+                    String&nbsp;kafkaAddress,
                     boolean&nbsp;playService)</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/ServiceManager.html#startServiceDevMode-org.apache.maven.project.MavenProject-int-scala.Option-scala.Option-java.lang.String-boolean-scala.collection.Seq-">startServiceDevMode</a></span>(org.apache.maven.project.MavenProject&nbsp;project,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/ServiceManager.html#startServiceDevMode-org.apache.maven.project.MavenProject-int-scala.Option-scala.Option-java.lang.String-java.lang.String-boolean-scala.collection.Seq-">startServiceDevMode</a></span>(org.apache.maven.project.MavenProject&nbsp;project,
                    int&nbsp;port,
                    scala.Option&lt;String&gt;&nbsp;serviceLocatorUrl,
                    scala.Option&lt;Object&gt;&nbsp;cassandraPort,
                    String&nbsp;cassandraKeyspace,
+                   String&nbsp;kafkaAddress,
                    boolean&nbsp;playService,
                    scala.collection.Seq&lt;java.io.File&gt;&nbsp;additionalWatchDirs)</code>&nbsp;</td>
 </tr>
@@ -258,7 +260,7 @@ extends Object</pre>
                                                                                              scala.collection.Seq&lt;String&gt;&nbsp;externalProjects)</pre>
 </li>
 </ul>
-<a name="startServiceDevMode-org.apache.maven.project.MavenProject-int-scala.Option-scala.Option-java.lang.String-boolean-scala.collection.Seq-">
+<a name="startServiceDevMode-org.apache.maven.project.MavenProject-int-scala.Option-scala.Option-java.lang.String-java.lang.String-boolean-scala.collection.Seq-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -269,6 +271,7 @@ extends Object</pre>
                                 scala.Option&lt;String&gt;&nbsp;serviceLocatorUrl,
                                 scala.Option&lt;Object&gt;&nbsp;cassandraPort,
                                 String&nbsp;cassandraKeyspace,
+                                String&nbsp;kafkaAddress,
                                 boolean&nbsp;playService,
                                 scala.collection.Seq&lt;java.io.File&gt;&nbsp;additionalWatchDirs)</pre>
 </li>
@@ -282,7 +285,7 @@ extends Object</pre>
 <pre>public&nbsp;void&nbsp;stopService(org.apache.maven.project.MavenProject&nbsp;project)</pre>
 </li>
 </ul>
-<a name="startExternalProject-org.eclipse.aether.graph.Dependency-int-scala.Option-scala.Option-java.lang.String-boolean-">
+<a name="startExternalProject-org.eclipse.aether.graph.Dependency-int-scala.Option-scala.Option-java.lang.String-java.lang.String-boolean-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -293,6 +296,7 @@ extends Object</pre>
                                  scala.Option&lt;String&gt;&nbsp;serviceLocatorUrl,
                                  scala.Option&lt;Object&gt;&nbsp;cassandraPort,
                                  String&nbsp;cassandraKeyspace,
+                                 String&nbsp;kafkaAddress,
                                  boolean&nbsp;playService)</pre>
 </li>
 </ul>

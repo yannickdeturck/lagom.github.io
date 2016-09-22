@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../com/lightbend/lagom/maven/StartCassandraMojo.html" title="class in com.lightbend.lagom.maven"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../com/lightbend/lagom/maven/StartMojo.html" title="class in com.lightbend.lagom.maven"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../com/lightbend/lagom/maven/StartKafkaMojo.html" title="class in com.lightbend.lagom.maven"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?com/lightbend/lagom/maven/StartExternalProjects.html" target="_top">Frames</a></li>
@@ -198,62 +198,86 @@ extends org.apache.maven.plugin.AbstractMojo</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#getExternalProjects--">getExternalProjects</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#getServiceLocatorEnabled--">getServiceLocatorEnabled</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#getKafkaAddress--">getKafkaAddress</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#getServiceLocatorPort--">getServiceLocatorPort</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#getKafkaPort--">getKafkaPort</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#getServiceLocatorEnabled--">getServiceLocatorEnabled</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#getServiceLocatorPort--">getServiceLocatorPort</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#getServiceLocatorUrl--">getServiceLocatorUrl</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../../com/lightbend/lagom/maven/PortRangeBean.html" title="class in com.lightbend.lagom.maven">PortRangeBean</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#getServicePortRange--">getServicePortRange</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#kafkaAddress--">kafkaAddress</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i14" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#kafkaPort--">kafkaPort</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#serviceLocatorEnabled--">serviceLocatorEnabled</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#serviceLocatorPort--">serviceLocatorPort</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#serviceLocatorUrl--">serviceLocatorUrl</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code><a href="../../../../com/lightbend/lagom/maven/PortRangeBean.html" title="class in com.lightbend.lagom.maven">PortRangeBean</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#servicePortRange--">servicePortRange</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#setCassandraEnabled-boolean-">setCassandraEnabled</a></span>(boolean&nbsp;x$1)</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#setCassandraPort-int-">setCassandraPort</a></span>(int&nbsp;x$1)</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#setExternalProjects-java.util.List-">setExternalProjects</a></span>(java.util.List&lt;<a href="../../../../com/lightbend/lagom/maven/ExternalProject.html" title="class in com.lightbend.lagom.maven">ExternalProject</a>&gt;&nbsp;x$1)</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i22" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#setKafkaAddress-java.lang.String-">setKafkaAddress</a></span>(String&nbsp;x$1)</code>&nbsp;</td>
+</tr>
+<tr id="i23" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#setKafkaPort-int-">setKafkaPort</a></span>(int&nbsp;x$1)</code>&nbsp;</td>
+</tr>
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#setServiceLocatorEnabled-boolean-">setServiceLocatorEnabled</a></span>(boolean&nbsp;x$1)</code>&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#setServiceLocatorPort-int-">setServiceLocatorPort</a></span>(int&nbsp;x$1)</code>&nbsp;</td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#setServiceLocatorUrl-java.lang.String-">setServiceLocatorUrl</a></span>(String&nbsp;x$1)</code>&nbsp;</td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/maven/StartExternalProjects.html#setServicePortRange-com.lightbend.lagom.maven.PortRangeBean-">setServicePortRange</a></span>(<a href="../../../../com/lightbend/lagom/maven/PortRangeBean.html" title="class in com.lightbend.lagom.maven">PortRangeBean</a>&nbsp;x$1)</code>&nbsp;</td>
 </tr>
@@ -430,6 +454,42 @@ extends org.apache.maven.plugin.AbstractMojo</pre>
 <pre>public&nbsp;void&nbsp;setCassandraPort(int&nbsp;x$1)</pre>
 </li>
 </ul>
+<a name="kafkaPort--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>kafkaPort</h4>
+<pre>public&nbsp;int&nbsp;kafkaPort()</pre>
+</li>
+</ul>
+<a name="setKafkaPort-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setKafkaPort</h4>
+<pre>public&nbsp;void&nbsp;setKafkaPort(int&nbsp;x$1)</pre>
+</li>
+</ul>
+<a name="kafkaAddress--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>kafkaAddress</h4>
+<pre>public&nbsp;String&nbsp;kafkaAddress()</pre>
+</li>
+</ul>
+<a name="setKafkaAddress-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setKafkaAddress</h4>
+<pre>public&nbsp;void&nbsp;setKafkaAddress(String&nbsp;x$1)</pre>
+</li>
+</ul>
 <a name="execute--">
 <!--   -->
 </a>
@@ -496,10 +556,28 @@ extends org.apache.maven.plugin.AbstractMojo</pre>
 <a name="getCassandraPort--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getCassandraPort</h4>
 <pre>public&nbsp;int&nbsp;getCassandraPort()</pre>
+</li>
+</ul>
+<a name="getKafkaPort--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getKafkaPort</h4>
+<pre>public&nbsp;int&nbsp;getKafkaPort()</pre>
+</li>
+</ul>
+<a name="getKafkaAddress--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getKafkaAddress</h4>
+<pre>public&nbsp;String&nbsp;getKafkaAddress()</pre>
 </li>
 </ul>
 </li>
@@ -535,7 +613,7 @@ extends org.apache.maven.plugin.AbstractMojo</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../com/lightbend/lagom/maven/StartCassandraMojo.html" title="class in com.lightbend.lagom.maven"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../com/lightbend/lagom/maven/StartMojo.html" title="class in com.lightbend.lagom.maven"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../com/lightbend/lagom/maven/StartKafkaMojo.html" title="class in com.lightbend.lagom.maven"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?com/lightbend/lagom/maven/StartExternalProjects.html" target="_top">Frames</a></li>

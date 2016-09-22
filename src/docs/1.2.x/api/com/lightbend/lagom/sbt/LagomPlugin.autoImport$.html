@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -236,46 +236,82 @@ extends Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomFileWatchService--">lagomFileWatchService</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i11" class="rowColor">
-<td class="colFirst"><code>sbt.TaskKey&lt;scala.Tuple2&lt;String,<a href="../../../../com/lightbend/lagom/dev/Reloader.DevServer.html" title="interface in com.lightbend.lagom.dev">Reloader.DevServer</a>&gt;&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomRun--">lagomRun</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>sbt.SettingKey&lt;String&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomKafkaAddress--">lagomKafkaAddress</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>sbt.SettingKey&lt;Object&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomServiceGatewayPort--">lagomServiceGatewayPort</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomKafkaCleanOnStart--">lagomKafkaCleanOnStart</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>sbt.SettingKey&lt;Object&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomServiceLocatorEnabled--">lagomServiceLocatorEnabled</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomKafkaEnabled--">lagomKafkaEnabled</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i14" class="altColor">
+<td class="colFirst"><code>sbt.SettingKey&lt;scala.collection.Seq&lt;String&gt;&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomKafkaJvmOptions--">lagomKafkaJvmOptions</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code>sbt.SettingKey&lt;Object&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomKafkaPort--">lagomKafkaPort</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i16" class="altColor">
+<td class="colFirst"><code>sbt.SettingKey&lt;scala.Option&lt;java.io.File&gt;&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomKafkaPropertiesFile--">lagomKafkaPropertiesFile</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i17" class="rowColor">
+<td class="colFirst"><code>sbt.TaskKey&lt;scala.runtime.BoxedUnit&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomKafkaStart--">lagomKafkaStart</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i18" class="altColor">
+<td class="colFirst"><code>sbt.TaskKey&lt;scala.runtime.BoxedUnit&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomKafkaStop--">lagomKafkaStop</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i19" class="rowColor">
+<td class="colFirst"><code>sbt.SettingKey&lt;Object&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomKafkaZookeperPort--">lagomKafkaZookeperPort</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i20" class="altColor">
+<td class="colFirst"><code>sbt.TaskKey&lt;scala.Tuple2&lt;String,<a href="../../../../com/lightbend/lagom/dev/Reloader.DevServer.html" title="interface in com.lightbend.lagom.dev">Reloader.DevServer</a>&gt;&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomRun--">lagomRun</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i21" class="rowColor">
+<td class="colFirst"><code>sbt.SettingKey&lt;Object&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomServiceGatewayPort--">lagomServiceGatewayPort</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i22" class="altColor">
+<td class="colFirst"><code>sbt.SettingKey&lt;Object&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomServiceLocatorEnabled--">lagomServiceLocatorEnabled</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>sbt.SettingKey&lt;Object&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomServiceLocatorPort--">lagomServiceLocatorPort</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>sbt.TaskKey&lt;scala.runtime.BoxedUnit&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomServiceLocatorStart--">lagomServiceLocatorStart</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>sbt.TaskKey&lt;scala.runtime.BoxedUnit&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomServiceLocatorStop--">lagomServiceLocatorStop</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>sbt.SettingKey&lt;String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomServiceLocatorUrl--">lagomServiceLocatorUrl</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>sbt.TaskKey&lt;Object&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomServicePort--">lagomServicePort</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>sbt.SettingKey&lt;<a href="../../../../com/lightbend/lagom/dev/PortAssigner.PortRange.html" title="class in com.lightbend.lagom.dev">PortAssigner.PortRange</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomServicesPortRange--">lagomServicesPortRange</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code>sbt.SettingKey&lt;scala.collection.immutable.Map&lt;String,String&gt;&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#lagomUnmanagedServices--">lagomUnmanagedServices</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code>sbt.TaskKey&lt;scala.runtime.BoxedUnit&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomPlugin.autoImport$.html#runAll--">runAll</a></span>()</code>&nbsp;</td>
 </tr>
@@ -523,6 +559,87 @@ extends Object</pre>
 <li class="blockList">
 <h4>lagomCassandraMaxBootWaitingTime</h4>
 <pre>public&nbsp;sbt.SettingKey&lt;scala.concurrent.duration.FiniteDuration&gt;&nbsp;lagomCassandraMaxBootWaitingTime()</pre>
+</li>
+</ul>
+<a name="lagomKafkaStart--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>lagomKafkaStart</h4>
+<pre>public&nbsp;sbt.TaskKey&lt;scala.runtime.BoxedUnit&gt;&nbsp;lagomKafkaStart()</pre>
+</li>
+</ul>
+<a name="lagomKafkaStop--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>lagomKafkaStop</h4>
+<pre>public&nbsp;sbt.TaskKey&lt;scala.runtime.BoxedUnit&gt;&nbsp;lagomKafkaStop()</pre>
+</li>
+</ul>
+<a name="lagomKafkaPropertiesFile--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>lagomKafkaPropertiesFile</h4>
+<pre>public&nbsp;sbt.SettingKey&lt;scala.Option&lt;java.io.File&gt;&gt;&nbsp;lagomKafkaPropertiesFile()</pre>
+</li>
+</ul>
+<a name="lagomKafkaEnabled--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>lagomKafkaEnabled</h4>
+<pre>public&nbsp;sbt.SettingKey&lt;Object&gt;&nbsp;lagomKafkaEnabled()</pre>
+</li>
+</ul>
+<a name="lagomKafkaCleanOnStart--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>lagomKafkaCleanOnStart</h4>
+<pre>public&nbsp;sbt.SettingKey&lt;Object&gt;&nbsp;lagomKafkaCleanOnStart()</pre>
+</li>
+</ul>
+<a name="lagomKafkaJvmOptions--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>lagomKafkaJvmOptions</h4>
+<pre>public&nbsp;sbt.SettingKey&lt;scala.collection.Seq&lt;String&gt;&gt;&nbsp;lagomKafkaJvmOptions()</pre>
+</li>
+</ul>
+<a name="lagomKafkaZookeperPort--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>lagomKafkaZookeperPort</h4>
+<pre>public&nbsp;sbt.SettingKey&lt;Object&gt;&nbsp;lagomKafkaZookeperPort()</pre>
+</li>
+</ul>
+<a name="lagomKafkaPort--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>lagomKafkaPort</h4>
+<pre>public&nbsp;sbt.SettingKey&lt;Object&gt;&nbsp;lagomKafkaPort()</pre>
+</li>
+</ul>
+<a name="lagomKafkaAddress--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>lagomKafkaAddress</h4>
+<pre>public&nbsp;sbt.SettingKey&lt;String&gt;&nbsp;lagomKafkaAddress()</pre>
 </li>
 </ul>
 <a name="lagomExternalProject-java.lang.String-sbt.ModuleID-">

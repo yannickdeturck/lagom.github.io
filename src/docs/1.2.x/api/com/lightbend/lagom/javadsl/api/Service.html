@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":17,"i1":17,"i2":17,"i3":6,"i4":17,"i5":17,"i6":17,"i7":17,"i8":17,"i9":17,"i10":17,"i11":17,"i12":17,"i13":17,"i14":17,"i15":17,"i16":17,"i17":17,"i18":17,"i19":17,"i20":17,"i21":17,"i22":17,"i23":17,"i24":17,"i25":17,"i26":17,"i27":17,"i28":17,"i29":17,"i30":17,"i31":17,"i32":17};
+var methods = {"i0":17,"i1":17,"i2":17,"i3":6,"i4":17,"i5":17,"i6":17,"i7":17,"i8":17,"i9":17,"i10":17,"i11":17,"i12":17,"i13":17,"i14":17,"i15":17,"i16":17,"i17":17,"i18":17,"i19":17,"i20":17,"i21":17,"i22":17,"i23":17,"i24":17,"i25":17,"i26":17,"i27":17,"i28":17,"i29":17,"i30":17,"i31":17,"i32":17,"i33":17,"i34":17,"i35":17};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -370,6 +370,27 @@ var activeTableTab = "activeTableTab";
         String&nbsp;pathPattern,
         java.lang.reflect.Method&nbsp;methodRef)</code>
 <div class="block">Create a REST service call descriptor, identified by the given HTTP method and path pattern.</div>
+</td>
+</tr>
+<tr id="i33" class="rowColor">
+<td class="colFirst"><code>static &lt;Message&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;Message&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html#topic-java.lang.String-akka.japi.function.Creator-">topic</a></span>(String&nbsp;topicId,
+     akka.japi.function.Creator&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/broker/Topic.html" title="interface in com.lightbend.lagom.javadsl.api.broker">Topic</a>&lt;Message&gt;&gt;&nbsp;methodRef)</code>
+<div class="block">Create a topic call descriptor, identified by the given topic id.</div>
+</td>
+</tr>
+<tr id="i34" class="altColor">
+<td class="colFirst"><code>static &lt;Message&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;Message&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html#topic-java.lang.String-java.lang.reflect.Method-">topic</a></span>(String&nbsp;topicId,
+     java.lang.reflect.Method&nbsp;methodRef)</code>
+<div class="block">Create a topic call descriptor, identified by the given topic id.</div>
+</td>
+</tr>
+<tr id="i35" class="rowColor">
+<td class="colFirst"><code>static &lt;Message&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;Message&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Service.html#topic-java.lang.String-java.lang.Object-">topic</a></span>(String&nbsp;topicId,
+     Object&nbsp;methodRef)</code>
+<div class="block">Create a topic call descriptor, identified by the given topic id.</div>
 </td>
 </tr>
 </table>
@@ -984,7 +1005,7 @@ var activeTableTab = "activeTableTab";
 <a name="call-com.lightbend.lagom.javadsl.api.Descriptor.CallId-java.lang.Object-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>call</h4>
 <pre>static&nbsp;&lt;Request,Response&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Call.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Call</a>&lt;Request,Response&gt;&nbsp;call(<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.CallId.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.CallId</a>&nbsp;callId,
@@ -996,6 +1017,60 @@ var activeTableTab = "activeTableTab";
 <dd><code>methodRef</code> - The service call.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>A service call descriptor.</dd>
+</dl>
+</li>
+</ul>
+<a name="topic-java.lang.String-java.lang.reflect.Method-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>topic</h4>
+<pre>static&nbsp;&lt;Message&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;Message&gt;&nbsp;topic(String&nbsp;topicId,
+                                                     java.lang.reflect.Method&nbsp;methodRef)</pre>
+<div class="block">Create a topic call descriptor, identified by the given topic id.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>topicId</code> - The topic identifier.</dd>
+<dd><code>methodRef</code> - The topic  call.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A topic call descriptor.</dd>
+</dl>
+</li>
+</ul>
+<a name="topic-java.lang.String-akka.japi.function.Creator-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>topic</h4>
+<pre>static&nbsp;&lt;Message&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;Message&gt;&nbsp;topic(String&nbsp;topicId,
+                                                     akka.japi.function.Creator&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/broker/Topic.html" title="interface in com.lightbend.lagom.javadsl.api.broker">Topic</a>&lt;Message&gt;&gt;&nbsp;methodRef)</pre>
+<div class="block">Create a topic call descriptor, identified by the given topic id.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>topicId</code> - The topic identifier.</dd>
+<dd><code>methodRef</code> - The topic  call.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A topic call descriptor.</dd>
+</dl>
+</li>
+</ul>
+<a name="topic-java.lang.String-java.lang.Object-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>topic</h4>
+<pre>static&nbsp;&lt;Message&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;Message&gt;&nbsp;topic(String&nbsp;topicId,
+                                                     Object&nbsp;methodRef)</pre>
+<div class="block">Create a topic call descriptor, identified by the given topic id.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>topicId</code> - The topic identifier.</dd>
+<dd><code>methodRef</code> - The topic  call.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A topic call descriptor.</dd>
 </dl>
 </li>
 </ul>
