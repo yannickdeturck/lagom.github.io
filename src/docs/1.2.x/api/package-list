@@ -8,6 +8,7 @@ com.lightbend.lagom.javadsl.api.broker
 com.lightbend.lagom.javadsl.api.deser
 com.lightbend.lagom.javadsl.api.security
 com.lightbend.lagom.javadsl.api.transport
+com.lightbend.lagom.javadsl.broker
 com.lightbend.lagom.javadsl.broker.kafka
 com.lightbend.lagom.javadsl.broker.kafka.property
 com.lightbend.lagom.javadsl.client

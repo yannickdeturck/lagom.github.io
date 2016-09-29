@@ -520,6 +520,8 @@
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/api/transport/package-summary.html">com.lightbend.lagom.javadsl.api.transport</a> - package com.lightbend.lagom.javadsl.api.transport</dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/javadsl/broker/package-summary.html">com.lightbend.lagom.javadsl.broker</a> - package com.lightbend.lagom.javadsl.broker</dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/broker/kafka/package-summary.html">com.lightbend.lagom.javadsl.broker.kafka</a> - package com.lightbend.lagom.javadsl.broker.kafka</dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/broker/kafka/property/package-summary.html">com.lightbend.lagom.javadsl.broker.kafka.property</a> - package com.lightbend.lagom.javadsl.broker.kafka.property</dt>
@@ -1930,6 +1932,10 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/sbt/LagomImport$.html#lagomJavadslApi--">lagomJavadslApi()</a></span> - Method in class com.lightbend.lagom.sbt.<a href="com/lightbend/lagom/sbt/LagomImport$.html" title="class in com.lightbend.lagom.sbt">LagomImport$</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/sbt/LagomImport.html#lagomJavadslApi--">lagomJavadslApi()</a></span> - Static method in class com.lightbend.lagom.sbt.<a href="com/lightbend/lagom/sbt/LagomImport.html" title="class in com.lightbend.lagom.sbt">LagomImport</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/sbt/LagomImport$.html#lagomJavadslBroker--">lagomJavadslBroker()</a></span> - Method in class com.lightbend.lagom.sbt.<a href="com/lightbend/lagom/sbt/LagomImport$.html" title="class in com.lightbend.lagom.sbt">LagomImport$</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/sbt/LagomImport.html#lagomJavadslBroker--">lagomJavadslBroker()</a></span> - Static method in class com.lightbend.lagom.sbt.<a href="com/lightbend/lagom/sbt/LagomImport.html" title="class in com.lightbend.lagom.sbt">LagomImport</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/sbt/LagomImport$.html#lagomJavadslClient--">lagomJavadslClient()</a></span> - Method in class com.lightbend.lagom.sbt.<a href="com/lightbend/lagom/sbt/LagomImport$.html" title="class in com.lightbend.lagom.sbt">LagomImport$</a></dt>
 <dd>&nbsp;</dd>
@@ -4417,8 +4423,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.Outcome.html#sideEffects--">sideEffects()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.Outcome.html" title="class in com.lightbend.lagom.javadsl.testkit">PersistentEntityTestDriver.Outcome</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/broker/kafka/TopicProducer.html#singletonAtLeastOnce-java.util.function.Function-">singletonAtLeastOnce(Function&lt;Offset, Source&lt;Pair&lt;Message, Offset&gt;, NotUsed&gt;&gt;)</a></span> - Method in class com.lightbend.lagom.javadsl.broker.kafka.<a href="com/lightbend/lagom/javadsl/broker/kafka/TopicProducer.html" title="class in com.lightbend.lagom.javadsl.broker.kafka">TopicProducer</a></dt>
-<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/broker/TopicProducer.html#singleStreamWithOffset-java.util.function.Function-">singleStreamWithOffset(Function&lt;Offset, Source&lt;Pair&lt;Message, Offset&gt;, ?&gt;&gt;)</a></span> - Static method in class com.lightbend.lagom.javadsl.broker.<a href="com/lightbend/lagom/javadsl/broker/TopicProducer.html" title="class in com.lightbend.lagom.javadsl.broker">TopicProducer</a></dt>
+<dd>
+<div class="block">Publish a single stream.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/dev/Reloader.Source.html#Source-java.io.File-scala.Option-">Source(File, Option&lt;File&gt;)</a></span> - Constructor for class com.lightbend.lagom.dev.<a href="com/lightbend/lagom/dev/Reloader.Source.html" title="class in com.lightbend.lagom.dev">Reloader.Source</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/dev/Reloader.Source$.html#Source:D--">Source$()</a></span> - Constructor for class com.lightbend.lagom.dev.<a href="com/lightbend/lagom/dev/Reloader.Source$.html" title="class in com.lightbend.lagom.dev">Reloader.Source$</a></dt>
@@ -4616,6 +4624,10 @@
 <dl>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html#tag--">tag()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/broker/TopicProducer.html#taggedStreamWithOffset-org.pcollections.PSequence-java.util.function.BiFunction-">taggedStreamWithOffset(PSequence&lt;AggregateEventTag&lt;Event&gt;&gt;, BiFunction&lt;AggregateEventTag&lt;Event&gt;, Offset, Source&lt;Pair&lt;Message, Offset&gt;, ?&gt;&gt;)</a></span> - Static method in class com.lightbend.lagom.javadsl.broker.<a href="com/lightbend/lagom/javadsl/broker/TopicProducer.html" title="class in com.lightbend.lagom.javadsl.broker">TopicProducer</a></dt>
+<dd>
+<div class="block">Publish a stream that is sharded across many tags.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/sbt/run/RunSupport$.html#taskFailureHandler-sbt.Incomplete-scala.Option-">taskFailureHandler(Incomplete, Option&lt;Streams&lt;Init&lt;Scope&gt;.ScopedKey&lt;?&gt;&gt;&gt;)</a></span> - Method in class com.lightbend.lagom.sbt.run.<a href="com/lightbend/lagom/sbt/run/RunSupport$.html" title="class in com.lightbend.lagom.sbt.run">RunSupport$</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/sbt/run/RunSupport.html#taskFailureHandler-sbt.Incomplete-scala.Option-">taskFailureHandler(Incomplete, Option&lt;Streams&lt;Init&lt;Scope&gt;.ScopedKey&lt;?&gt;&gt;&gt;)</a></span> - Static method in class com.lightbend.lagom.sbt.run.<a href="com/lightbend/lagom/sbt/run/RunSupport.html" title="class in com.lightbend.lagom.sbt.run">RunSupport</a></dt>
@@ -4740,10 +4752,12 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/pubsub/TopicId$.html#TopicId:D--">TopicId$()</a></span> - Constructor for class com.lightbend.lagom.javadsl.pubsub.<a href="com/lightbend/lagom/javadsl/pubsub/TopicId$.html" title="class in com.lightbend.lagom.javadsl.pubsub">TopicId$</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/lightbend/lagom/javadsl/broker/kafka/TopicProducer.html" title="class in com.lightbend.lagom.javadsl.broker.kafka"><span class="typeNameLink">TopicProducer</span></a> - Class in <a href="com/lightbend/lagom/javadsl/broker/kafka/package-summary.html">com.lightbend.lagom.javadsl.broker.kafka</a></dt>
+<dt><a href="com/lightbend/lagom/javadsl/broker/TopicProducer.html" title="class in com.lightbend.lagom.javadsl.broker"><span class="typeNameLink">TopicProducer</span></a> - Class in <a href="com/lightbend/lagom/javadsl/broker/package-summary.html">com.lightbend.lagom.javadsl.broker</a></dt>
 <dd>
-<div class="block">Provides functionality for publishing events of a read-side event stream to Kafka.</div>
+<div class="block">Creates topic producers.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/broker/TopicProducer.html#TopicProducer--">TopicProducer()</a></span> - Constructor for class com.lightbend.lagom.javadsl.broker.<a href="com/lightbend/lagom/javadsl/broker/TopicProducer.html" title="class in com.lightbend.lagom.javadsl.broker">TopicProducer</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/dev/DelegatingClassLoader.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.dev.<a href="com/lightbend/lagom/dev/DelegatingClassLoader.html" title="class in com.lightbend.lagom.dev">DelegatingClassLoader</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/dev/NamedURLClassLoader.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.dev.<a href="com/lightbend/lagom/dev/NamedURLClassLoader.html" title="class in com.lightbend.lagom.dev">NamedURLClassLoader</a></dt>

@@ -144,7 +144,7 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>&lt;Event extends <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;<br><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.ReadSideHandlerBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSide.ReadSideHandlerBuilder</a>&lt;Event&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.html#builder-java.lang.String-">builder</a></span>(String&nbsp;offsetTableName)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.html#builder-java.lang.String-">builder</a></span>(String&nbsp;readSideId)</code>
 <div class="block">Create a builder for a Cassandra read side event handler.</div>
 </td>
 </tr>
@@ -208,9 +208,11 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>builder</h4>
-<pre>&lt;Event extends <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;&nbsp;<a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.ReadSideHandlerBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSide.ReadSideHandlerBuilder</a>&lt;Event&gt;&nbsp;builder(String&nbsp;offsetTableName)</pre>
+<pre>&lt;Event extends <a href="../../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;&nbsp;<a href="../../../../../../com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.ReadSideHandlerBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSide.ReadSideHandlerBuilder</a>&lt;Event&gt;&nbsp;builder(String&nbsp;readSideId)</pre>
 <div class="block">Create a builder for a Cassandra read side event handler.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>readSideId</code> - An identifier for this read side. This will be used to store offsets in the offset store.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The builder.</dd>
 </dl>

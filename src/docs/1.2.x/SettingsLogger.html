@@ -33,6 +33,8 @@
   &lt;logger name=&quot;com.datastax.driver&quot; level=&quot;ERROR&quot; /&gt;
   &lt;!-- Turning off connection error logging to avoid noise when services are forcely stopped --&gt;
   &lt;logger name=&quot;com.datastax.driver.core.ControlConnection&quot; level=&quot;OFF&quot; /&gt;
+  &lt;!-- Turn down Kafka noise --&gt;
+  &lt;logger name=&quot;org.apache.kafka&quot; level=&quot;WARN&quot; /&gt;
 
   &lt;root level=&quot;INFO&quot;&gt;
     &lt;appender-ref ref=&quot;STDOUT&quot; /&gt;
@@ -79,6 +81,8 @@
   &lt;!-- Cassandra and the datasta driver are used by the Lagom event sourcing modules --&gt;
   &lt;logger name=&quot;org.apache.cassandra&quot; level=&quot;ERROR&quot; /&gt;
   &lt;logger name=&quot;com.datastax.driver&quot; level=&quot;ERROR&quot; /&gt;
+  &lt;!-- Turn down Kafka noise --&gt;
+  &lt;logger name=&quot;org.apache.kafka&quot; level=&quot;WARN&quot; /&gt;
 
   &lt;root level=&quot;WARN&quot;&gt;
     &lt;appender-ref ref=&quot;ASYNCFILE&quot; /&gt;
