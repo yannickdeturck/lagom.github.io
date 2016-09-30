@@ -78,10 +78,13 @@ public PSequence&lt;AggregateEventTag&lt;BlogEvent&gt;&gt; aggregateTags() {
 <p><a href="api/index.html?com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.html">CassandraReadSide</a> has a <code>builder</code> method for creating a builder for these handlers, this builder will create a handler that will automatically handle readside offsets for you. It can be created like so:</p>
 <pre class="prettyprint"><code class="language-java">CassandraReadSide.ReadSideHandlerBuilder&lt;BlogEvent&gt; builder =
         readSide.builder(&quot;blogsummaryoffset&quot;);</code></pre>
-<p>The argument passed to this method is the name of the table that Lagom should use to persist offsets to. If it doesn&rsquo;t already exist, it will be created for you. You can manually create this table yourself if you wish, the DDL for its creation is as follows:</p>
-<pre class="prettyprint"><code class="language-sql">CREATE TABLE IF NOT EXISTS $offsetTable (
-  partition text, timeUuidOffset timeuuid, sequenceOffset bigint,
-  PRIMARY KEY (partition)
+<p>The argument passed to this method is the ID of the event processor that Lagom will use when it persists offsets to its offset store. The offset store is a Cassandra table, which will be created for you if it doesn&rsquo;t exist. You can manually create this table yourself if you wish, the DDL for its creation is as follows:</p>
+<pre class="prettyprint"><code class="language-sql">CREATE TABLE IF NOT EXISTS offsetStore (
+    eventProcessorId text,
+    tag text,
+    timeUuidOffset timeuuid,
+    sequenceOffset bigint,
+    PRIMARY KEY (eventProcessorId, tag)
 )
 </code></pre><h3 id="Global-prepare"><a class="section-marker" href="#Global-prepare">§</a><a href="#global-prepare" name="global-prepare">Global prepare</a></h3>
 <p>The global prepare callback runs at least once across the whole cluster. It is intended for doing things like creating tables and preparing any data that needs to be available before read side processing starts. Read side processors may be sharded across many nodes, and so tasks like creating tables should usually only be done from one node.</p>
