@@ -215,7 +215,7 @@ object DocumentationGenerator extends App {
 
   val generatedDocs = versions.map(_._2).map(version => version -> renderDocVersion(version))
 
-  val generated = templatePages.map((generatePage _).tupled) ++ renderMarkdownFiles("", markdownDir) ++ blogPostFiles
+  val generated = templatePages.map((generatePage _).tupled) ++ renderMarkdownFiles("", markdownDir) ++ blogPostFiles ++ redirects.map((generateRedirect _).tupled)
 
   // sitemaps
   val mainSitemap = Sitemap("sitemap-main.xml", generated.filter(_.includeInSitemap)
