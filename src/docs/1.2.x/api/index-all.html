@@ -139,10 +139,17 @@
 <div class="block">The base type of <a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a> events may implement this
  interface to make the events available for read-side processing.</div>
 </dd>
+<dt><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html" title="class in com.lightbend.lagom.javadsl.persistence"><span class="typeNameLink">AggregateEventShards</span></a>&lt;<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html" title="type parameter in AggregateEventShards">Event</a> extends <a href="com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html" title="type parameter in AggregateEventShards">Event</a>&gt;&gt; - Class in <a href="com/lightbend/lagom/javadsl/persistence/package-summary.html">com.lightbend.lagom.javadsl.persistence</a></dt>
+<dd>
+<div class="block">The base type of <a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a> events may return one of these
+ to make the events available for sharded read-side processing.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html#AggregateEventShards-java.lang.Class-java.lang.String-int-">AggregateEventShards(Class&lt;Event&gt;, String, int)</a></span> - Constructor for class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventShards</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence"><span class="typeNameLink">AggregateEventTag</span></a>&lt;<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="type parameter in AggregateEventTag">Event</a> extends <a href="com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="type parameter in AggregateEventTag">Event</a>&gt;&gt; - Class in <a href="com/lightbend/lagom/javadsl/persistence/package-summary.html">com.lightbend.lagom.javadsl.persistence</a></dt>
 <dd>
-<div class="block">The base type of <a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a> events may implement this
- interface to make the events available for read-side processing.</div>
+<div class="block">The base type of <a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a> events may return one of these
+ to make the events available for read-side processing.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html#AggregateEventTag-java.lang.Class-java.lang.String-">AggregateEventTag(Class&lt;Event&gt;, String)</a></span> - Constructor for class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a></dt>
 <dd>&nbsp;</dd>
@@ -150,6 +157,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html#AggregateEventTag:D--">AggregateEventTag$()</a></span> - Constructor for class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag$</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTagger.html" title="interface in com.lightbend.lagom.javadsl.persistence"><span class="typeNameLink">AggregateEventTagger</span></a>&lt;<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTagger.html" title="type parameter in AggregateEventTagger">Event</a> extends <a href="com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTagger.html" title="type parameter in AggregateEventTagger">Event</a>&gt;&gt; - Interface in <a href="com/lightbend/lagom/javadsl/persistence/package-summary.html">com.lightbend.lagom.javadsl.persistence</a></dt>
+<dd>
+<div class="block">Selects a tag for an event.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEvent.html#aggregateTag--">aggregateTag()</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html#aggregateTag--">aggregateTag()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraReadSideProcessor</a></dt>
@@ -169,6 +180,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/sbt/run/RunSupport.html#allProblems-scala.collection.Seq-">allProblems(Seq&lt;Incomplete&gt;)</a></span> - Static method in class com.lightbend.lagom.sbt.run.<a href="com/lightbend/lagom/sbt/run/RunSupport.html" title="class in com.lightbend.lagom.sbt.run">RunSupport</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html#allTags--">allTags()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventShards</a></dt>
+<dd>
+<div class="block">Get all the tags for this shard.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html#app--">app()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.TestServer</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/discovery/UnmanagedServices$.html#apply-java.util.Map-">apply(Map&lt;String, String&gt;)</a></span> - Method in class com.lightbend.lagom.discovery.<a href="com/lightbend/lagom/discovery/UnmanagedServices$.html" title="class in com.lightbend.lagom.discovery">UnmanagedServices$</a></dt>
@@ -956,6 +971,8 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html" title="class in com.lightbend.lagom.javadsl.api.transport">TransportErrorCode</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventShards</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraContactPoint.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraContactPoint.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra">CassandraContactPoint</a></dt>
@@ -1026,7 +1043,11 @@
 <dd>
 <div class="block">A stream of the persistent events that have the given <code>aggregateTag</code>, e.g.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html#eventType--">eventType()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventShards</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html#eventType--">eventType()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTagger.html#eventType--">eventType()</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTagger.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEventTagger</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest$.html#eventually-scala.concurrent.duration.FiniteDuration-akka.japi.function.Effect-">eventually(FiniteDuration, Effect)</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest$.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest$</a></dt>
 <dd>
@@ -1186,6 +1207,10 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/dev/Reloader.html#forceReload--">forceReload()</a></span> - Method in class com.lightbend.lagom.dev.<a href="com/lightbend/lagom/dev/Reloader.html" title="class in com.lightbend.lagom.dev">Reloader</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html#forEntityId-java.lang.String-">forEntityId(String)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventShards</a></dt>
+<dd>
+<div class="block">Get the tag for the given entity ID.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/security/ServicePrincipal.html#forServiceNamed-java.lang.String-">forServiceNamed(String)</a></span> - Static method in interface com.lightbend.lagom.javadsl.api.security.<a href="com/lightbend/lagom/javadsl/api/security/ServicePrincipal.html" title="interface in com.lightbend.lagom.javadsl.api.security">ServicePrincipal</a></dt>
 <dd>
 <div class="block">Get a service principal for the given named service.</div>
@@ -1543,6 +1568,8 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/ResponseHeader.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/ResponseHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">ResponseHeader</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html" title="class in com.lightbend.lagom.javadsl.api.transport">TransportErrorCode</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventShards</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a></dt>
 <dd>&nbsp;</dd>
@@ -2854,6 +2881,8 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.NotSerializable$.html#NotSerializable:D--">NotSerializable$()</a></span> - Constructor for class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.NotSerializable$.html" title="class in com.lightbend.lagom.javadsl.testkit">PersistentEntityTestDriver.NotSerializable$</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/sbt/NonBlockingInteractionMode.NullLogger$.html#NullLogger:D--">NullLogger$()</a></span> - Constructor for class com.lightbend.lagom.sbt.<a href="com/lightbend/lagom/sbt/NonBlockingInteractionMode.NullLogger$.html" title="class in com.lightbend.lagom.sbt">NonBlockingInteractionMode.NullLogger$</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html#numShards--">numShards()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventShards</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <a name="I:O">
@@ -4377,37 +4406,21 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/maven/StartKafkaMojo.html#setZookeeperPort-int-">setZookeeperPort(int)</a></span> - Method in class com.lightbend.lagom.maven.<a href="com/lightbend/lagom/maven/StartKafkaMojo.html" title="class in com.lightbend.lagom.maven">StartKafkaMojo</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html#shard-java.lang.Class-int-java.lang.String-">shard(Class&lt;Event&gt;, int, String)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag$</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html#sharded-java.lang.Class-int-">sharded(Class&lt;Event&gt;, int)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag$</a></dt>
+<dd>
+<div class="block">Create an aggregate event shards tagger.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html#sharded-java.lang.Class-java.lang.String-int-">sharded(Class&lt;Event&gt;, String, int)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag$</a></dt>
 <dd>
 <div class="block">Create a sharded aggregate event tag.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html#shard-java.lang.Class-java.lang.String-int-java.lang.String-">shard(Class&lt;Event&gt;, String, int, String)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag$</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html#sharded-java.lang.Class-int-">sharded(Class&lt;Event&gt;, int)</a></span> - Static method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a></dt>
+<dd>
+<div class="block">Create an aggregate event shards tagger.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html#sharded-java.lang.Class-java.lang.String-int-">sharded(Class&lt;Event&gt;, String, int)</a></span> - Static method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a></dt>
 <dd>
 <div class="block">Create a sharded aggregate event tag.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html#shard-java.lang.Class-int-java.lang.String-">shard(Class&lt;Event&gt;, int, String)</a></span> - Static method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a></dt>
-<dd>
-<div class="block">Create a sharded aggregate event tag.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html#shard-java.lang.Class-java.lang.String-int-java.lang.String-">shard(Class&lt;Event&gt;, String, int, String)</a></span> - Static method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a></dt>
-<dd>
-<div class="block">Create a sharded aggregate event tag.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html#shards-java.lang.Class-int-">shards(Class&lt;Event&gt;, int)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag$</a></dt>
-<dd>
-<div class="block">Create a sequence of sharded tags according to the number of shards.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html#shards-java.lang.Class-java.lang.String-int-">shards(Class&lt;Event&gt;, String, int)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag$</a></dt>
-<dd>
-<div class="block">Create a sequence of sharded tags according to the number of shards.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html#shards-java.lang.Class-int-">shards(Class&lt;Event&gt;, int)</a></span> - Static method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a></dt>
-<dd>
-<div class="block">Create a sequence of sharded tags according to the number of shards.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html#shards-java.lang.Class-java.lang.String-int-">shards(Class&lt;Event&gt;, String, int)</a></span> - Static method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a></dt>
-<dd>
-<div class="block">Create a sequence of sharded tags according to the number of shards.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html#shardTag-java.lang.String-int-">shardTag(String, int)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag$</a></dt>
 <dd>
@@ -4622,6 +4635,8 @@
 </a>
 <h2 class="title">T</h2>
 <dl>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html#tag--">tag()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventShards</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html#tag--">tag()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/broker/TopicProducer.html#taggedStreamWithOffset-org.pcollections.PSequence-java.util.function.BiFunction-">taggedStreamWithOffset(PSequence&lt;AggregateEventTag&lt;Event&gt;&gt;, BiFunction&lt;AggregateEventTag&lt;Event&gt;, Offset, Source&lt;Pair&lt;Message, Offset&gt;, ?&gt;&gt;)</a></span> - Static method in class com.lightbend.lagom.javadsl.broker.<a href="com/lightbend/lagom/javadsl/broker/TopicProducer.html" title="class in com.lightbend.lagom.javadsl.broker">TopicProducer</a></dt>
@@ -4793,6 +4808,8 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/TransportErrorCode.html" title="class in com.lightbend.lagom.javadsl.api.transport">TransportErrorCode</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/TransportException.html#toString--">toString()</a></span> - Method in exception com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/TransportException.html" title="class in com.lightbend.lagom.javadsl.api.transport">TransportException</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventShards</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a></dt>
 <dd>&nbsp;</dd>

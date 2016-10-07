@@ -88,33 +88,39 @@
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTagger.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEventTagger</a>&lt;Event extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;</td>
+<td class="colLast">
+<div class="block">Selects a tag for an event.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="interface in com.lightbend.lagom.javadsl.persistence">PersistentEntity.Persist</a>&lt;B extends Event&gt;</td>
 <td class="colLast">
 <div class="block">A command handler returns a <code>Persist</code> directive that defines what event or events,
  if any, to persist.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistNone.html" title="interface in com.lightbend.lagom.javadsl.persistence">PersistentEntity.PersistNone</a>&lt;B extends Event&gt;</td>
 <td class="colLast">
 <div class="block">INTERNAL API</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.ReplyType.html" title="interface in com.lightbend.lagom.javadsl.persistence">PersistentEntity.ReplyType</a>&lt;R&gt;</td>
 <td class="colLast">
 <div class="block">Commands to a <code>PersistentEntity</code> must implement this interface
  to define the reply type.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRegistry.html" title="interface in com.lightbend.lagom.javadsl.persistence">PersistentEntityRegistry</a></td>
 <td class="colLast">
 <div class="block">At system startup all <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a> classes must be registered here
  with <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRegistry.html#register-java.lang.Class-"><code>PersistentEntityRegistry.register(java.lang.Class&lt;? extends com.lightbend.lagom.javadsl.persistence.PersistentEntity&lt;C, E, S&gt;&gt;)</code></a>.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/ReadSide.html" title="interface in com.lightbend.lagom.javadsl.persistence">ReadSide</a></td>
 <td class="colLast">
 <div class="block">The Lagom read-side registry.</div>
@@ -132,96 +138,103 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a>&lt;Event extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;</td>
+<td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventShards.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventShards</a>&lt;Event extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;</td>
 <td class="colLast">
-<div class="block">The base type of <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a> events may implement this
- interface to make the events available for read-side processing.</div>
+<div class="block">The base type of <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a> events may return one of these
+ to make the events available for sharded read-side processing.</div>
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag</a>&lt;Event extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;</td>
+<td class="colLast">
+<div class="block">The base type of <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a> events may return one of these
+ to make the events available for read-side processing.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEventTag$.html" title="class in com.lightbend.lagom.javadsl.persistence">AggregateEventTag$</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/CommandEnvelope.html" title="class in com.lightbend.lagom.javadsl.persistence">CommandEnvelope</a></td>
 <td class="colLast">
 <div class="block">Commands to <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a> are wrapped in this envelope
  when sent via <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntityRef</code></a> (i.e.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/CommandEnvelope$.html" title="class in com.lightbend.lagom.javadsl.persistence">CommandEnvelope$</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/Offset.html" title="class in com.lightbend.lagom.javadsl.persistence">Offset</a></td>
 <td class="colLast">
 <div class="block">An offset.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/Offset.NoOffset.html" title="class in com.lightbend.lagom.javadsl.persistence">Offset.NoOffset</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/Offset.Sequence.html" title="class in com.lightbend.lagom.javadsl.persistence">Offset.Sequence</a></td>
 <td class="colLast">
 <div class="block">A sequence number offset, backed by a long.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/Offset.TimeBasedUUID.html" title="class in com.lightbend.lagom.javadsl.persistence">Offset.TimeBasedUUID</a></td>
 <td class="colLast">
 <div class="block">A time-based UUID offset, backed by a UUID.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistenceModule.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistenceModule</a></td>
 <td class="colLast">
 <div class="block">Guice module for the Persistence API.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistenceModule$.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistenceModule$</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity</a>&lt;Command,Event,State&gt;</td>
 <td class="colLast">
 <div class="block">A <code>PersistentEntity</code> has a stable entity identifier, with which
  it can be accessed from anywhere in the cluster.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.InvalidCommandException$.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.InvalidCommandException$</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistException$.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.PersistException$</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.UnhandledCommandException$.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.UnhandledCommandException$</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity$.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity$</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntityRef.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntityRef</a>&lt;Command&gt;</td>
 <td class="colLast">
 <div class="block">Commands are sent to a <a href="../../../../../com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><code>PersistentEntity</code></a> using a
  <code>PersistentEntityRef</code>.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/ReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence">ReadSideProcessor</a>&lt;Event extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;</td>
 <td class="colLast">
 <div class="block">A read side processor.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../com/lightbend/lagom/javadsl/persistence/ReadSideProcessor.ReadSideHandler.html" title="class in com.lightbend.lagom.javadsl.persistence">ReadSideProcessor.ReadSideHandler</a>&lt;Event extends <a href="../../../../../com/lightbend/lagom/javadsl/persistence/AggregateEvent.html" title="interface in com.lightbend.lagom.javadsl.persistence">AggregateEvent</a>&lt;Event&gt;&gt;</td>
 <td class="colLast">
 <div class="block">An read side offset processor.</div>

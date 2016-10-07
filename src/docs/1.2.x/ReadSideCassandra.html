@@ -72,7 +72,7 @@ import static com.lightbend.lagom.javadsl.persistence.cassandra.CassandraReadSid
 <p>You should already have implemented tagging for your events as described in the <a href="ReadSide.html">Read-Side documentation</a>, so first we&rsquo;ll implement the <code>aggregateTags</code> method in our read-side processor stub, like so:</p>
 <pre class="prettyprint"><code class="language-java">@Override
 public PSequence&lt;AggregateEventTag&lt;BlogEvent&gt;&gt; aggregateTags() {
-    return BlogEvent.TAGS;
+    return BlogEvent.TAG.allTags();
 }</code></pre><h3 id="Building-the-read-side-handler"><a class="section-marker" href="#Building-the-read-side-handler">§</a>Building the read-side handler</h3>
 <p>The other method on the <code>ReadSideProcessor</code> is <code>buildHandler</code>. This is responsible for creating the <a href="api/index.html?com/lightbend/lagom/javadsl/persistence/ReadSideProcessor.ReadSideHandler.html">ReadSideHandler</a> that will handle events. It also gives the opportunity to run two callbacks, one is a global prepare callback, the other is a regular prepare callback.</p>
 <p><a href="api/index.html?com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.html">CassandraReadSide</a> has a <code>builder</code> method for creating a builder for these handlers, this builder will create a handler that will automatically handle readside offsets for you. It can be created like so:</p>
