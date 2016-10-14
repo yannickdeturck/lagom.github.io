@@ -5,12 +5,12 @@ com.lightbend.lagom.discovery.impl
 com.lightbend.lagom.gateway
 com.lightbend.lagom.javadsl.api
 com.lightbend.lagom.javadsl.api.broker
+com.lightbend.lagom.javadsl.api.broker.kafka
 com.lightbend.lagom.javadsl.api.deser
 com.lightbend.lagom.javadsl.api.security
 com.lightbend.lagom.javadsl.api.transport
 com.lightbend.lagom.javadsl.broker
 com.lightbend.lagom.javadsl.broker.kafka
-com.lightbend.lagom.javadsl.broker.kafka.property
 com.lightbend.lagom.javadsl.client
 com.lightbend.lagom.javadsl.client.integration
 com.lightbend.lagom.javadsl.cluster.testkit
@@ -33,5 +33,4 @@ com.lightbend.lagom.sbt.core
 com.lightbend.lagom.sbt.run
 com.lightbend.lagom.sbt.server
 com.lightbend.lagom.serialization
-com.typesafe.slick.driver.oracle
 play.core.server

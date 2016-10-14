@@ -17,7 +17,7 @@
 
   client {
     default {
-      # Exponential backoff for failures     
+      # Exponential backoff for failures
       failure-exponential-backoff {
         # minimum (initial) duration until processor is started again
         # after failure
@@ -31,7 +31,7 @@
       }
     }
 
-    # configuration used by the Lagom Kafka producer 
+    # configuration used by the Lagom Kafka producer
     producer = ${lagom.broker.kafka.client.default}
     producer.role = &quot;&quot;
 
@@ -44,14 +44,14 @@
       # By increasing the batching-size you are trading speed with the risk of having
       # to re-process a larger number of messages if a failure occurs.
       # The value provided must be strictly greater than zero.
-  	  batching-size = 20
+      batching-size = 20
 
       # Interval of time waited by the consumer before the currently batched messages&#39;
       # offsets are committed to Kafka.
       # This parameter is useful to ensure that messages&#39; offsets are always committed
       # within a fixed amount of time.
       # The value provided must be strictly greater than zero.
-  	  batching-interval = 5 seconds
+      batching-interval = 5 seconds
     }
   }
 }</code></pre>

@@ -529,6 +529,8 @@
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/api/broker/package-summary.html">com.lightbend.lagom.javadsl.api.broker</a> - package com.lightbend.lagom.javadsl.api.broker</dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/javadsl/api/broker/kafka/package-summary.html">com.lightbend.lagom.javadsl.api.broker.kafka</a> - package com.lightbend.lagom.javadsl.api.broker.kafka</dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/api/deser/package-summary.html">com.lightbend.lagom.javadsl.api.deser</a> - package com.lightbend.lagom.javadsl.api.deser</dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/api/security/package-summary.html">com.lightbend.lagom.javadsl.api.security</a> - package com.lightbend.lagom.javadsl.api.security</dt>
@@ -538,8 +540,6 @@
 <dt><a href="com/lightbend/lagom/javadsl/broker/package-summary.html">com.lightbend.lagom.javadsl.broker</a> - package com.lightbend.lagom.javadsl.broker</dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/broker/kafka/package-summary.html">com.lightbend.lagom.javadsl.broker.kafka</a> - package com.lightbend.lagom.javadsl.broker.kafka</dt>
-<dd>&nbsp;</dd>
-<dt><a href="com/lightbend/lagom/javadsl/broker/kafka/property/package-summary.html">com.lightbend.lagom.javadsl.broker.kafka.property</a> - package com.lightbend.lagom.javadsl.broker.kafka.property</dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/client/package-summary.html">com.lightbend.lagom.javadsl.client</a> - package com.lightbend.lagom.javadsl.client</dt>
 <dd>&nbsp;</dd>
@@ -584,8 +584,6 @@
 <dt><a href="com/lightbend/lagom/sbt/server/package-summary.html">com.lightbend.lagom.sbt.server</a> - package com.lightbend.lagom.sbt.server</dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/serialization/package-summary.html">com.lightbend.lagom.serialization</a> - package com.lightbend.lagom.serialization</dt>
-<dd>&nbsp;</dd>
-<dt><a href="com/typesafe/slick/driver/oracle/package-summary.html">com.typesafe.slick.driver.oracle</a> - package com.typesafe.slick.driver.oracle</dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.UnhandledCommand.html#command--">command()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/PersistentEntityTestDriver.UnhandledCommand.html" title="class in com.lightbend.lagom.javadsl.testkit">PersistentEntityTestDriver.UnhandledCommand</a></dt>
 <dd>&nbsp;</dd>
@@ -676,7 +674,7 @@
  marker interface and the payload is larger than the configured
  <code>compress-larger-than</code> value.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/broker/kafka/property/PartitionKeyStrategy.html#computePartitionKey-Message-">computePartitionKey(Message)</a></span> - Method in interface com.lightbend.lagom.javadsl.broker.kafka.property.<a href="com/lightbend/lagom/javadsl/broker/kafka/property/PartitionKeyStrategy.html" title="interface in com.lightbend.lagom.javadsl.broker.kafka.property">PartitionKeyStrategy</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/broker/kafka/PartitionKeyStrategy.html#computePartitionKey-Message-">computePartitionKey(Message)</a></span> - Method in interface com.lightbend.lagom.javadsl.api.broker.kafka.<a href="com/lightbend/lagom/javadsl/api/broker/kafka/PartitionKeyStrategy.html" title="interface in com.lightbend.lagom.javadsl.api.broker.kafka">PartitionKeyStrategy</a></dt>
 <dd>
 <div class="block">Computes a key from a message.</div>
 </dd>
@@ -731,6 +729,8 @@
 <dd>
 <div class="block">Creates an immutable copy of a <a href="com/lightbend/lagom/javadsl/server/status/AbstractLatency.html" title="interface in com.lightbend.lagom.javadsl.server.status"><code>AbstractLatency</code></a> value.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/broker/kafka/KafkaTopicFactory.html#create-com.lightbend.lagom.javadsl.api.Descriptor.TopicCall-">create(Descriptor.TopicCall&lt;Message&gt;)</a></span> - Method in class com.lightbend.lagom.javadsl.broker.kafka.<a href="com/lightbend/lagom/javadsl/broker/kafka/KafkaTopicFactory.html" title="class in com.lightbend.lagom.javadsl.broker.kafka">KafkaTopicFactory</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html#create-java.lang.String-java.lang.ClassLoader-">create(String, ClassLoader)</a></span> - Static method in class com.lightbend.lagom.javadsl.client.integration.<a href="com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html" title="class in com.lightbend.lagom.javadsl.client.integration">LagomClientFactory</a></dt>
 <dd>
 <div class="block">Create a client factory that uses the given service locator.</div>
@@ -849,12 +849,14 @@
 <dd>
 <div class="block">A path based call ID.</div>
 </dd>
-<dt><a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.html" title="class in com.lightbend.lagom.javadsl.api"><span class="typeNameLink">Descriptor.Properties</span></a> - Class in <a href="com/lightbend/lagom/javadsl/api/package-summary.html">com.lightbend.lagom.javadsl.api</a></dt>
+<dt><a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.html" title="class in com.lightbend.lagom.javadsl.api"><span class="typeNameLink">Descriptor.Properties</span></a>&lt;<a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.html" title="type parameter in Descriptor.Properties">Message</a>&gt; - Class in <a href="com/lightbend/lagom/javadsl/api/package-summary.html">com.lightbend.lagom.javadsl.api</a></dt>
 <dd>
 <div class="block">Holds a map of properties.</div>
 </dd>
-<dt><a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html" title="class in com.lightbend.lagom.javadsl.api"><span class="typeNameLink">Descriptor.Properties.Property</span></a>&lt;<a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html" title="type parameter in Descriptor.Properties.Property">T</a>&gt; - Class in <a href="com/lightbend/lagom/javadsl/api/package-summary.html">com.lightbend.lagom.javadsl.api</a></dt>
-<dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html" title="class in com.lightbend.lagom.javadsl.api"><span class="typeNameLink">Descriptor.Properties.Property</span></a>&lt;<a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html" title="type parameter in Descriptor.Properties.Property">Message</a>,<a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html" title="type parameter in Descriptor.Properties.Property">T</a>&gt; - Class in <a href="com/lightbend/lagom/javadsl/api/package-summary.html">com.lightbend.lagom.javadsl.api</a></dt>
+<dd>
+<div class="block">A property.</div>
+</dd>
 <dt><a href="com/lightbend/lagom/javadsl/api/Descriptor.RestCallId.html" title="class in com.lightbend.lagom.javadsl.api"><span class="typeNameLink">Descriptor.RestCallId</span></a> - Class in <a href="com/lightbend/lagom/javadsl/api/package-summary.html">com.lightbend.lagom.javadsl.api</a></dt>
 <dd>
 <div class="block">A REST call ID.</div>
@@ -863,7 +865,7 @@
 <dd>
 <div class="block">Holds the service call itself.</div>
 </dd>
-<dt><a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api"><span class="typeNameLink">Descriptor.TopicCall</span></a>&lt;<a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>&gt; - Interface in <a href="com/lightbend/lagom/javadsl/api/package-summary.html">com.lightbend.lagom.javadsl.api</a></dt>
+<dt><a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api"><span class="typeNameLink">Descriptor.TopicCall</span></a>&lt;<a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>&gt; - Class in <a href="com/lightbend/lagom/javadsl/api/package-summary.html">com.lightbend.lagom.javadsl.api</a></dt>
 <dd>
 <div class="block">Describes a topic call.</div>
 </dd>
@@ -954,6 +956,8 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.NamedCallId.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.NamedCallId.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.NamedCallId</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.PathCallId.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.PathCallId.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.PathCallId</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties.Property</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.RestCallId.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.RestCallId.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.RestCallId</a></dt>
 <dd>&nbsp;</dd>
@@ -1484,9 +1488,9 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/maven/StartServiceLocatorMojo.html#getUnmanagedServices--">getUnmanagedServices()</a></span> - Method in class com.lightbend.lagom.maven.<a href="com/lightbend/lagom/maven/StartServiceLocatorMojo.html" title="class in com.lightbend.lagom.maven">StartServiceLocatorMojo</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.html#getValueOf-com.lightbend.lagom.javadsl.api.Descriptor.Properties.Property-">getValueOf(Descriptor.Properties.Property&lt;T&gt;)</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.html#getValueOf-com.lightbend.lagom.javadsl.api.Descriptor.Properties.Property-">getValueOf(Descriptor.Properties.Property&lt;Message, T&gt;)</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties</a></dt>
 <dd>
-<div class="block">Returns the value associated with the passed property, or null if 
+<div class="block">Returns the value associated with the passed property, or null if
  the no matching property is found.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/maven/StartMojo.html#getWatchDirs--">getWatchDirs()</a></span> - Method in class com.lightbend.lagom.maven.<a href="com/lightbend/lagom/maven/StartMojo.html" title="class in com.lightbend.lagom.maven">StartMojo</a></dt>
@@ -1552,6 +1556,8 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.NamedCallId.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.NamedCallId.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.NamedCallId</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.PathCallId.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.PathCallId.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.PathCallId</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties.Property</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.RestCallId.html#hashCode--">hashCode()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.RestCallId.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.RestCallId</a></dt>
 <dd>&nbsp;</dd>
@@ -1842,6 +1848,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/maven/StartKafkaMojo.html#kafkaCleanOnStart--">kafkaCleanOnStart()</a></span> - Method in class com.lightbend.lagom.maven.<a href="com/lightbend/lagom/maven/StartKafkaMojo.html" title="class in com.lightbend.lagom.maven">StartKafkaMojo</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/javadsl/broker/kafka/KafkaClientModule.html" title="class in com.lightbend.lagom.javadsl.broker.kafka"><span class="typeNameLink">KafkaClientModule</span></a> - Class in <a href="com/lightbend/lagom/javadsl/broker/kafka/package-summary.html">com.lightbend.lagom.javadsl.broker.kafka</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/broker/kafka/KafkaClientModule.html#KafkaClientModule--">KafkaClientModule()</a></span> - Constructor for class com.lightbend.lagom.javadsl.broker.kafka.<a href="com/lightbend/lagom/javadsl/broker/kafka/KafkaClientModule.html" title="class in com.lightbend.lagom.javadsl.broker.kafka">KafkaClientModule</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/maven/StartKafkaMojo.html#kafkaEnabled--">kafkaEnabled()</a></span> - Method in class com.lightbend.lagom.maven.<a href="com/lightbend/lagom/maven/StartKafkaMojo.html" title="class in com.lightbend.lagom.maven">StartKafkaMojo</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/maven/StopKafkaMojo.html#kafkaEnabled--">kafkaEnabled()</a></span> - Method in class com.lightbend.lagom.maven.<a href="com/lightbend/lagom/maven/StopKafkaMojo.html" title="class in com.lightbend.lagom.maven">StopKafkaMojo</a></dt>
@@ -1854,9 +1864,19 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/maven/StartMojo.html#kafkaPort--">kafkaPort()</a></span> - Method in class com.lightbend.lagom.maven.<a href="com/lightbend/lagom/maven/StartMojo.html" title="class in com.lightbend.lagom.maven">StartMojo</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/javadsl/api/broker/kafka/KafkaProperties.html" title="class in com.lightbend.lagom.javadsl.api.broker.kafka"><span class="typeNameLink">KafkaProperties</span></a> - Class in <a href="com/lightbend/lagom/javadsl/api/broker/kafka/package-summary.html">com.lightbend.lagom.javadsl.api.broker.kafka</a></dt>
+<dd>
+<div class="block">Provides a set of Kafka specific properties that can be used when creating a topic descriptor.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/maven/StartKafkaMojo.html#kafkaPropertiesFile--">kafkaPropertiesFile()</a></span> - Method in class com.lightbend.lagom.maven.<a href="com/lightbend/lagom/maven/StartKafkaMojo.html" title="class in com.lightbend.lagom.maven">StartKafkaMojo</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/dev/Servers.KafkaServer$.html#KafkaServer:D--">KafkaServer$()</a></span> - Constructor for class com.lightbend.lagom.dev.<a href="com/lightbend/lagom/dev/Servers.KafkaServer$.html" title="class in com.lightbend.lagom.dev">Servers.KafkaServer$</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/lightbend/lagom/javadsl/broker/kafka/KafkaTopicFactory.html" title="class in com.lightbend.lagom.javadsl.broker.kafka"><span class="typeNameLink">KafkaTopicFactory</span></a> - Class in <a href="com/lightbend/lagom/javadsl/broker/kafka/package-summary.html">com.lightbend.lagom.javadsl.broker.kafka</a></dt>
+<dd>
+<div class="block">Factory for creating topics instances.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/broker/kafka/KafkaTopicFactory.html#KafkaTopicFactory-com.lightbend.lagom.javadsl.api.ServiceInfo-akka.actor.ActorSystem-akka.stream.Materializer-scala.concurrent.ExecutionContext-">KafkaTopicFactory(ServiceInfo, ActorSystem, Materializer, ExecutionContext)</a></span> - Constructor for class com.lightbend.lagom.javadsl.broker.kafka.<a href="com/lightbend/lagom/javadsl/broker/kafka/KafkaTopicFactory.html" title="class in com.lightbend.lagom.javadsl.broker.kafka">KafkaTopicFactory</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/sbt/Internal.Keys$.html#Keys:D--">Keys$()</a></span> - Constructor for class com.lightbend.lagom.sbt.<a href="com/lightbend/lagom/sbt/Internal.Keys$.html" title="class in com.lightbend.lagom.sbt">Internal.Keys$</a></dt>
 <dd>&nbsp;</dd>
@@ -1987,6 +2007,10 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/sbt/LagomImport$.html#lagomJavadslKafkaCassandraStore--">lagomJavadslKafkaCassandraStore()</a></span> - Method in class com.lightbend.lagom.sbt.<a href="com/lightbend/lagom/sbt/LagomImport$.html" title="class in com.lightbend.lagom.sbt">LagomImport$</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/sbt/LagomImport.html#lagomJavadslKafkaCassandraStore--">lagomJavadslKafkaCassandraStore()</a></span> - Static method in class com.lightbend.lagom.sbt.<a href="com/lightbend/lagom/sbt/LagomImport.html" title="class in com.lightbend.lagom.sbt">LagomImport</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/sbt/LagomImport$.html#lagomJavadslKafkaClient--">lagomJavadslKafkaClient()</a></span> - Method in class com.lightbend.lagom.sbt.<a href="com/lightbend/lagom/sbt/LagomImport$.html" title="class in com.lightbend.lagom.sbt">LagomImport$</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/sbt/LagomImport.html#lagomJavadslKafkaClient--">lagomJavadslKafkaClient()</a></span> - Static method in class com.lightbend.lagom.sbt.<a href="com/lightbend/lagom/sbt/LagomImport.html" title="class in com.lightbend.lagom.sbt">LagomImport</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/sbt/LagomImport$.html#lagomJavadslPersistence--">lagomJavadslPersistence()</a></span> - Method in class com.lightbend.lagom.sbt.<a href="com/lightbend/lagom/sbt/LagomImport$.html" title="class in com.lightbend.lagom.sbt">LagomImport$</a></dt>
 <dd>&nbsp;</dd>
@@ -2340,7 +2364,7 @@
 <dd>
 <div class="block">Create a message protocol that doesn't specify any content type, charset or version.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#messageSerializer--">messageSerializer()</a></span> - Method in interface com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#messageSerializer--">messageSerializer()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a></dt>
 <dd>
 <div class="block">Get the topic's message serializer.</div>
 </dd>
@@ -2708,10 +2732,6 @@
 <dd>
 <div class="block">Static reference to the singleton instance of this Scala object.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/typesafe/slick/driver/oracle/OracleDriver$.html#MODULE:D">MODULE$</a></span> - Static variable in class com.typesafe.slick.driver.oracle.<a href="com/typesafe/slick/driver/oracle/OracleDriver$.html" title="class in com.typesafe.slick.driver.oracle">OracleDriver$</a></dt>
-<dd>
-<div class="block">Static reference to the singleton instance of this Scala object.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="play/core/server/LagomReloadableDevServerStart$.html#MODULE:D">MODULE$</a></span> - Static variable in class play.core.server.<a href="play/core/server/LagomReloadableDevServerStart$.html" title="class in play.core.server">LagomReloadableDevServerStart$</a></dt>
 <dd>
 <div class="block">Static reference to the singleton instance of this Scala object.</div>
@@ -2740,6 +2760,8 @@
 <dd>
 <div class="block">Get the name of the call.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html#name--">name()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties.Property</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/deser/ExceptionMessage.html#name--">name()</a></span> - Method in class com.lightbend.lagom.javadsl.api.deser.<a href="com/lightbend/lagom/javadsl/api/deser/ExceptionMessage.html" title="class in com.lightbend.lagom.javadsl.api.deser">ExceptionMessage</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/Method.html#name--">name()</a></span> - Method in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/Method.html" title="class in com.lightbend.lagom.javadsl.api.transport">Method</a></dt>
@@ -2963,18 +2985,6 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/Method.html#OPTIONS">OPTIONS</a></span> - Static variable in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/Method.html" title="class in com.lightbend.lagom.javadsl.api.transport">Method</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/typesafe/slick/driver/oracle/OracleDriver.html" title="class in com.typesafe.slick.driver.oracle"><span class="typeNameLink">OracleDriver</span></a> - Class in <a href="com/typesafe/slick/driver/oracle/package-summary.html">com.typesafe.slick.driver.oracle</a></dt>
-<dd>
-<div class="block">HACK!</div>
-</dd>
-<dt><span class="memberNameLink"><a href="com/typesafe/slick/driver/oracle/OracleDriver.html#OracleDriver--">OracleDriver()</a></span> - Constructor for class com.typesafe.slick.driver.oracle.<a href="com/typesafe/slick/driver/oracle/OracleDriver.html" title="class in com.typesafe.slick.driver.oracle">OracleDriver</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="com/typesafe/slick/driver/oracle/OracleDriver$.html" title="class in com.typesafe.slick.driver.oracle"><span class="typeNameLink">OracleDriver$</span></a> - Class in <a href="com/typesafe/slick/driver/oracle/package-summary.html">com.typesafe.slick.driver.oracle</a></dt>
-<dd>
-<div class="block">HACK!</div>
-</dd>
-<dt><span class="memberNameLink"><a href="com/typesafe/slick/driver/oracle/OracleDriver$.html#OracleDriver:D--">OracleDriver$()</a></span> - Constructor for class com.typesafe.slick.driver.oracle.<a href="com/typesafe/slick/driver/oracle/OracleDriver$.html" title="class in com.typesafe.slick.driver.oracle">OracleDriver$</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/dev/PortAssigner.ProjectName.OrderingProjectName$.html#OrderingProjectName:D--">OrderingProjectName$()</a></span> - Constructor for class com.lightbend.lagom.dev.<a href="com/lightbend/lagom/dev/PortAssigner.ProjectName.OrderingProjectName$.html" title="class in com.lightbend.lagom.dev">PortAssigner.ProjectName.OrderingProjectName$</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/dev/Reloader.Source.html#original--">original()</a></span> - Method in class com.lightbend.lagom.dev.<a href="com/lightbend/lagom/dev/Reloader.Source.html" title="class in com.lightbend.lagom.dev">Reloader.Source</a></dt>
@@ -2995,11 +3005,11 @@
 </a>
 <h2 class="title">P</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/broker/kafka/Properties.html#PARTITION_KEY_STRATEGY">PARTITION_KEY_STRATEGY</a></span> - Static variable in class com.lightbend.lagom.javadsl.broker.kafka.<a href="com/lightbend/lagom/javadsl/broker/kafka/Properties.html" title="class in com.lightbend.lagom.javadsl.broker.kafka">Properties</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/broker/kafka/KafkaProperties.html#partitionKeyStrategy--">partitionKeyStrategy()</a></span> - Static method in class com.lightbend.lagom.javadsl.api.broker.kafka.<a href="com/lightbend/lagom/javadsl/api/broker/kafka/KafkaProperties.html" title="class in com.lightbend.lagom.javadsl.api.broker.kafka">KafkaProperties</a></dt>
 <dd>
 <div class="block">A PartitionKeyStrategy produces a key for each message published to a Kafka topic.</div>
 </dd>
-<dt><a href="com/lightbend/lagom/javadsl/broker/kafka/property/PartitionKeyStrategy.html" title="interface in com.lightbend.lagom.javadsl.broker.kafka.property"><span class="typeNameLink">PartitionKeyStrategy</span></a>&lt;<a href="com/lightbend/lagom/javadsl/broker/kafka/property/PartitionKeyStrategy.html" title="type parameter in PartitionKeyStrategy">Message</a>&gt; - Interface in <a href="com/lightbend/lagom/javadsl/broker/kafka/property/package-summary.html">com.lightbend.lagom.javadsl.broker.kafka.property</a></dt>
+<dt><a href="com/lightbend/lagom/javadsl/api/broker/kafka/PartitionKeyStrategy.html" title="interface in com.lightbend.lagom.javadsl.api.broker.kafka"><span class="typeNameLink">PartitionKeyStrategy</span></a>&lt;<a href="com/lightbend/lagom/javadsl/api/broker/kafka/PartitionKeyStrategy.html" title="type parameter in PartitionKeyStrategy">Message</a>&gt; - Interface in <a href="com/lightbend/lagom/javadsl/api/broker/kafka/package-summary.html">com.lightbend.lagom.javadsl.api.broker.kafka</a></dt>
 <dd>
 <div class="block">Defines an algorithm for producing a key from a Message.</div>
 </dd>
@@ -3451,17 +3461,11 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/sbt/LagomReloadableService.html#projectSettings--">projectSettings()</a></span> - Static method in class com.lightbend.lagom.sbt.<a href="com/lightbend/lagom/sbt/LagomReloadableService.html" title="class in com.lightbend.lagom.sbt">LagomReloadableService</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.html#Properties-org.pcollections.PMap-">Properties(PMap&lt;Descriptor.Properties.Property&lt;Object&gt;, Object&gt;)</a></span> - Constructor for class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#properties--">properties()</a></span> - Method in interface com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#properties--">properties()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a></dt>
 <dd>
 <div class="block">Get the properties associated with this topic.</div>
 </dd>
-<dt><a href="com/lightbend/lagom/javadsl/broker/kafka/Properties.html" title="class in com.lightbend.lagom.javadsl.broker.kafka"><span class="typeNameLink">Properties</span></a> - Class in <a href="com/lightbend/lagom/javadsl/broker/kafka/package-summary.html">com.lightbend.lagom.javadsl.broker.kafka</a></dt>
-<dd>
-<div class="block">Provides a set of properties that can be used when creating a topic descriptor.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html#Property--">Property()</a></span> - Constructor for class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties.Property</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html#Property-java.lang.Class-java.lang.String-">Property(Class&lt;T&gt;, String)</a></span> - Constructor for class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties.Property</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/deser/MessageSerializer.NegotiatedSerializer.html#protocol--">protocol()</a></span> - Method in interface com.lightbend.lagom.javadsl.api.deser.<a href="com/lightbend/lagom/javadsl/api/deser/MessageSerializer.NegotiatedSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">MessageSerializer.NegotiatedSerializer</a></dt>
 <dd>
@@ -4751,11 +4755,15 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.html#topicCalls--">topicCalls()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#topicHolder--">topicHolder()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a></dt>
+<dd>
+<div class="block">Get the topic holder.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/broker/Topic.html#topicId--">topicId()</a></span> - Method in interface com.lightbend.lagom.javadsl.api.broker.<a href="com/lightbend/lagom/javadsl/api/broker/Topic.html" title="interface in com.lightbend.lagom.javadsl.api.broker">Topic</a></dt>
 <dd>
 <div class="block">The topic identifier.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#topicId--">topicId()</a></span> - Method in interface com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#topicId--">topicId()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a></dt>
 <dd>
 <div class="block">Get the topic id.</div>
 </dd>
@@ -4788,6 +4796,8 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.NamedCallId.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.NamedCallId.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.NamedCallId</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.PathCallId.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.PathCallId.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.PathCallId</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties.Property</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.RestCallId.html#toString--">toString()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.RestCallId.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.RestCallId</a></dt>
 <dd>&nbsp;</dd>
@@ -5055,6 +5065,8 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/Offset.TimeBasedUUID.html#value--">value()</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/Offset.TimeBasedUUID.html" title="class in com.lightbend.lagom.javadsl.persistence">Offset.TimeBasedUUID</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html#valueClass--">valueClass()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties.Property</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/maven/MavenLoggerProxy.html#verbose-scala.Function0-">verbose(Function0&lt;String&gt;)</a></span> - Method in class com.lightbend.lagom.maven.<a href="com/lightbend/lagom/maven/MavenLoggerProxy.html" title="class in com.lightbend.lagom.maven">MavenLoggerProxy</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/sbt/SbtLoggerProxy.html#verbose-scala.Function0-">verbose(Function0&lt;String&gt;)</a></span> - Method in class com.lightbend.lagom.sbt.<a href="com/lightbend/lagom/sbt/SbtLoggerProxy.html" title="class in com.lightbend.lagom.sbt">SbtLoggerProxy</a></dt>
@@ -5182,9 +5194,9 @@
 <dd>
 <div class="block">Copy the current immutable object by setting a value for the <a href="com/lightbend/lagom/javadsl/server/status/AbstractLatency.html#getMedian--"><code>median</code></a> attribute.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#withMessageSerializer-com.lightbend.lagom.javadsl.api.deser.MessageSerializer-">withMessageSerializer(MessageSerializer&lt;Message, ByteString&gt;)</a></span> - Method in interface com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#withMessageSerializer-com.lightbend.lagom.javadsl.api.deser.MessageSerializer-">withMessageSerializer(MessageSerializer&lt;Message, ByteString&gt;)</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a></dt>
 <dd>
-<div class="block">Create a new topic call with the passed message serializer.</div>
+<div class="block">Return a copy of this topic call with the given message serializer configured.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.html#withMessageSerializer-java.lang.Class-com.lightbend.lagom.javadsl.api.deser.MessageSerializer-">withMessageSerializer(Class&lt;T&gt;, MessageSerializer&lt;T, ?&gt;)</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a></dt>
 <dd>
@@ -5230,9 +5242,11 @@
 <dd>
 <div class="block">Return a copy of this request header with the principal set.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#withProperty-com.lightbend.lagom.javadsl.api.Descriptor.Properties.Property-T-">withProperty(Descriptor.Properties.Property&lt;T&gt;, T)</a></span> - Method in interface com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.html#withProperty-com.lightbend.lagom.javadsl.api.Descriptor.Properties.Property-T-">withProperty(Descriptor.Properties.Property&lt;Message, T&gt;, T)</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#withProperty-com.lightbend.lagom.javadsl.api.Descriptor.Properties.Property-T-">withProperty(Descriptor.Properties.Property&lt;Message, T&gt;, T)</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a></dt>
 <dd>
-<div class="block">Create a new topic call that holds the additional passed property and value.</div>
+<div class="block">Return a copy of this copy call with the given property configured.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/MessageHeader.html#withProtocol-com.lightbend.lagom.javadsl.api.transport.MessageProtocol-">withProtocol(MessageProtocol)</a></span> - Method in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/MessageHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">MessageHeader</a></dt>
 <dd>
@@ -5293,6 +5307,10 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/status/CircuitBreakerStatus.html#withTimestamp-java.time.Instant-">withTimestamp(Instant)</a></span> - Method in class com.lightbend.lagom.javadsl.server.status.<a href="com/lightbend/lagom/javadsl/server/status/CircuitBreakerStatus.html" title="class in com.lightbend.lagom.javadsl.server.status">CircuitBreakerStatus</a></dt>
 <dd>
 <div class="block">Copy the current immutable object by setting a value for the <a href="com/lightbend/lagom/javadsl/server/status/AbstractCircuitBreakerStatus.html#getTimestamp--"><code>timestamp</code></a> attribute.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#withTopicHolder-com.lightbend.lagom.javadsl.api.Descriptor.TopicHolder-">withTopicHolder(Descriptor.TopicHolder)</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a></dt>
+<dd>
+<div class="block">Return a copy of this topic call with the given topic holder configured.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/server/status/CircuitBreakerStatus.html#withTotalFailureCount-long-">withTotalFailureCount(long)</a></span> - Method in class com.lightbend.lagom.javadsl.server.status.<a href="com/lightbend/lagom/javadsl/server/status/CircuitBreakerStatus.html" title="class in com.lightbend.lagom.javadsl.server.status">CircuitBreakerStatus</a></dt>
 <dd>

@@ -158,7 +158,7 @@ extends Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Properties.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties</a></span></code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Properties.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Properties.html" title="type parameter in Descriptor.Properties">Message</a>&gt;</span></code>
 <div class="block">Holds a map of properties.</div>
 </td>
 </tr>
@@ -175,8 +175,8 @@ extends Object</pre>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>static interface&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>&gt;</span></code>
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>&gt;</span></code>
 <div class="block">Describes a topic call.</div>
 </td>
 </tr>
@@ -253,7 +253,7 @@ extends Object</pre>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html#publishing-com.lightbend.lagom.javadsl.api.Descriptor.TopicCall...-">publishing</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;?&gt;...&nbsp;topicCalls)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html#publishing-com.lightbend.lagom.javadsl.api.Descriptor.TopicCall...-">publishing</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;?&gt;...&nbsp;topicCalls)</code>
 <div class="block">Add the given topic calls to this service.</div>
 </td>
 </tr>
@@ -283,7 +283,7 @@ extends Object</pre>
 </tr>
 <tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html#replaceAllTopicCalls-org.pcollections.PSequence-">replaceAllTopicCalls</a></span>(org.pcollections.PSequence&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;?&gt;&gt;&nbsp;topicCalls)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html#replaceAllTopicCalls-org.pcollections.PSequence-">replaceAllTopicCalls</a></span>(org.pcollections.PSequence&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;?&gt;&gt;&nbsp;topicCalls)</code>
 <div class="block">Replace all the topic calls provided by this descriptor with the the given topic calls.</div>
 </td>
 </tr>
@@ -292,7 +292,7 @@ extends Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html#serializerFactory--">serializerFactory</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i17" class="rowColor">
-<td class="colFirst"><code>org.pcollections.PSequence&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;?&gt;&gt;</code></td>
+<td class="colFirst"><code>org.pcollections.PSequence&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;?&gt;&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html#topicCalls--">topicCalls</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i18" class="altColor">
@@ -514,7 +514,7 @@ extends Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>topicCalls</h4>
-<pre>public&nbsp;org.pcollections.PSequence&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;?&gt;&gt;&nbsp;topicCalls()</pre>
+<pre>public&nbsp;org.pcollections.PSequence&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;?&gt;&gt;&nbsp;topicCalls()</pre>
 </li>
 </ul>
 <a name="withPathParamSerializer-java.lang.Class-com.lightbend.lagom.javadsl.api.deser.PathParamSerializer-">
@@ -659,7 +659,7 @@ extends Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>replaceAllTopicCalls</h4>
-<pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a>&nbsp;replaceAllTopicCalls(org.pcollections.PSequence&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;?&gt;&gt;&nbsp;topicCalls)</pre>
+<pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a>&nbsp;replaceAllTopicCalls(org.pcollections.PSequence&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;?&gt;&gt;&nbsp;topicCalls)</pre>
 <div class="block">Replace all the topic calls provided by this descriptor with the the given topic calls.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -819,7 +819,7 @@ extends Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>publishing</h4>
-<pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a>&nbsp;publishing(<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;?&gt;...&nbsp;topicCalls)</pre>
+<pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a>&nbsp;publishing(<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;?&gt;...&nbsp;topicCalls)</pre>
 <div class="block">Add the given topic calls to this service.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>

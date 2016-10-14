@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -91,9 +91,17 @@ var activeTableTab = "activeTableTab";
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">com.lightbend.lagom.javadsl.api</div>
-<h2 title="Interface Descriptor.TopicCall" class="title">Interface Descriptor.TopicCall&lt;Message&gt;</h2>
+<h2 title="Class Descriptor.TopicCall" class="title">Class Descriptor.TopicCall&lt;Message&gt;</h2>
 </div>
 <div class="contentContainer">
+<ul class="inheritance">
+<li>Object</li>
+<li>
+<ul class="inheritance">
+<li>com.lightbend.lagom.javadsl.api.Descriptor.TopicCall&lt;Message&gt;</li>
+</ul>
+</li>
+</ul>
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
@@ -103,7 +111,8 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public static interface <span class="typeNameLabel">Descriptor.TopicCall&lt;Message&gt;</span></pre>
+<pre>public static final class <span class="typeNameLabel">Descriptor.TopicCall&lt;Message&gt;</span>
+extends Object</pre>
 <div class="block">Describes a topic call.</div>
 </li>
 </ul>
@@ -118,7 +127,7 @@ var activeTableTab = "activeTableTab";
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -130,31 +139,50 @@ var activeTableTab = "activeTableTab";
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Properties.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties</a></code></td>
+<td class="colFirst"><code><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Properties.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#properties--">properties</a></span>()</code>
 <div class="block">Get the properties associated with this topic.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicHolder.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicHolder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#topicHolder--">topicHolder</a></span>()</code>
+<div class="block">Get the topic holder.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../com/lightbend/lagom/javadsl/api/broker/Topic.TopicId.html" title="class in com.lightbend.lagom.javadsl.api.broker">Topic.TopicId</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#topicId--">topicId</a></span>()</code>
 <div class="block">Get the topic id.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#withMessageSerializer-com.lightbend.lagom.javadsl.api.deser.MessageSerializer-">withMessageSerializer</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">MessageSerializer</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>,akka.util.ByteString&gt;&nbsp;serializer)</code>
-<div class="block">Create a new topic call with the passed message serializer.</div>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#withMessageSerializer-com.lightbend.lagom.javadsl.api.deser.MessageSerializer-">withMessageSerializer</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">MessageSerializer</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>,akka.util.ByteString&gt;&nbsp;messageSerializer)</code>
+<div class="block">Return a copy of this topic call with the given message serializer configured.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>&lt;T&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#withProperty-com.lightbend.lagom.javadsl.api.Descriptor.Properties.Property-T-">withProperty</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties.Property</a>&lt;T&gt;&nbsp;property,
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>&lt;T&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#withProperty-com.lightbend.lagom.javadsl.api.Descriptor.Properties.Property-T-">withProperty</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties.Property</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>,T&gt;&nbsp;property,
             T&nbsp;value)</code>
-<div class="block">Create a new topic call that holds the additional passed property and value.</div>
+<div class="block">Return a copy of this copy call with the given property configured.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html#withTopicHolder-com.lightbend.lagom.javadsl.api.Descriptor.TopicHolder-">withTopicHolder</a></span>(<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicHolder.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicHolder</a>&nbsp;topicHolder)</code>
+<div class="block">Return a copy of this topic call with the given topic holder configured.</div>
 </td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;Object</h3>
+<code>equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -175,11 +203,25 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>topicId</h4>
-<pre><a href="../../../../../com/lightbend/lagom/javadsl/api/broker/Topic.TopicId.html" title="class in com.lightbend.lagom.javadsl.api.broker">Topic.TopicId</a>&nbsp;topicId()</pre>
+<pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/broker/Topic.TopicId.html" title="class in com.lightbend.lagom.javadsl.api.broker">Topic.TopicId</a>&nbsp;topicId()</pre>
 <div class="block">Get the topic id.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The topic id</dd>
+</dl>
+</li>
+</ul>
+<a name="topicHolder--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>topicHolder</h4>
+<pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicHolder.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicHolder</a>&nbsp;topicHolder()</pre>
+<div class="block">Get the topic holder.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The topic holder.</dd>
 </dl>
 </li>
 </ul>
@@ -189,7 +231,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>messageSerializer</h4>
-<pre><a href="../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">MessageSerializer</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>,akka.util.ByteString&gt;&nbsp;messageSerializer()</pre>
+<pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">MessageSerializer</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>,akka.util.ByteString&gt;&nbsp;messageSerializer()</pre>
 <div class="block">Get the topic's message serializer.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -203,11 +245,27 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>properties</h4>
-<pre><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Properties.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties</a>&nbsp;properties()</pre>
+<pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Properties.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>&gt;&nbsp;properties()</pre>
 <div class="block">Get the properties associated with this topic.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The properties.</dd>
+</dl>
+</li>
+</ul>
+<a name="withTopicHolder-com.lightbend.lagom.javadsl.api.Descriptor.TopicHolder-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>withTopicHolder</h4>
+<pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>&gt;&nbsp;withTopicHolder(<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicHolder.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicHolder</a>&nbsp;topicHolder)</pre>
+<div class="block">Return a copy of this topic call with the given topic holder configured.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>topicHolder</code> - The topic holder.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A copy of this topic call.</dd>
 </dl>
 </li>
 </ul>
@@ -217,11 +275,13 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>withMessageSerializer</h4>
-<pre><a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>&gt;&nbsp;withMessageSerializer(<a href="../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">MessageSerializer</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>,akka.util.ByteString&gt;&nbsp;serializer)</pre>
-<div class="block">Create a new topic call with the passed message serializer.</div>
+<pre>public&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>&gt;&nbsp;withMessageSerializer(<a href="../../../../../com/lightbend/lagom/javadsl/api/deser/MessageSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">MessageSerializer</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>,akka.util.ByteString&gt;&nbsp;messageSerializer)</pre>
+<div class="block">Return a copy of this topic call with the given message serializer configured.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>messageSerializer</code> - A</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>A new topic call.</dd>
+<dd>A copy of this topic call.</dd>
 </dl>
 </li>
 </ul>
@@ -233,15 +293,15 @@ var activeTableTab = "activeTableTab";
 <ul class="blockListLast">
 <li class="blockList">
 <h4>withProperty</h4>
-<pre>&lt;T&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>&gt;&nbsp;withProperty(<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties.Property</a>&lt;T&gt;&nbsp;property,
-                                               T&nbsp;value)</pre>
-<div class="block">Create a new topic call that holds the additional passed property and value.</div>
+<pre>public&nbsp;&lt;T&gt;&nbsp;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.TopicCall</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>&gt;&nbsp;withProperty(<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor.Properties.Property</a>&lt;<a href="../../../../../com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="type parameter in Descriptor.TopicCall">Message</a>,T&gt;&nbsp;property,
+                                                      T&nbsp;value)</pre>
+<div class="block">Return a copy of this copy call with the given property configured.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>property</code> - The property.</dd>
-<dd><code>value</code> - The value associated with the passed property.</dd>
+<dd><code>property</code> - The property key.</dd>
+<dd><code>value</code> - The value for the property.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>A new topic call.</dd>
+<dd>A copy of this topic call.</dd>
 </dl>
 </li>
 </ul>

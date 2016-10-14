@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -186,37 +186,41 @@ extends Object</pre>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>static sbt.ModuleID</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomImport.html#lagomJavadslPersistence--">lagomJavadslPersistence</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomImport.html#lagomJavadslKafkaClient--">lagomJavadslKafkaClient</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>static sbt.ModuleID</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomImport.html#lagomJavadslPersistenceCassandra--">lagomJavadslPersistenceCassandra</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomImport.html#lagomJavadslPersistence--">lagomJavadslPersistence</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>static sbt.ModuleID</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomImport.html#lagomJavadslPersistenceJdbc--">lagomJavadslPersistenceJdbc</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomImport.html#lagomJavadslPersistenceCassandra--">lagomJavadslPersistenceCassandra</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>static sbt.ModuleID</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomImport.html#lagomJavadslPubSub--">lagomJavadslPubSub</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomImport.html#lagomJavadslPersistenceJdbc--">lagomJavadslPersistenceJdbc</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code>static sbt.ModuleID</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomImport.html#lagomJavadslServer--">lagomJavadslServer</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomImport.html#lagomJavadslPubSub--">lagomJavadslPubSub</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i15" class="rowColor">
 <td class="colFirst"><code>static sbt.ModuleID</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomImport.html#lagomJavadslTestKit--">lagomJavadslTestKit</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomImport.html#lagomJavadslServer--">lagomJavadslServer</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i16" class="altColor">
+<td class="colFirst"><code>static sbt.ModuleID</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomImport.html#lagomJavadslTestKit--">lagomJavadslTestKit</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>static scala.collection.Seq&lt;sbt.ModuleID&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomImport.html#lagomJUnitDeps--">lagomJUnitDeps</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>static sbt.ModuleID</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomImport.html#lagomLogback--">lagomLogback</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>static String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/lightbend/lagom/sbt/LagomImport.html#lagomLogbackModuleName--">lagomLogbackModuleName</a></span>()</code>&nbsp;</td>
 </tr>
@@ -329,6 +333,15 @@ extends Object</pre>
 <li class="blockList">
 <h4>lagomJavadslBroker</h4>
 <pre>public static&nbsp;sbt.ModuleID&nbsp;lagomJavadslBroker()</pre>
+</li>
+</ul>
+<a name="lagomJavadslKafkaClient--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>lagomJavadslKafkaClient</h4>
+<pre>public static&nbsp;sbt.ModuleID&nbsp;lagomJavadslKafkaClient()</pre>
 </li>
 </ul>
 <a name="lagomJavadslKafkaBroker--">

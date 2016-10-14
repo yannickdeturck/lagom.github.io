@@ -26,7 +26,14 @@ public interface HelloService extends Service {
   ServiceCall&lt;GreetingMessage, Done&gt; useGreeting(String id);
 }</code></pre>
 <p>The syntax for declaring a topic is similar to the one used already to define services&rsquo; endpoints. The <a href="api/index.html?com/lightbend/lagom/javadsl/api/Descriptor.html#publishing-com.lightbend.lagom.javadsl.api.Descriptor.TopicCall...-"><code>Descriptor.publishing</code></a> method accepts a sequence of topic calls, each topic call can be defined via the <a href="api/index.html?com/lightbend/lagom/javadsl/api/Service.html#topic-java.lang.String-java.lang.reflect.Method-"><code>Service.topic</code></a> static method. The latter takes a topic name (i.e., the topic identifier), and a reference to a method that returns a <a href="api/index.html?com/lightbend/lagom/javadsl/api/broker/Topic.html"><code>Topic</code></a> instance.</p>
-<p>Data flowing through a topic is serialized to JSON by default. Of course, it is possible to use a different serialization format, and you can do so by passing a different message serializer for each topic defined in a service descriptor. For instance, using the above service definition, here is how you could have passed a custom serializer: <code>topic(&quot;greetings&quot;, this::greetingsTopic).withMessageSerializer(&lt;your-custom-serializer&gt;)</code>.</p><h2 id="Implementing-a-topic"><a class="section-marker" href="#Implementing-a-topic">§</a><a href="#implementing-a-topic" name="implementing-a-topic">Implementing a topic</a></h2>
+<p>Data flowing through a topic is serialized to JSON by default. Of course, it is possible to use a different serialization format, and you can do so by passing a different message serializer for each topic defined in a service descriptor. For instance, using the above service definition, here is how you could have passed a custom serializer: <code>topic(&quot;greetings&quot;, this::greetingsTopic).withMessageSerializer(&lt;your-custom-serializer&gt;)</code>.</p><h3 id="Partitioning-topics"><a class="section-marker" href="#Partitioning-topics">§</a><a href="#partitioning-topics" name="partitioning-topics">Partitioning topics</a></h3>
+<p>Kafka will distribute messages for a particular topic across many partitions, so that the topic can scale. Messages sent to different partitions may be processed out of order, so if the ordering of the messages you are publishing matters, you need to ensure that the messages are partitioned in such a way that order is preserved. Typically, this means ensuring each message for a particular entity goes to the same partition.</p>
+<p>Lagom allows this by allowing you to configure a partition key strategy, which extracts the partition key out of a message. Kafka will then use this key to help decide what partition to send each message to. The partition can be selected using the <a href="api/index.html?com/lightbend/lagom/javadsl/api/broker/kafka/KafkaProperties.html#partitionKeyStrategy--"><code>partitionKeyStrategy</code></a> property, by passing a <a href="api/index.html?com/lightbend/lagom/javadsl/api/broker/kafka/PartitionKeyStrategy.html"><code>PartitionKeyStrategy</code></a> to it: </p>
+<pre class="prettyprint"><code class="language-java">.publishing(
+        topic(&quot;blogposts&quot;, this::blogPostEvents)
+            .withProperty(KafkaProperties.partitionKeyStrategy(),
+                    BlogPostEvent::getPostId)
+);</code></pre><h2 id="Implementing-a-topic"><a class="section-marker" href="#Implementing-a-topic">§</a><a href="#implementing-a-topic" name="implementing-a-topic">Implementing a topic</a></h2>
 <p>The primary source of messages that Lagom is designed to produce is persistent entity events. Rather than publishing events in an ad-hoc fashion in response to particular things happen, it is better to take the stream of events from your persistent entities, and adapt that to a stream of messages sent to the message broker. In this way, you can ensure at least once processing of events by both publishers and consumers, which allows you to guarantee a very strong level of consistency throughout your system.</p>
 <p>Lagom&rsquo;s <a href="api/index.html?com/lightbend/lagom/javadsl/broker/TopicProducer.html"><code>TopicProducer</code></a> helper provides two methods for publishing a persistent entities event stream, <a href="api/index.html?com/lightbend/lagom/javadsl/broker/TopicProducer.html#singleStreamWithOffset-java.util.function.Function-"><code>singleStreamWithOffset</code></a> for use with non sharded read side event streams, and <a href="api/index.html?com/lightbend/lagom/javadsl/broker/TopicProducer.html#taggedStreamWithOffset-org.pcollections.PSequence-java.util.function.BiFunction-"><code>taggedStreamWithOffset</code></a> for use with sharded read side event streams. Both of these methods take a callback which takes the last offset that the topic producer published, and allows resumption of the event stream from that offset via the <a href="api/index.html?com/lightbend/lagom/javadsl/persistence/PersistentEntityRegistry.html#eventStream-com.lightbend.lagom.javadsl.persistence.AggregateEventTag-com.lightbend.lagom.javadsl.persistence.Offset-"><code>PersistentEntityRegistry.eventStream</code></a> method for obtaining a read-side stream. For more details on read-side streams, see <a href="ReadSide.html#raw-stream-of-events">Peristent Read-Side's</a>.</p>
 <p>Lagom will, in the case of the <code>singleStreamWithOffset</code> method, ensure that your topic producer only runs on one node of your cluster, or with the <code>taggedStreamWithOffset</code> method will distribute the tags evenly across the cluster to distribute the publishing load.</p>
@@ -70,8 +77,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 })
 public interface BlogPostEvent {
 
+    String getPostId();
+
     @JsonTypeName(&quot;created&quot;)
-    final class BlogPostCreated {
+    final class BlogPostCreated implements BlogPostEvent {
         private final String postId;
         private final String title;
 
@@ -81,11 +90,17 @@ public interface BlogPostEvent {
             this.title = title;
         }
 
-        // getters etc...
+        public String getPostId() {
+            return postId;
+        }
+
+        public String getTitle() {
+            return title;
+        }
     }
 
     @JsonTypeName(&quot;published&quot;)
-    final class BlogPostPublished {
+    final class BlogPostPublished implements BlogPostEvent {
         private final String postId;
 
         @JsonCreator
@@ -93,7 +108,9 @@ public interface BlogPostEvent {
             this.postId = postId;
         }
 
-        // getters etc...
+        public String getPostId() {
+            return postId;
+        }
     }
 }</code></pre>
 <p>The <code>@JsonTypeInfo</code> annotation describes how the type of the event will be serialised. In this case, it&rsquo;s saying each event type will be identified by it&rsquo;s name, and that name will go into a property called <code>type</code>. The <code>@JsonTypeName</code> on each event subclass says what the name of that event should be. And the <code>@JsonSubTypes</code> annotation is used to tell Jackson what the possible sub types of the event are, so that it knows where to look when deserializing.</p>

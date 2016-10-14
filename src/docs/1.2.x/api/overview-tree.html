@@ -78,12 +78,12 @@
 <li><a href="com/lightbend/lagom/gateway/package-tree.html">com.lightbend.lagom.gateway</a>, </li>
 <li><a href="com/lightbend/lagom/javadsl/api/package-tree.html">com.lightbend.lagom.javadsl.api</a>, </li>
 <li><a href="com/lightbend/lagom/javadsl/api/broker/package-tree.html">com.lightbend.lagom.javadsl.api.broker</a>, </li>
+<li><a href="com/lightbend/lagom/javadsl/api/broker/kafka/package-tree.html">com.lightbend.lagom.javadsl.api.broker.kafka</a>, </li>
 <li><a href="com/lightbend/lagom/javadsl/api/deser/package-tree.html">com.lightbend.lagom.javadsl.api.deser</a>, </li>
 <li><a href="com/lightbend/lagom/javadsl/api/security/package-tree.html">com.lightbend.lagom.javadsl.api.security</a>, </li>
 <li><a href="com/lightbend/lagom/javadsl/api/transport/package-tree.html">com.lightbend.lagom.javadsl.api.transport</a>, </li>
 <li><a href="com/lightbend/lagom/javadsl/broker/package-tree.html">com.lightbend.lagom.javadsl.broker</a>, </li>
 <li><a href="com/lightbend/lagom/javadsl/broker/kafka/package-tree.html">com.lightbend.lagom.javadsl.broker.kafka</a>, </li>
-<li><a href="com/lightbend/lagom/javadsl/broker/kafka/property/package-tree.html">com.lightbend.lagom.javadsl.broker.kafka.property</a>, </li>
 <li><a href="com/lightbend/lagom/javadsl/client/package-tree.html">com.lightbend.lagom.javadsl.client</a>, </li>
 <li><a href="com/lightbend/lagom/javadsl/client/integration/package-tree.html">com.lightbend.lagom.javadsl.client.integration</a>, </li>
 <li><a href="com/lightbend/lagom/javadsl/cluster/testkit/package-tree.html">com.lightbend.lagom.javadsl.cluster.testkit</a>, </li>
@@ -106,7 +106,6 @@
 <li><a href="com/lightbend/lagom/sbt/run/package-tree.html">com.lightbend.lagom.sbt.run</a>, </li>
 <li><a href="com/lightbend/lagom/sbt/server/package-tree.html">com.lightbend.lagom.sbt.server</a>, </li>
 <li><a href="com/lightbend/lagom/serialization/package-tree.html">com.lightbend.lagom.serialization</a>, </li>
-<li><a href="com/typesafe/slick/driver/oracle/package-tree.html">com.typesafe.slick.driver.oracle</a>, </li>
 <li><a href="play/core/server/package-tree.html">play.core.server</a></li>
 </ul>
 </div>
@@ -159,6 +158,7 @@
 <li type="circle">com.lightbend.lagom.javadsl.cluster.testkit.<a href="com/lightbend/lagom/javadsl/cluster/testkit/ActorSystemModule.html" title="class in com.lightbend.lagom.javadsl.cluster.testkit"><span class="typeNameLink">ActorSystemModule</span></a></li>
 <li type="circle">com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraPersistenceModule.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra"><span class="typeNameLink">CassandraPersistenceModule</span></a></li>
 <li type="circle">com.lightbend.lagom.javadsl.persistence.jdbc.<a href="com/lightbend/lagom/javadsl/persistence/jdbc/JdbcPersistenceModule.html" title="class in com.lightbend.lagom.javadsl.persistence.jdbc"><span class="typeNameLink">JdbcPersistenceModule</span></a></li>
+<li type="circle">com.lightbend.lagom.javadsl.broker.kafka.<a href="com/lightbend/lagom/javadsl/broker/kafka/KafkaClientModule.html" title="class in com.lightbend.lagom.javadsl.broker.kafka"><span class="typeNameLink">KafkaClientModule</span></a></li>
 <li type="circle">com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistenceModule.html" title="class in com.lightbend.lagom.javadsl.persistence"><span class="typeNameLink">PersistenceModule</span></a></li>
 <li type="circle">com.lightbend.lagom.javadsl.pubsub.<a href="com/lightbend/lagom/javadsl/pubsub/PubSubModule.html" title="class in com.lightbend.lagom.javadsl.pubsub"><span class="typeNameLink">PubSubModule</span></a></li>
 <li type="circle">com.lightbend.lagom.discovery.impl.<a href="com/lightbend/lagom/discovery/impl/ServiceRegistryModule.html" title="class in com.lightbend.lagom.discovery.impl"><span class="typeNameLink">ServiceRegistryModule</span></a> (implements play.libs.akka.AkkaGuiceSupport, com.lightbend.lagom.javadsl.server.<a href="com/lightbend/lagom/javadsl/server/ServiceGuiceSupport.html" title="interface in com.lightbend.lagom.javadsl.server">ServiceGuiceSupport</a>)</li>
@@ -235,8 +235,9 @@
 <li type="circle">com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.RestCallId.html" title="class in com.lightbend.lagom.javadsl.api"><span class="typeNameLink">Descriptor.RestCallId</span></a></li>
 </ul>
 </li>
-<li type="circle">com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.html" title="class in com.lightbend.lagom.javadsl.api"><span class="typeNameLink">Descriptor.Properties</span></a></li>
-<li type="circle">com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html" title="class in com.lightbend.lagom.javadsl.api"><span class="typeNameLink">Descriptor.Properties.Property</span></a>&lt;T&gt;</li>
+<li type="circle">com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.html" title="class in com.lightbend.lagom.javadsl.api"><span class="typeNameLink">Descriptor.Properties</span></a>&lt;Message&gt;</li>
+<li type="circle">com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.Properties.Property.html" title="class in com.lightbend.lagom.javadsl.api"><span class="typeNameLink">Descriptor.Properties.Property</span></a>&lt;Message,T&gt;</li>
+<li type="circle">com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="class in com.lightbend.lagom.javadsl.api"><span class="typeNameLink">Descriptor.TopicCall</span></a>&lt;Message&gt;</li>
 <li type="circle">com.lightbend.lagom.sbt.<a href="com/lightbend/lagom/sbt/DynamicProjectAdder.html" title="class in com.lightbend.lagom.sbt"><span class="typeNameLink">DynamicProjectAdder</span></a></li>
 <li type="circle">com.lightbend.lagom.sbt.<a href="com/lightbend/lagom/sbt/DynamicProjectAdder$.html" title="class in com.lightbend.lagom.sbt"><span class="typeNameLink">DynamicProjectAdder$</span></a></li>
 <li type="circle">com.lightbend.lagom.javadsl.api.deser.<a href="com/lightbend/lagom/javadsl/api/deser/ExceptionMessage.html" title="class in com.lightbend.lagom.javadsl.api.deser"><span class="typeNameLink">ExceptionMessage</span></a> (implements java.io.Serializable)</li>
@@ -249,6 +250,8 @@
 <li type="circle">com.lightbend.lagom.javadsl.jackson.<a href="com/lightbend/lagom/javadsl/jackson/JacksonExceptionSerializer.html" title="class in com.lightbend.lagom.javadsl.jackson"><span class="typeNameLink">JacksonExceptionSerializer</span></a> (implements com.lightbend.lagom.javadsl.api.deser.<a href="com/lightbend/lagom/javadsl/api/deser/ExceptionSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser">ExceptionSerializer</a>)</li>
 <li type="circle">com.lightbend.lagom.serialization.<a href="com/lightbend/lagom/serialization/JacksonJsonMigration.html" title="class in com.lightbend.lagom.serialization"><span class="typeNameLink">JacksonJsonMigration</span></a></li>
 <li type="circle">com.lightbend.lagom.javadsl.jackson.<a href="com/lightbend/lagom/javadsl/jackson/JacksonSerializerFactory.html" title="class in com.lightbend.lagom.javadsl.jackson"><span class="typeNameLink">JacksonSerializerFactory</span></a> (implements com.lightbend.lagom.javadsl.api.deser.<a href="com/lightbend/lagom/javadsl/api/deser/SerializerFactory.html" title="interface in com.lightbend.lagom.javadsl.api.deser">SerializerFactory</a>)</li>
+<li type="circle">com.lightbend.lagom.javadsl.api.broker.kafka.<a href="com/lightbend/lagom/javadsl/api/broker/kafka/KafkaProperties.html" title="class in com.lightbend.lagom.javadsl.api.broker.kafka"><span class="typeNameLink">KafkaProperties</span></a></li>
+<li type="circle">com.lightbend.lagom.javadsl.broker.kafka.<a href="com/lightbend/lagom/javadsl/broker/kafka/KafkaTopicFactory.html" title="class in com.lightbend.lagom.javadsl.broker.kafka"><span class="typeNameLink">KafkaTopicFactory</span></a> (implements com.lightbend.lagom.internal.api.broker.TopicFactory)</li>
 <li type="circle">com.lightbend.lagom.javadsl.client.integration.<a href="com/lightbend/lagom/javadsl/client/integration/LagomClientFactory.html" title="class in com.lightbend.lagom.javadsl.client.integration"><span class="typeNameLink">LagomClientFactory</span></a> (implements java.io.Closeable)</li>
 <li type="circle">com.lightbend.lagom.dev.<a href="com/lightbend/lagom/dev/LagomConfig.html" title="class in com.lightbend.lagom.dev"><span class="typeNameLink">LagomConfig</span></a></li>
 <li type="circle">com.lightbend.lagom.dev.<a href="com/lightbend/lagom/dev/LagomConfig$.html" title="class in com.lightbend.lagom.dev"><span class="typeNameLink">LagomConfig$</span></a></li>
@@ -297,8 +300,6 @@
 <li type="circle">com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/Offset.TimeBasedUUID.html" title="class in com.lightbend.lagom.javadsl.persistence"><span class="typeNameLink">Offset.TimeBasedUUID</span></a> (implements Comparable&lt;T&gt;)</li>
 </ul>
 </li>
-<li type="circle">com.typesafe.slick.driver.oracle.<a href="com/typesafe/slick/driver/oracle/OracleDriver.html" title="class in com.typesafe.slick.driver.oracle"><span class="typeNameLink">OracleDriver</span></a></li>
-<li type="circle">com.typesafe.slick.driver.oracle.<a href="com/typesafe/slick/driver/oracle/OracleDriver$.html" title="class in com.typesafe.slick.driver.oracle"><span class="typeNameLink">OracleDriver$</span></a></li>
 <li type="circle">com.lightbend.lagom.javadsl.api.deser.<a href="com/lightbend/lagom/javadsl/api/deser/PathParamSerializers.html" title="class in com.lightbend.lagom.javadsl.api.deser"><span class="typeNameLink">PathParamSerializers</span></a></li>
 <li type="circle">com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistenceModule$.html" title="class in com.lightbend.lagom.javadsl.persistence"><span class="typeNameLink">PersistenceModule$</span></a></li>
 <li type="circle">com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.html" title="class in com.lightbend.lagom.javadsl.persistence"><span class="typeNameLink">PersistentEntity</span></a>&lt;Command,Event,State&gt;</li>
@@ -358,7 +359,6 @@
 <li type="circle">com.lightbend.lagom.dev.<a href="com/lightbend/lagom/dev/PortAssigner$.html" title="class in com.lightbend.lagom.dev"><span class="typeNameLink">PortAssigner$</span></a></li>
 <li type="circle">com.lightbend.lagom.maven.<a href="com/lightbend/lagom/maven/PortRangeBean.html" title="class in com.lightbend.lagom.maven"><span class="typeNameLink">PortRangeBean</span></a></li>
 <li type="circle">com.lightbend.lagom.maven.<a href="com/lightbend/lagom/maven/ProjectDependencies.html" title="class in com.lightbend.lagom.maven"><span class="typeNameLink">ProjectDependencies</span></a> (implements scala.Product, scala.Serializable)</li>
-<li type="circle">com.lightbend.lagom.javadsl.broker.kafka.<a href="com/lightbend/lagom/javadsl/broker/kafka/Properties.html" title="class in com.lightbend.lagom.javadsl.broker.kafka"><span class="typeNameLink">Properties</span></a></li>
 <li type="circle">com.lightbend.lagom.javadsl.pubsub.<a href="com/lightbend/lagom/javadsl/pubsub/PubSubRef.html" title="class in com.lightbend.lagom.javadsl.pubsub"><span class="typeNameLink">PubSubRef</span></a>&lt;T&gt; (implements akka.actor.NoSerializationVerificationNeeded)</li>
 <li type="circle">com.lightbend.lagom.javadsl.api.deser.<a href="com/lightbend/lagom/javadsl/api/deser/RawExceptionMessage.html" title="class in com.lightbend.lagom.javadsl.api.deser"><span class="typeNameLink">RawExceptionMessage</span></a></li>
 <li type="circle">com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/ReadSideProcessor.html" title="class in com.lightbend.lagom.javadsl.persistence"><span class="typeNameLink">ReadSideProcessor</span></a>&lt;Event&gt;</li>
@@ -494,7 +494,6 @@
 <li type="circle">com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.html" title="interface in com.lightbend.lagom.javadsl.persistence.cassandra"><span class="typeNameLink">CassandraReadSide</span></a></li>
 <li type="circle">com.lightbend.lagom.javadsl.persistence.cassandra.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraReadSide.ReadSideHandlerBuilder.html" title="interface in com.lightbend.lagom.javadsl.persistence.cassandra"><span class="typeNameLink">CassandraReadSide.ReadSideHandlerBuilder</span></a>&lt;Event&gt;</li>
 <li type="circle">com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.ServiceCallHolder.html" title="interface in com.lightbend.lagom.javadsl.api"><span class="typeNameLink">Descriptor.ServiceCallHolder</span></a></li>
-<li type="circle">com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicCall.html" title="interface in com.lightbend.lagom.javadsl.api"><span class="typeNameLink">Descriptor.TopicCall</span></a>&lt;Message&gt;</li>
 <li type="circle">com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.TopicHolder.html" title="interface in com.lightbend.lagom.javadsl.api"><span class="typeNameLink">Descriptor.TopicHolder</span></a></li>
 <li type="circle">com.lightbend.lagom.javadsl.api.deser.<a href="com/lightbend/lagom/javadsl/api/deser/ExceptionSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser"><span class="typeNameLink">ExceptionSerializer</span></a></li>
 <li type="circle">com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/HeaderFilter.html" title="interface in com.lightbend.lagom.javadsl.api.transport"><span class="typeNameLink">HeaderFilter</span></a></li>
@@ -513,7 +512,7 @@
 </li>
 <li type="circle">com.lightbend.lagom.javadsl.api.deser.<a href="com/lightbend/lagom/javadsl/api/deser/MessageSerializer.NegotiatedDeserializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser"><span class="typeNameLink">MessageSerializer.NegotiatedDeserializer</span></a>&lt;MessageEntity,WireFormat&gt;</li>
 <li type="circle">com.lightbend.lagom.javadsl.api.deser.<a href="com/lightbend/lagom/javadsl/api/deser/MessageSerializer.NegotiatedSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser"><span class="typeNameLink">MessageSerializer.NegotiatedSerializer</span></a>&lt;MessageEntity,WireFormat&gt;</li>
-<li type="circle">com.lightbend.lagom.javadsl.broker.kafka.property.<a href="com/lightbend/lagom/javadsl/broker/kafka/property/PartitionKeyStrategy.html" title="interface in com.lightbend.lagom.javadsl.broker.kafka.property"><span class="typeNameLink">PartitionKeyStrategy</span></a>&lt;Message&gt;</li>
+<li type="circle">com.lightbend.lagom.javadsl.api.broker.kafka.<a href="com/lightbend/lagom/javadsl/api/broker/kafka/PartitionKeyStrategy.html" title="interface in com.lightbend.lagom.javadsl.api.broker.kafka"><span class="typeNameLink">PartitionKeyStrategy</span></a>&lt;Message&gt;</li>
 <li type="circle">com.lightbend.lagom.javadsl.api.deser.<a href="com/lightbend/lagom/javadsl/api/deser/PathParamSerializer.html" title="interface in com.lightbend.lagom.javadsl.api.deser"><span class="typeNameLink">PathParamSerializer</span></a>&lt;Param&gt;</li>
 <li type="circle">com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.Persist.html" title="interface in com.lightbend.lagom.javadsl.persistence"><span class="typeNameLink">PersistentEntity.Persist</span></a>&lt;B&gt;
 <ul>
