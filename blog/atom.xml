@@ -1,0 +1,286 @@
+<feed xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://www.w3.org/2005/Atom">
+      <title>Lagom Blog</title>
+      <link rel="alternate" type="text/html" href="http://www.lagomframework.com/blog"/>
+      <link rel="self" type="application/atom+xml" href="http://www.lagomframework.com/blog/atom.xml"/>
+      <id>http://www.lagomframework.com/blog</id>
+      <rights>Copyright 2016, Lightbend</rights>
+      <updated>2016-10-25T11:00:00.000+11:00</updated>
+      <dc:creator>Lightbend</dc:creator>
+      <dc:date>2016-10-25T11:00:00.000+11:00</dc:date>
+      <dc:language>en</dc:language>
+      <dc:rights>Copyright 2016, Lightbend</dc:rights>
+      <entry>
+          <title>Lagom 1.2.0 is almost here!</title>
+          <link rel="alternate" href="http://www.lagomframework.com/blog/lagom-1-2-RC2.html"/>
+          <category term="news" scheme="http://www.lagomframework.com/blog/tags/news.html"/>
+          <author>
+            <name>James Roper</name>
+            <uri>https://github.com/jroper</uri>
+          </author>
+          <id>http://www.lagomframework.com/blog/lagom-1-2-RC2.html</id>
+          <updated>2016-10-25T11:00:00.000+11:00</updated>
+          <published>2016-10-25T11:00:00.000+11:00</published>
+          <content type="html"><![CDATA[<p>We&rsquo;re happy to announce that Lagom 1.2.0-RC2 has been released!</p>
+<p>This release has a small reworking of the read side event tags so that events can be automatically sharded by Lagom. Previously, your <code>aggregateTag</code> function had to compute it&rsquo;s own sharded tags if you wanted to shard your read sides. Now, you can simply return a <a href="//www.lagomframework.com/documentation/1.2.x/java/api/index.html?com/lightbend/lagom/javadsl/persistence/AggregateEventTag.html#sharded-java.lang.Class-int-">single meta tag</a> to say that the events should be sharded, and how many shards you want, and Lagom will handle the sharding for you. Read <a href="//www.lagomframework.com/documentation/1.2.x/java/ReadSide.html#event-tags">the documentation</a> for more details.</p>
+<p>We&rsquo;ve also made some minor improvements around how Kafka message keys are <a href="//www.lagomframework.com/documentation/1.2.x/java/MessageBrokerApi.html#Partitioning-topics">extracted from messages</a>, and provided topic testing support in the testkit.</p>
+<p>On the documentation side, there&rsquo;s more documentation for using and testing Kafka, and most importantly, we&rsquo;ve written a <a href="//www.lagomframework.com/documentation/1.2.x/java/Migration12.html">migration guide</a>, outlining any changes you may need to make in order to move from Lagom 1.1 to Lagom 1.2.</p>
+<p>Lagom 1.2.0 should be released very soon, so stay tuned!</p>]]></content>
+          <dc:date>2016-10-25T11:00:00.000+11:00</dc:date>
+        </entry><entry>
+          <title>What's next in Lagom 1.2?</title>
+          <link rel="alternate" href="http://www.lagomframework.com/blog/whats-next-in-lagom-1-2.html"/>
+          <category term="news" scheme="http://www.lagomframework.com/blog/tags/news.html"/>
+          <author>
+            <name>James Roper</name>
+            <uri>https://github.com/jroper</uri>
+          </author>
+          <id>http://www.lagomframework.com/blog/whats-next-in-lagom-1-2.html</id>
+          <updated>2016-09-30T10:00:00.000+10:00</updated>
+          <published>2016-09-30T10:00:00.000+10:00</published>
+          <content type="html"><![CDATA[<p>Today we released Lagom 1.2.0-RC1, the first release candidate for the upcoming Lagom 1.2. This release has three exciting new features that we&rsquo;d like to tell you about.</p>
+<h2><a href="#message-broker-support" name="message-broker-support">Message broker support</a></h2>
+<p>The biggest feature of Lagom 1.2 is message broker support. This means Lagom now allows both direct streaming of messages between services, as well as streaming of messages through a broker.</p>
+<p>Lagom&rsquo;s message broker support does not require any one particular message broker implementation, however out of the box we have only implemented support for Kafka. Kafka is a popular very scalable message broker, and fits well in the Lagom architectural philosophy.</p>
+<p>Lagom will automatically run Kafka for you when you run the <code>runAll</code> command, both in Maven and sbt, which makes getting started with a project that uses Kafka very simple. It also abstracts the publishing, partitioning, consuming and failure handling of messaging away from you, so you can focus primarily on your business concerns.</p>
+<p>As with Lagom <code>ServiceCall</code>&rsquo;s, which provide a protocol agnostic way of directly communicating with other services that maps down onto HTTP, Lagom provides a new <code>Topic</code> abstraction, which represents a topic that one service publishes, and one or more services consume. Through the use of service descriptors, Lagom allows all the serialization and deserialization logic for these messages to be captured and shared between services.</p>
+<p>As a first and primary use case, we have targetted publishing a persistent entity event stream for the source of topics. This allows the implementation of remote read sides, as well as provides a great basis for guaranteed at least once delivery of events between services.</p>
+<p>To explore more of Lagom&rsquo;s message broker support, read the <a href="http://www.lagomframework.com/documentation/1.2.x/java/MessageBroker.html">documentation</a>.</p>
+<h2><a href="#jdbc-support" name="jdbc-support">JDBC support</a></h2>
+<p>Feedback that we got from many potential users was that in order to introduce Lagom into their organisation, it would need to have support for using their existing relational database infrastructure. While a relational database is often not the best choice, particularly for storing event sourced entities, it&rsquo;s not necessarily a bad choice. We felt that having no JDBC support was an unnecessary blocker to organisations getting the benefits of a Lagom based architecture.</p>
+<p>Lagom supports JDBC both for <a href="http://www.lagomframework.com/documentation/1.2.x/java/PersistentEntityRDBMS.html">storing persistent entities</a>, as well as for implementing <a href="http://www.lagomframework.com/documentation/1.2.x/java/ReadSideRDBMS.html">read-sides</a>.</p>
+<h2>Read-side overhaul</h2>
+<p>Lagom&rsquo;s read-side support has been overhauled. There are three major parts to this. First of all, read sides that talk to any data store can now be implemented - previously the read side processor API was specific to Cassandra. We still provide a Cassandra specific utility for building Cassandra read-sides, as well as a new JDBC specific utility for building JDBC read-sides, but these are just helpers for building read-sides, you can build a read-side in anything. Documentation for the new read-side API can be found <a href="http://www.lagomframework.com/documentation/1.2.x/java/ReadSide.html">here</a>.</p>
+<p>The second is that read-sides can now be sharded, by tagging persistent entity events with sharded tags. Lagom&rsquo;s read side processors now declare a list of tags that they process, rather than just one, and Lagom will automatically distribute the processing of these tags across the cluster. This is great for services with a high throughput of events, or when event processing can be very slow or expensive.</p>
+<p>The final feature is that both the Cassandra and JDBC specific read side support utilities provide automatic offset tracking, meaning that your read side processors no longer need to explicitly load and persist offsets. This makes it much simpler to implement a read side processor. Documentation is available for both the <a href="http://www.lagomframework.com/documentation/1.2.x/java/ReadSideCassandra.html">Cassandra read-side support</a> and the <a href="http://www.lagomframework.com/documentation/1.2.x/java/ReadSideRDBMS.html">JDBC read-side support</a>.</p>
+<p>The existing Cassandra read-side support is still supported, but is deprecated.</p>
+<h2>Onwards to 1.2.0</h2>
+<p>We are hoping to release Lagom 1.2.0 in the coming month, so please check it out, jump on the <a href="https://gitter.im/lagom/lagom">Gitter channel</a> and give us feedback!</p>]]></content>
+          <dc:date>2016-09-30T10:00:00.000+10:00</dc:date>
+        </entry><entry>
+          <title>Lagom 1.1 is released!</title>
+          <link rel="alternate" href="http://www.lagomframework.com/blog/lagom-1-1.html"/>
+          <category term="news" scheme="http://www.lagomframework.com/blog/tags/news.html"/>
+          <author>
+            <name>James Roper</name>
+            <uri>https://github.com/jroper</uri>
+          </author>
+          <id>http://www.lagomframework.com/blog/lagom-1-1.html</id>
+          <updated>2016-09-21T10:00:00.000+10:00</updated>
+          <published>2016-09-21T10:00:00.000+10:00</published>
+          <content type="html"><![CDATA[<p>The Lagom team are proud to announce the release of Lagom 1.1! The primary new feature of Lagom 1.1 is maven support - this includes support for running the Lagom development environment in Maven.</p>
+<p>Although running many services with hot reloads in Maven is not a traditional thing to do, as much as possible the Lagom Maven plugin makes idiomatic usage of Maven, meaning that it&rsquo;s still compatible with whatever Maven plugins or tooling that you use, including IDEs, code generators, testing tools and so on.</p>
+<p>Lagom&rsquo;s Maven integration also supports starting a full system environment as part of your integration tests, so you can do comprehensive testing of inter service communication.</p>
+<p>You can get started today with a Lagom starter app by running:</p>
+<pre class="prettyprint"><code>mvn archetype:generate -DarchetypeGroupId=com.lightbend.lagom \
+  -DarchetypeArtifactId=maven-archetype-lagom-java -DarchetypeVersion=1.1.0
+</code></pre>
+<p>For more details, read the documentation on <a href="http://www.lagomframework.com/documentation/1.1.x/java/GettingStartedMaven.html">Getting started with Maven</a>. Enjoy!</p>]]></content>
+          <dc:date>2016-09-21T10:00:00.000+10:00</dc:date>
+        </entry><entry>
+          <title>Introducing Maven support!</title>
+          <link rel="alternate" href="http://www.lagomframework.com/blog/introducing-maven-support.html"/>
+          <category term="maven" scheme="http://www.lagomframework.com/blog/tags/maven.html"/><category term="news" scheme="http://www.lagomframework.com/blog/tags/news.html"/>
+          <author>
+            <name>James Roper</name>
+            <uri>https://github.com/jroper</uri>
+          </author>
+          <id>http://www.lagomframework.com/blog/introducing-maven-support.html</id>
+          <updated>2016-08-18T10:00:00.000+10:00</updated>
+          <published>2016-08-18T10:00:00.000+10:00</published>
+          <content type="html"><![CDATA[<p>The Lagom team are proud to announce the introduction of Maven support for Lagom! We&rsquo;ve published Lagom 1.1.0-RC1 with this support, and are keen to get feedback from users to see if it works.</p>
+<h2><a href="#why-maven-" name="why-maven-">Why Maven?</a></h2>
+<p>sbt is a very powerful build tool that made the implementation of Lagom&rsquo;s high productivity development environment very straight forward. Since it breaks a build up into very fine grained tasks that produce an output value, it&rsquo;s simple for the Lagom development environment to interrogate your build by executing those tasks to get the information it needs to setup Lagom&rsquo;s hot reloads. For this reason, we decided in the first release of Lagom to just support sbt.</p>
+<p>Early feedback however has been that lack of Maven support is a blocker for many of our potential users. This is particularly true for large enterprise companies that have significant investments in their Maven infrastructure, including proxies, developer setup guides, and standardised pom files. For this reason, we&rsquo;ve decided to make the investment necessary to run Lagom in Maven.</p>
+<h2>Let&rsquo;s take a look!</h2>
+<p>We&rsquo;ve made use of the Maven archetype plugin for users to create new projects using archetypes. So, this is what it looks like to create a new Lagom system using Maven:</p>
+<pre class="prettyprint"><code class="language-console">$ mvn archetype:generate -DarchetypeGroupId=com.lightbend.lagom \
+  -DarchetypeArtifactId=maven-archetype-lagom-java \
+  -DarchetypeVersion=1.1.0-RC1
+
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Maven Stub Project (No POM) 1
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] &gt;&gt;&gt; maven-archetype-plugin:2.4:generate (default-cli) &gt; generate-sources @ standalone-pom &gt;&gt;&gt;
+[INFO] 
+[INFO] &lt;&lt;&lt; maven-archetype-plugin:2.4:generate (default-cli) &lt; generate-sources @ standalone-pom &lt;&lt;&lt;
+[INFO] 
+[INFO] --- maven-archetype-plugin:2.4:generate (default-cli) @ standalone-pom ---
+[INFO] Generating project in Interactive mode
+[WARNING] Archetype not found in any catalog. Falling back to central repository (http://repo.maven.apache.org/maven2).
+[WARNING] Use -DarchetypeRepository=&lt;your repository&gt; if archetype&#39;s repository is elsewhere.
+Define value for property &#39;groupId&#39;: : com.example
+Define value for property &#39;artifactId&#39;: : my-first-system
+Define value for property &#39;version&#39;:  1.0-SNAPSHOT: : 
+Define value for property &#39;package&#39;:  com.example: : 
+[INFO] Using property: service1ClassName = Hello
+[INFO] Using property: service1Name = hello
+[INFO] Using property: service2ClassName = Stream
+[INFO] Using property: service2Name = stream
+Confirm properties configuration:
+groupId: com.example
+artifactId: my-first-system
+version: 1.0-SNAPSHOT
+package: com.example
+service1ClassName: Hello
+service1Name: hello
+service2ClassName: Stream
+service2Name: stream
+ Y: : 
+ [INFO] ----------------------------------------------------------------------------
+ [INFO] Using following parameters for creating project from Archetype: maven-archetype-lagom-java:1.1.0-RC1
+ [INFO] ----------------------------------------------------------------------------
+ [INFO] Parameter: groupId, Value: com.example
+ [INFO] Parameter: artifactId, Value: my-first-system
+ [INFO] Parameter: version, Value: 1.0-SNAPSHOT
+ [INFO] Parameter: package, Value: com.example
+ [INFO] Parameter: packageInPathFormat, Value: com/example
+ [INFO] Parameter: service1ClassName, Value: Hello
+ [INFO] Parameter: package, Value: com.example
+ [INFO] Parameter: version, Value: 1.0-SNAPSHOT
+ [INFO] Parameter: service2ClassName, Value: Stream
+ [INFO] Parameter: groupId, Value: com.example
+ [INFO] Parameter: service1Name, Value: hello
+ [INFO] Parameter: artifactId, Value: my-first-system
+ [INFO] Parameter: service2Name, Value: stream
+ [INFO] project created from Archetype in dir: /home/jroper/tmp/my-first-system
+ [INFO] ------------------------------------------------------------------------
+ [INFO] BUILD SUCCESS
+ [INFO] ------------------------------------------------------------------------
+ [INFO] Total time: 16.460 s
+ [INFO] Finished at: 2016-08-18T22:47:02+10:00
+ [INFO] Final Memory: 17M/307M
+ [INFO] ------------------------------------------------------------------------
+</code></pre>
+<p>We now have our first Maven Lagom project!</p>
+<h2><a href="#run-it" name="run-it">Run it</a></h2>
+<p>One of the best features of Lagom, and the hardest feature to implement in a build tool, is Lagom&rsquo;s high productivity development environment. Let&rsquo;s check it out in Maven, we can run our project using the <code>lagom:runAll</code> goal:</p>
+<pre class="prettyprint"><code class="language-console">$ cd my-first-system
+$ mvn lagom:runAll
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] my-first-system
+[INFO] hello-api
+[INFO] hello-impl
+[INFO] stream-api
+[INFO] stream-impl
+[INFO] integration-test
+[INFO] cassandra-config
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building my-first-system 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- lagom-maven-plugin:1.1.0-RC1:runAll (default-cli) @ my-first-system ---
+[INFO] Starting embedded Cassandra server
+[INFO] Cassandra server running at 127.0.0.1:4000
+[INFO] Service locator is running at http://localhost:8000
+[INFO] Service gateway is running at http://localhost:9000
+[INFO] Service hello-impl listening for HTTP on 0:0:0:0:0:0:0:0:57797
+[INFO] Service stream-impl listening for HTTP on 0:0:0:0:0:0:0:0:58445
+[INFO] (Services started, press enter to stop and go back to the console...)
+</code></pre>
+<p>Some of the Maven output has been snipped here for brevity, but you can see that the following has happened:</p>
+<ul>
+  <li>Cassandra has been started</li>
+  <li>A service locator is running on port 8000</li>
+  <li>A service gateway is running on port 9000</li>
+  <li>Our services are running on various ports</li>
+</ul>
+<p>Let&rsquo;s see if we can access one of the services:</p>
+<pre class="prettyprint"><code class="language-console">$ curl http://localhost:9000/api/hello/Maven
+Hello, Maven!
+</code></pre>
+<h2><a href="#hot-reloads" name="hot-reloads">Hot reloads</a></h2>
+<p>It&rsquo;s one thing to be able to get started quickly to run services, but one of the biggest productivity killers that developers face in development is build/deploy loops. Lagom takes care of that for you, by watching all of your sources, and automatically recompiling and reloading them as soon as it sees a change.</p>
+<p>Let&rsquo;s add a small string to the messsages returned by the hello service, in <code>hello-impl/src/main/java/com/example/hello/impl/HelloServiceImpl.java</code>:</p>
+<pre class="prettyprint"><code class="language-java">  public ServiceCall&lt;NotUsed, String&gt; hello(String id) {
+    return request -&gt; {
+      // Look up the hello world entity for the given ID.
+      PersistentEntityRef&lt;HelloCommand&gt; ref = persistentEntityRegistry.refFor(HelloEntity.class, id);
+      // Ask the entity the Hello command.
+      return ref.ask(new Hello(id, Optional.empty()))
+          .thenApply(msg -&gt; msg + &quot; &lt;- that&#39;s the message&quot;);
+    };
+  }
+</code></pre>
+<p>As soon as I hit save, Maven outputs this:</p>
+<pre class="prettyprint"><code class="language-console">[INFO] Copying 1 resource
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /home/jroper/tmp/my-first-system/hello-impl/target/classes
+
+--- (RELOAD) ---
+</code></pre>
+<p>And now if I hit the service again, you can see the updated message:</p>
+<pre class="prettyprint"><code class="language-console">$ curl http://localhost:9000/api/hello/Maven
+Hello, Maven! &lt;- that&#39;s the message
+</code></pre>
+<h2><a href="#want-to-learn-more-" name="want-to-learn-more-">Want to learn more?</a></h2>
+<p>Of course, there&rsquo;s much more to Lagom&rsquo;s Maven support, which you can find in the <a href="http://www.lagomframework.com/documentation/1.1.x/java/Home.html">Lagom documentation</a>.</p>
+<p>Why not get started today, all you need is JDK8 and Maven installed, and you&rsquo;re set to start developing a reactive microservices system.</p>]]></content>
+          <dc:date>2016-08-18T10:00:00.000+10:00</dc:date>
+        </entry><entry>
+          <title>Microservices - From development to production</title>
+          <link rel="alternate" href="http://www.lagomframework.com/blog/microservices-from-development-to-production.html"/>
+          <category term="conductr" scheme="http://www.lagomframework.com/blog/tags/conductr.html"/><category term="screencast" scheme="http://www.lagomframework.com/blog/tags/screencast.html"/>
+          <author>
+            <name>Christopher Hunt</name>
+            <uri>https://github.com/huntc</uri>
+          </author>
+          <id>http://www.lagomframework.com/blog/microservices-from-development-to-production.html</id>
+          <updated>2016-07-26T10:00:00.000+10:00</updated>
+          <published>2016-07-26T10:00:00.000+10:00</published>
+          <content type="html"><![CDATA[<h2><a href="#microservices-sound-great" name="microservices-sound-great">Microservices sound great</a></h2>
+<p>Let’s face it, microservices sound great, but they’re sure hard to set up and get going. There are service gateways to consider, setting up service discovery, consolidated logging, rolling updates, resiliency concerns… the list is almost endless. Distributed systems benefit the business, not so much the developer.</p>
+<p>Until now.</p>
+<p><a href="http://www.youtube.com/watch?v=5qbX7UwuMYM"><img src="http://img.youtube.com/vi/5qbX7UwuMYM/0.jpg" alt="sbt to install microservices" /></a></p>
+<p>Whatever you think of <a href="http://www.scala-sbt.org/">sbt</a>, the primary build tool of <a href="http://www.lagomframework.com/documentation/1.0.x/java/Home.html">Lagom</a>, it is a powerful beast. As such we’ve made it do the heavy lifting of packaging, loading and running your entire Lagom system, including Cassandra, with just one simple command:</p>
+<pre class="prettyprint"><code>sbt&gt; install
+</code></pre>
+<p>This “install” command will introspect your project and its sub-projects, generate configuration, package everything up, load it into a local <a href="http://conductr.lightbend.com/docs/1.1.x/Home">ConductR</a> cluster and then run it all.<br/><em>Just. One. Command.</em><br/>Try doing that with your &gt;insert favourite build tool here&lt;!</p>
+<p>Lower level commands also remain available so that you can package, load and run individual services on a local ConductR cluster in support of getting everything right before pushing to production.</p>
+<p>Lagom is aimed at making the developer productive when developing microservices. The ConductR integration now carries that same goal through to production.</p>
+<p>Please watch the 8 minute video for a comprehensive demonstration, and be sure to <a href="http://www.lagomframework.com/documentation/1.0.x/java/ConductR.html">visit the “Lagom for production” documentation</a> in order to keep up to date with your production options. While we aim for Lagom to run with your favourite orchestration tool, we think you’ll find the build integration for ConductR hard to beat. Finally, you can focus on your business problem, and not the infrastructure to support it in production.</p>
+<p>Enjoy!</p>]]></content>
+          <dc:date>2016-07-26T10:00:00.000+10:00</dc:date>
+        </entry><entry>
+          <title>Lagom 1.0 is released!</title>
+          <link rel="alternate" href="http://www.lagomframework.com/blog/lagom-1-0.html"/>
+          <category term="news" scheme="http://www.lagomframework.com/blog/tags/news.html"/>
+          <author>
+            <name>James Roper</name>
+            <uri>https://github.com/jroper</uri>
+          </author>
+          <id>http://www.lagomframework.com/blog/lagom-1-0.html</id>
+          <updated>2016-07-21T10:00:00.000+10:00</updated>
+          <published>2016-07-21T10:00:00.000+10:00</published>
+          <content type="html"><![CDATA[<p>The Lagom team are proud to announce that Lagom 1.0 has been released! We have been working hard on hardening Lagom and simplifying the APIs. We now have a framework that is production ready, and look forward to beginning this journey with a new way of writing microservices. We&rsquo;re also launching a new website and blog, which we hope will serve the community well going forward.</p>
+<p>In this post I&rsquo;ll recap the major features of Lagom, and then highlight some of the changes since the first milestone was released.</p>
+<h2><a href="#major-features" name="major-features">Major features</a></h2>
+<p>Lagom is a microservices framework that was built to guide developers in best practices. From architecture to development to production, Lagom provides an opinionated view that intentionally constrains what a developer can do and how they should do it. There are four primary areas that Lagom does this in.</p>
+<h3><a href="#communication" name="communication">Communication</a></h3>
+<p>Lagom provides a services API that allows services to invoke each other in a location transparent way. Serialization of requests and responses are handled for you, with Lagom mapping service calls down to idiomatic REST calls which can be easy interoperate with any other technology that speaks REST.</p>
+<p>Communication between nodes is guarded by circuit breakers, with a simple API to inspect and report on circuit break metrics. Lagom also provides streaming via WebSockets between services out of the box, utilizing Akka streams to implement this in an asynchronous fashion.</p>
+<h3><a href="#persistence" name="persistence">Persistence</a></h3>
+<p>Lagom provides an event sourced persistence model with CQRS for queries. In a distributed system, since each service has its own database in a share nothing architecture, it&rsquo;s not possible to have a system wide view of the &ldquo;current&rdquo; state, like a traditional RDBMS tries to maintain. What you can have is knowledge of facts, or events, that happened in the past, and you can pass these events between systems. Taking an event centric view of the world gives you the power to deal with consistency issues, by focusing on the data that you can be sure of, the events that happened.</p>
+<p>The Lagom persistence API provides a straight forward strongly typed way to implement event sourcing and CQRS, and guides developers in how to do this.</p>
+<h3><a href="#development" name="development">Development</a></h3>
+<p>Lagom provides a high productivity development environment. The philosophy of the Lagom development environment is that any new developer to a team should be able to get up and running with that teams development environment in less than 10 minutes.</p>
+<p>Lagom does away with the need to manage scripts and setup instructions for a development environment. These scripts are typically developed in house, are flaky, and get quickly out of date. Lagom takes all the responsibility of starting and managing the development environment itself, including the database, service locator, service gateway, and of course, starting each service.</p>
+<p>Updates to code are reflected immediately, with Lagom hot reloading services whenever their code changes, avoiding productivity killing deployment cycles during development.</p>
+<h3><a href="#production" name="production">Production</a></h3>
+<p>Out of the box, Lagom utilizes Lightbend ConductR for deployment. ConductR manages the deployment and scaling of each service, configures nodes of a service to cluster together via Akka clustering, provides databases and database configuration, and gives operations the tools necessary to manage and visualise the system.</p>
+<p>Lagom services can be built as ConductR bundles, and will use the ConductR implementation of the service locator with zero configuration.</p>
+<h2><a href="#new-since-m1" name="new-since-m1">New since M1</a></h2>
+<p>The biggest change in Lagom since M1 was released is the way that URL parameters in REST calls are managed has been greatly simplified. Previously they were modelled as a parameter on the service call, now they are passed directly to the service call builder. This alleviates the need to define ID serializers, which was one of the most confusing parts of the Lagom API.</p>
+<p>Circuit breaking has been made a service locator responsibility, as service locators have knowledge of what nodes are available and can implement the circuit breaking on a per node basis.</p>
+<p>Support has also been implemented for a configuration based service locator, for ad hoc production deployment.</p>
+<h2><a href="#get-started" name="get-started">Get started</a></h2>
+<p>So why not try Lagom today! You can get started with the <a href="http://www.lagomframework.com/documentation/1.0.x/java/Home.html">documentation</a>, and be immediately productive with confidence as the framework guides you to implement your microservices.</p>]]></content>
+          <dc:date>2016-07-21T10:00:00.000+10:00</dc:date>
+        </entry>
+    </feed>
