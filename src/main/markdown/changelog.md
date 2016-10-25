@@ -1,5 +1,17 @@
 # Lagom Change Log
 
+## Lagom 1.2.0-RC2
+
+*Released 25 October 2016*
+
+* [161](https://github.com/lagom/lagom/pull/161) Message broker/Kafka support
+* [63](https://github.com/lagom/lagom/issues/63) JDBC support
+* [126](https://github.com/lagom/lagom/issues/126) Generic read-side support
+* [73](https://github.com/lagom/lagom/issues/73) Automatic offset handling
+* [151](https://github.com/lagom/lagom/pull/151) Read-side overhaul, including sharded read sides
+
+For a full list of issues fixed in 1.2.0, see [here](https://github.com/lagom/lagom/issues?utf8=%E2%9C%93&q=milestone%3A1.2.0%20).
+
 ## Lagom 1.1.0
 
 *Released 21 September 2016*

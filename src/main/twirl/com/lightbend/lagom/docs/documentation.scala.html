@@ -14,7 +14,10 @@
     <script type="text/javascript"> docsearch({
         apiKey: "77ef1e29e6bddfca861f7a42cc51725e",
         indexName: "lagomframework",
-        inputSelector: "#docs-search"
+        inputSelector: "#docs-search",
+        algoliaOptions: {
+            // facetFilters: '["version:@version"]'
+        }
     });
     </script>
     @for(script <- context.resources.scripts) {<script type="text/javascript" src="@script"></script>
