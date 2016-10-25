@@ -254,5 +254,12 @@
       "url" : "ImmutablesInIDEs.html",
       "sourceUrl" : "https://github.com/lagom/lagom/tree/1.2.x/docs/manual/appendix/ImmutablesInIDEs.md"
     } ]
+  }, {
+    "title" : "Lagom Releases",
+    "children" : [ {
+      "title" : "Lagom 1.2 Migration Guide",
+      "url" : "Migration12.html",
+      "sourceUrl" : "https://github.com/lagom/lagom/tree/1.2.x/docs/manual/releases/Migration12.md"
+    } ]
   } ]
 }
