@@ -12,7 +12,11 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://www.lagomframework.com/community-process.html</loc>
+    <loc>http://www.lagomframework.com/contributing.html</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>http://www.lagomframework.com/conduct.html</loc>
     <priority>1.0</priority>
   </url>
   <url>
@@ -20,11 +24,7 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://www.lagomframework.com/contributing.html</loc>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>http://www.lagomframework.com/conduct.html</loc>
+    <loc>http://www.lagomframework.com/community-process.html</loc>
     <priority>1.0</priority>
   </url>
   <url>

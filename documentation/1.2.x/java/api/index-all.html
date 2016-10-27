@@ -372,6 +372,10 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/Descriptor.html#calls--">calls()</a></span> - Method in class com.lightbend.lagom.javadsl.api.<a href="com/lightbend/lagom/javadsl/api/Descriptor.html" title="class in com.lightbend.lagom.javadsl.api">Descriptor</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#cassandra--">cassandra()</a></span> - Method in interface com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></dt>
+<dd>
+<div class="block">Whether Cassandra is enabled.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/maven/StartCassandraMojo.html#cassandraCleanOnStart--">cassandraCleanOnStart()</a></span> - Method in class com.lightbend.lagom.maven.<a href="com/lightbend/lagom/maven/StartCassandraMojo.html" title="class in com.lightbend.lagom.maven">StartCassandraMojo</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/persistence/cassandra/CassandraConfig.html" title="interface in com.lightbend.lagom.javadsl.persistence.cassandra"><span class="typeNameLink">CassandraConfig</span></a> - Interface in <a href="com/lightbend/lagom/javadsl/persistence/cassandra/package-summary.html">com.lightbend.lagom.javadsl.persistence.cassandra</a></dt>
@@ -507,8 +511,10 @@
 <dd>
 <div class="block">Close all resources associated with this client factory.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#cluster--">cluster()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></dt>
-<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#cluster--">cluster()</a></span> - Method in interface com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></dt>
+<dd>
+<div class="block">Whether clustering is enabled.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/testkit/AbstractTestUtil.html#clusterConfig--">clusterConfig()</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.testkit.<a href="com/lightbend/lagom/javadsl/persistence/testkit/AbstractTestUtil.html" title="interface in com.lightbend.lagom.javadsl.persistence.testkit">AbstractTestUtil</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/dev/Colors.html" title="class in com.lightbend.lagom.dev"><span class="typeNameLink">Colors</span></a> - Class in <a href="com/lightbend/lagom/dev/package-summary.html">com.lightbend.lagom.dev</a></dt>
@@ -700,8 +706,14 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/pubsub/PubSubModule.html#configure--">configure()</a></span> - Method in class com.lightbend.lagom.javadsl.pubsub.<a href="com/lightbend/lagom/javadsl/pubsub/PubSubModule.html" title="class in com.lightbend.lagom.javadsl.pubsub">PubSubModule</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#configureBuilder--">configureBuilder()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></dt>
-<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#configureBuilder-java.util.function.Function-">configureBuilder(Function&lt;GuiceApplicationBuilder, GuiceApplicationBuilder&gt;)</a></span> - Method in interface com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></dt>
+<dd>
+<div class="block">Configure the builder.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#configureBuilder--">configureBuilder()</a></span> - Method in interface com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></dt>
+<dd>
+<div class="block">The builder configuration function</div>
+</dd>
 <dt><a href="com/lightbend/lagom/maven/ConfigureMojo.html" title="class in com.lightbend.lagom.maven"><span class="typeNameLink">ConfigureMojo</span></a> - Class in <a href="com/lightbend/lagom/maven/package-summary.html">com.lightbend.lagom.maven</a></dt>
 <dd>
 <div class="block">Internal goal, invoked by other Lagom mojos that work with multiple projects at once, to read plugin configuration
@@ -1794,7 +1806,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/jackson/JacksonSerializerFactory.html#JacksonSerializerFactory-akka.actor.ActorSystem-">JacksonSerializerFactory(ActorSystem)</a></span> - Constructor for class com.lightbend.lagom.javadsl.jackson.<a href="com/lightbend/lagom/javadsl/jackson/JacksonSerializerFactory.html" title="class in com.lightbend.lagom.javadsl.jackson">JacksonSerializerFactory</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/jackson/JacksonSerializerFactory.html#JacksonSerializerFactory-com.lightbend.lagom.internal.jackson.JacksonObjectMapperProvider-">JacksonSerializerFactory(JacksonObjectMapperProvider)</a></span> - Constructor for class com.lightbend.lagom.javadsl.jackson.<a href="com/lightbend/lagom/javadsl/jackson/JacksonSerializerFactory.html" title="class in com.lightbend.lagom.javadsl.jackson">JacksonSerializerFactory</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/jackson/JacksonSerializerFactory.html#JacksonSerializerFactory-com.fasterxml.jackson.databind.ObjectMapper-">JacksonSerializerFactory(ObjectMapper)</a></span> - Constructor for class com.lightbend.lagom.javadsl.jackson.<a href="com/lightbend/lagom/javadsl/jackson/JacksonSerializerFactory.html" title="class in com.lightbend.lagom.javadsl.jackson">JacksonSerializerFactory</a></dt>
 <dd>
 <div class="block">For testing purposes</div>
 </dd>
@@ -2640,10 +2652,6 @@
 <dd>
 <div class="block">Static reference to the singleton instance of this Scala object.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup$.html#MODULE:D">MODULE$</a></span> - Static variable in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup$.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup$</a></dt>
-<dd>
-<div class="block">Static reference to the singleton instance of this Scala object.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/maven/LagomKeys$.html#MODULE:D">MODULE$</a></span> - Static variable in class com.lightbend.lagom.maven.<a href="com/lightbend/lagom/maven/LagomKeys$.html" title="class in com.lightbend.lagom.maven">LagomKeys$</a></dt>
 <dd>
 <div class="block">Static reference to the singleton instance of this Scala object.</div>
@@ -3142,11 +3150,9 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistAll$.html#PersistAll:D--">PersistAll$()</a></span> - Constructor for class com.lightbend.lagom.javadsl.persistence.<a href="com/lightbend/lagom/javadsl/persistence/PersistentEntity.PersistAll$.html" title="class in com.lightbend.lagom.javadsl.persistence">PersistentEntity.PersistAll$</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#persistence--">persistence()</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/testkit/TestUtil$.html#persistenceConfig-java.lang.String-int-">persistenceConfig(String, int)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.cassandra.testkit.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/testkit/TestUtil$.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra.testkit">TestUtil$</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/testkit/TestUtil$.html#persistenceConfig-java.lang.String-int-boolean-">persistenceConfig(String, int, boolean)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.cassandra.testkit.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/testkit/TestUtil$.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra.testkit">TestUtil$</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/testkit/TestUtil.html#persistenceConfig-java.lang.String-int-boolean-">persistenceConfig(String, int, boolean)</a></span> - Static method in class com.lightbend.lagom.javadsl.persistence.cassandra.testkit.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/testkit/TestUtil.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra.testkit">TestUtil</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/cassandra/testkit/TestUtil.html#persistenceConfig-java.lang.String-int-">persistenceConfig(String, int)</a></span> - Static method in class com.lightbend.lagom.javadsl.persistence.cassandra.testkit.<a href="com/lightbend/lagom/javadsl/persistence/cassandra/testkit/TestUtil.html" title="class in com.lightbend.lagom.javadsl.persistence.cassandra.testkit">TestUtil</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/testkit/TestUtil$.html#persistenceConfig-java.lang.String-int-boolean-">persistenceConfig(String, int, boolean)</a></span> - Method in class com.lightbend.lagom.javadsl.persistence.testkit.<a href="com/lightbend/lagom/javadsl/persistence/testkit/TestUtil$.html" title="class in com.lightbend.lagom.javadsl.persistence.testkit">TestUtil$</a></dt>
 <dd>&nbsp;</dd>
@@ -4243,9 +4249,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest$.html#ServiceTest:D--">ServiceTest$()</a></span> - Constructor for class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest$.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest$</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="class in com.lightbend.lagom.javadsl.testkit"><span class="typeNameLink">ServiceTest.Setup</span></a> - Class in <a href="com/lightbend/lagom/javadsl/testkit/package-summary.html">com.lightbend.lagom.javadsl.testkit</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup$.html" title="class in com.lightbend.lagom.javadsl.testkit"><span class="typeNameLink">ServiceTest.Setup$</span></a> - Class in <a href="com/lightbend/lagom/javadsl/testkit/package-summary.html">com.lightbend.lagom.javadsl.testkit</a></dt>
+<dt><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit"><span class="typeNameLink">ServiceTest.Setup</span></a> - Interface in <a href="com/lightbend/lagom/javadsl/testkit/package-summary.html">com.lightbend.lagom.javadsl.testkit</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.TestServer.html" title="class in com.lightbend.lagom.javadsl.testkit"><span class="typeNameLink">ServiceTest.TestServer</span></a> - Class in <a href="com/lightbend/lagom/javadsl/testkit/package-summary.html">com.lightbend.lagom.javadsl.testkit</a></dt>
 <dd>
@@ -4399,12 +4403,6 @@
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/dev/Reloader.html#settings--">settings()</a></span> - Method in class com.lightbend.lagom.dev.<a href="com/lightbend/lagom/dev/Reloader.html" title="class in com.lightbend.lagom.dev">Reloader</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/maven/StartServiceLocatorMojo.html#setUnmanagedServices-java.util.Map-">setUnmanagedServices(Map&lt;String, String&gt;)</a></span> - Method in class com.lightbend.lagom.maven.<a href="com/lightbend/lagom/maven/StartServiceLocatorMojo.html" title="class in com.lightbend.lagom.maven">StartServiceLocatorMojo</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#Setup-boolean-boolean-java.util.function.Function-">Setup(boolean, boolean, Function&lt;GuiceApplicationBuilder, GuiceApplicationBuilder&gt;)</a></span> - Constructor for class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#Setup--">Setup()</a></span> - Constructor for class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup$.html#Setup:D--">Setup$()</a></span> - Constructor for class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup$.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup$</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/maven/StartMojo.html#setWatchDirs-java.util.List-">setWatchDirs(List&lt;String&gt;)</a></span> - Method in class com.lightbend.lagom.maven.<a href="com/lightbend/lagom/maven/StartMojo.html" title="class in com.lightbend.lagom.maven">StartMojo</a></dt>
 <dd>&nbsp;</dd>
@@ -5118,6 +5116,10 @@
 <dd>
 <div class="block">Add the given service calls to this service.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#withCassandra-boolean-">withCassandra(boolean)</a></span> - Method in interface com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></dt>
+<dd>
+<div class="block">Enable or disable Cassandra.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/MessageProtocol.html#withCharset-java.lang.String-">withCharset(String)</a></span> - Method in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/MessageProtocol.html" title="class in com.lightbend.lagom.javadsl.api.transport">MessageProtocol</a></dt>
 <dd>
 <div class="block">Return a copy of this message protocol with the charset set to the given charset.</div>
@@ -5130,14 +5132,12 @@
 <dd>
 <div class="block">Set the default circuit breaker to use for this service.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#withCluster-boolean-">withCluster(boolean)</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></dt>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#withCluster-boolean-">withCluster(boolean)</a></span> - Method in interface com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></dt>
 <dd>
-<div class="block">Disable or enable cluster and pubsub.</div>
+<div class="block">Enable clustering.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#withConfigureBuilder-java.util.function.Function-">withConfigureBuilder(Function&lt;GuiceApplicationBuilder, GuiceApplicationBuilder&gt;)</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></dt>
-<dd>
-<div class="block">Transformation of the Guice builder.</div>
-</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#withConfigureBuilder-java.util.function.Function-">withConfigureBuilder(Function&lt;GuiceApplicationBuilder, GuiceApplicationBuilder&gt;)</a></span> - Method in interface com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/persistence/jdbc/JdbcSession.html#withConnection-com.lightbend.lagom.javadsl.persistence.jdbc.JdbcSession.ConnectionFunction-">withConnection(JdbcSession.ConnectionFunction&lt;T&gt;)</a></span> - Method in interface com.lightbend.lagom.javadsl.persistence.jdbc.<a href="com/lightbend/lagom/javadsl/persistence/jdbc/JdbcSession.html" title="interface in com.lightbend.lagom.javadsl.persistence.jdbc">JdbcSession</a></dt>
 <dd>
 <div class="block">Execute the given function with a connection.</div>
@@ -5234,10 +5234,8 @@
 <dd>
 <div class="block">Copy the current immutable object by setting a value for the <a href="com/lightbend/lagom/javadsl/server/status/AbstractLatency.html#getPercentile99th--"><code>percentile99th</code></a> attribute.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#withPersistence-boolean-">withPersistence(boolean)</a></span> - Method in class com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="class in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></dt>
-<dd>
-<div class="block">Disable or enable persistence, including Cassandra startup.</div>
-</dd>
+<dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html#withPersistence-boolean-">withPersistence(boolean)</a></span> - Method in interface com.lightbend.lagom.javadsl.testkit.<a href="com/lightbend/lagom/javadsl/testkit/ServiceTest.Setup.html" title="interface in com.lightbend.lagom.javadsl.testkit">ServiceTest.Setup</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/lightbend/lagom/javadsl/api/transport/RequestHeader.html#withPrincipal-java.security.Principal-">withPrincipal(Principal)</a></span> - Method in class com.lightbend.lagom.javadsl.api.transport.<a href="com/lightbend/lagom/javadsl/api/transport/RequestHeader.html" title="class in com.lightbend.lagom.javadsl.api.transport">RequestHeader</a></dt>
 <dd>
 <div class="block">Return a copy of this request header with the principal set.</div>
