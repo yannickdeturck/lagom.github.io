@@ -127,7 +127,7 @@
                 <article>
                 <h1 id="Using-ConductR-with-sbt"><a class="section-marker" href="#Using-ConductR-with-sbt">§</a><a href="#using-conductr-with-sbt" name="using-conductr-with-sbt">Using ConductR with sbt</a></h1>
 <p>To use ConductR with sbt, add the <a href="https://github.com/typesafehub/sbt-conductr">sbt-conductr plugin</a> to your <code>project/plugins.sbt</code>:</p>
-<pre class="prettyprint"><code class="language-scala">addSbtPlugin(&quot;com.lightbend.conductr&quot; % &quot;sbt-conductr&quot; % &quot;2.1.9&quot;)
+<pre class="prettyprint"><code class="language-scala">addSbtPlugin(&quot;com.lightbend.conductr&quot; % &quot;sbt-conductr&quot; % &quot;2.1.14&quot;)
 </code></pre>
 <p>sbt-conductr adds several commands to the activator console:</p>
 <ul>
@@ -150,7 +150,7 @@
 <pre class="prettyprint"><code class="language-console">&gt; install
 </code></pre>
 <p>The install command will introspect your project and its sub-projects and then package, load and run everything in ConductR at once - including Cassandra. The local sandbox is expected to be running and it will first be restarted to ensure that it is in a clean state.</p>
-<p>We expect that you will use the <code>install</code> command early on, but graduate to ConductR&rsquo;s lower-level commands as you evolve your services through their development lifecyle.</p>
+<p>We expect that you will use the <code>install</code> command early on, but graduate to ConductR&rsquo;s lower-level commands as you evolve your services through their development lifecycle.</p>
 <p>The remainder of this document describes the lower level ConductR commands.</p><h2 id="Packaging-your-services"><a class="section-marker" href="#Packaging-your-services">§</a><a href="#packaging-your-services" name="packaging-your-services">Packaging your services</a></h2>
 <p>Packaging your Lagom services so that you can deliver them to ConductR is straightforward. To do this then use the <code>bundle:dist</code> command from within the activator console:</p>
 <pre class="prettyprint"><code class="language-console">&gt; bundle:dist
