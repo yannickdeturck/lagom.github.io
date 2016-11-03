@@ -214,7 +214,7 @@ public PSequence&lt;AggregateEventTag&lt;BlogEvent&gt;&gt; aggregateTags() {
 </code></pre><h3 id="Global-prepare"><a class="section-marker" href="#Global-prepare">§</a><a href="#global-prepare" name="global-prepare">Global prepare</a></h3>
 <p>The global prepare callback runs at least once across the whole cluster. It is intended for doing things like creating tables and preparing any data that needs to be available before read side processing starts. Read side processors may be sharded across many nodes, and so tasks like creating tables should usually only be done from one node.</p>
 <p>The global prepare callback is run from an Akka cluster singleton. It may be run multiple times - every time a new node becomes the new singleton, the callback will be run. Consequently, the task must be idempotent. If it fails, it will be run again using an exponential backoff, and the read side processing of the whole cluster will not start until it has run successfully.</p>
-<p>Of course, setting a global prepare callback is completely optional, you may prefer to manage Cassandra tables manually, but it is very convenient for development and test environments to use this callback to create them for you.</p>
+<p>Of course, setting a global prepare callback is completely optional, you may prefer to manage database tables manually, but it is very convenient for development and test environments to use this callback to create them for you.</p>
 <p>Below is an example method that we&rsquo;ve implemented to create tables:</p>
 <pre class="prettyprint"><code class="language-java">private void createTable(Connection connection) throws SQLException {
     connection.prepareStatement(&quot;CREATE TABLE IF NOT EXISTS blogsummary ( &quot; +
