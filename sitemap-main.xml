@@ -28,6 +28,10 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>http://www.lagomframework.com/blog/lagom-1-2.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>http://www.lagomframework.com/blog/lagom-1-2-RC2.html</loc>
     <priority>0.8</priority>
   </url>
