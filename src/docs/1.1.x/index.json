@@ -139,6 +139,10 @@
         "url" : "MessageSerializers.html",
         "sourceUrl" : "https://github.com/lagom/lagom/tree/1.1.x/docs/manual/guide/services/MessageSerializers.md"
       }, {
+        "title" : "Header Filters",
+        "url" : "HeaderFilters.html",
+        "sourceUrl" : "https://github.com/lagom/lagom/tree/1.1.x/docs/manual/guide/services/HeaderFilters.md"
+      }, {
         "title" : "Error handling",
         "url" : "ServiceErrorHandling.html",
         "sourceUrl" : "https://github.com/lagom/lagom/tree/1.1.x/docs/manual/guide/services/ServiceErrorHandling.md"
