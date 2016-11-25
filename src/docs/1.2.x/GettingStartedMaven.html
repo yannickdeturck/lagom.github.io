@@ -2,10 +2,10 @@
 <p>This page shows how to create and run your first Lagom project.</p><h2 id="Creating-a-new-Lagom-project"><a class="section-marker" href="#Creating-a-new-Lagom-project">§</a><a href="#creating-a-new-lagom-project" name="creating-a-new-lagom-project">Creating a new Lagom project</a></h2>
 <p>A Lagom system is typically made up of a set of maven projects, each build providing multiple services. The easiest way to get started with a new Lagom system is to create a new project using the Maven archetype plugin, with the Lagom Maven archetype:</p>
 <pre class="prettyprint"><code>$ mvn archetype:generate -DarchetypeGroupId=com.lightbend.lagom \
-  -DarchetypeArtifactId=maven-archetype-lagom-java -DarchetypeVersion=1.1.0
+  -DarchetypeArtifactId=maven-archetype-lagom-java -DarchetypeVersion=1.2.0
 </code></pre>
 <blockquote>
-  <p><strong>Note:</strong> Ensure you replace the 1.1.0 archetype version with the latest version of Lagom.</p>
+  <p><strong>Note:</strong> Ensure you replace the 1.2.0 archetype version with the latest version of Lagom.</p>
 </blockquote>
 <p>This will prompt you for a <code>groupId</code>, <code>artifactId</code> and <code>version</code>. You might choose, for example, <code>com.example</code> as a <code>groupId</code>, and <code>my-first-system</code> for an <code>artifactId</code>. Once you&rsquo;ve followed the prompts, it will create a new system with two services in it: <code>hello</code> and <code>stream</code>.</p><h2 id="Anatomy-of-a-Lagom-project"><a class="section-marker" href="#Anatomy-of-a-Lagom-project">§</a><a href="#anatomy-of-a-lagom-project" name="anatomy-of-a-lagom-project">Anatomy of a Lagom project</a></h2>
 <p>The created project contains the following elements:</p>
