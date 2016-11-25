@@ -6,10 +6,10 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Lagom - Service descriptors</title>
+        <title>Lagom - Header Filters</title>
         <meta name="description" content="Lagom">
         
-            <link rel="canonical" href="http://www.lagomframework.com/documentation/1.2.x/java/ServiceDescriptors.html"/>
+            <link rel="canonical" href="http://www.lagomframework.com/documentation/1.2.x/java/HeaderFilters.html"/>
         
         <meta name="viewport" content="width=device-width,maximum-scale=1"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css"/>
@@ -105,7 +105,7 @@
     <header class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="small-12 columns">
-                <h1>Service descriptors</h1>
+                <h1>Header Filters</h1>
             </div>
         </div>
     </header>
@@ -125,105 +125,67 @@
                 
 
                 <article>
-                <h1 id="Service-Descriptors"><a class="section-marker" href="#Service-Descriptors">§</a><a href="#service-descriptors" name="service-descriptors">Service Descriptors</a></h1>
-<p>Lagom services are described by an interface, known as a service descriptor. This interface not only defines how the service is invoked and implemented, it also defines the metadata that describes how the interface is mapped down onto an underlying transport protocol. Generally, the service descriptor, its implementation and consumption should remain agnostic to what transport is being used, whether that&rsquo;s REST, websockets, or some other transport. Let&rsquo;s take a look at a simple descriptor:</p>
-<pre class="prettyprint"><code class="language-java">import com.lightbend.lagom.javadsl.api.*;
+                <h1 id="Header-Filters"><a class="section-marker" href="#Header-Filters">§</a><a href="#header-filters" name="header-filters">Header Filters</a></h1>
+<p>In Lagom you may add <code>HeaderFilter</code>s to your <code>ServiceDescriptor</code>. In a <code>HeaderFilter</code> you will usually handle protocol negotiation or authentication. </p>
+<p>A single <code>HeaderFilter</code> implementation may transform a request leaving a client or entering a server and a response leaving a server and entering a client.</p>
+<pre class="prettyprint"><code class="language-java">public class UserAgentHeaderFilter implements HeaderFilter {
 
-import static com.lightbend.lagom.javadsl.api.Service.*;
+    @Override
+    public RequestHeader transformClientRequest(RequestHeader request) {
+        if (request.principal().isPresent()) {
+            Principal principal = request.principal().get();
+            if (principal instanceof ServicePrincipal) {
+                String serviceName = ((ServicePrincipal) principal).serviceName();
+                return request.withHeader(Http.HeaderNames.USER_AGENT, serviceName);
+            } else {
+                return request;
+            }
+        } else {
+            return request;
+        }
+    }
 
-public interface HelloService extends Service {
-    ServiceCall&lt;String, String&gt; sayHello();
+    @Override
+    public RequestHeader transformServerRequest(RequestHeader request) {
+        Optional&lt;String&gt; userAgent = request.getHeader(Http.HeaderNames.USER_AGENT);
+        if (userAgent.isPresent()) {
+            return request.withPrincipal(ServicePrincipal.forServiceNamed(userAgent.get()));
+        } else {
+            return request;
+        }
+    }
 
-    default Descriptor descriptor() {
-        return named(&quot;hello&quot;).withCalls(
-                call(this::sayHello)
-        );
+    @Override
+    public ResponseHeader transformServerResponse(ResponseHeader response, RequestHeader request) {
+        return response;
+    }
+
+    @Override
+    public ResponseHeader transformClientResponse(ResponseHeader response, RequestHeader request) {
+        return response;
     }
 }</code></pre>
-<p>This descriptor defines a service with one call, the <code>sayHello</code> call. <code>sayHello()</code> is a method that returns something of type <code>ServiceCall</code>, this is a representation of the call that can be invoked when consuming the service, and implemented by the service itself. This is what the interface looks like:</p>
-<pre class="prettyprint"><code class="language-java">interface ServiceCall&lt;Request, Response&gt; {
-  CompletionStage&lt;Response&gt; invoke(Request request);
-}
-</code></pre>
-<p>An important thing to note here is that invoking the <code>sayHello()</code> method does not actually invoke the call, it simply gets a handle to the call, which can then be invoked using the <code>invoke</code> method.</p>
-<p><a href="api/index.html?com/lightbend/lagom/javadsl/api/ServiceCall.html"><code>ServiceCall</code></a> takes two type parameters, <code>Request</code> and <code>Response</code>. The <code>Request</code> parameter is the type of the incoming request message, and the <code>Response</code> parameter is the type of the outgoing response message. In the example above, these are both <code>String</code>, so our service call just handles simple text messages.</p>
-<p>While the <code>sayHello()</code> method describes how the call will be programmatically invoked or implemented, it does not describe how this call gets mapped down onto the transport. This is done by providing a <code>default</code> implementation of the <a href="api/index.html?com/lightbend/lagom/javadsl/api/Service.html#descriptor--"><code>descriptor()</code></a> call, whose interface is described by <a href="api/index.html?com/lightbend/lagom/javadsl/api/Service.html"><code>Service</code></a>.</p>
-<p>You can see that we&rsquo;re returning a service named <code>hello</code>, and we&rsquo;re describing one call, the <code>sayHello</code> call. Because this service is so simple, in this case we don&rsquo;t need to do anything more than simply pass the call as a method reference to the <a href="api/index.html?com/lightbend/lagom/javadsl/api/Service.html#call-java.util.function.Supplier-"><code>call</code></a> method. </p><h2 id="Call-identifiers"><a class="section-marker" href="#Call-identifiers">§</a><a href="#call-identifiers" name="call-identifiers">Call identifiers</a></h2>
-<p>Each service call needs to have an identifier. An identifier is used to provide routing information to the implementation of the client and the service, so that calls over the wire can be mapped to the appropriate call. Identifiers can be a static name or path, or they can have dynamic components, where dynamic path parameters are extracted from the path and passed to the service call methods.</p>
-<p>The simplest type of identifier is a name, and by default, that name is set to be the same name as the name of the method on the interface that implements it. A custom name can also be supplied, by passing it to the <a href="api/index.html?com/lightbend/lagom/javadsl/api/Service.html#namedCall-java.lang.String-java.util.function.Supplier-"><code>namedCall</code></a> method:</p>
+<p>This <a href="api/index.html?com/lightbend/lagom/javadsl/api/security/UserAgentHeaderFilter.html"><code>UserAgentHeaderFilter</code></a> is the default <code>HeaderFilter</code> any Lagom service will use if none is specified. It uses a <code>ServicePrincipal</code> which identifies the client with the service name. This way a server may identify a caller client by the <code>User-Agent</code>. </p>
+<p>In <code>UserAgentHeaderFilter</code> the code at <code>transformClientRequest</code> will be invoked when preparing a client invocation to add a <code>User-Agent</code> header if a <code>ServicePrincipal</code> was specified on the request. On the server end <code>transformServerRequest</code> will be used to read the <code>User-Agent</code> header and set that value as the request&rsquo;s <a href="https://docs.oracle.com/javase/8/docs/api/java/security/Principal.html">Principal</a>.</p>
+<p>Keep in mind that a header filter should only be used to deal with cross cutting protocol concerns, and nothing more. For example, you may have a header filter that describes how the current authenticated user is communicated over HTTP (by adding a user header, for example). Cross cutting domain concerns, such as authentication and validation, should not be handled in a header filter, rather they should be handled using <a href=" ServiceImplementation.html#Service-call-composition">service call composition</a>.</p><h2 id="Header-Filter-Composition"><a class="section-marker" href="#Header-Filter-Composition">§</a><a href="#header-filter-composition" name="header-filter-composition">Header Filter Composition</a></h2>
+<p>Each service <code>Descriptor</code> can only have one <code>HeaderFilter</code>. In order to use several filters at once you may compose them using <code>HeaderFilter.composite</code> which will return a <code>HeaderFilter</code> that chains all the <code>HeaderFilter</code>s you composed. When composing, the order is important so when sending data the filters of the composite are used in the order they were provided, and when receiving data the filters will be used in reverse order. So if we registered two verbose Filters Foo and Bar like this:</p>
 <pre class="prettyprint"><code class="language-java">default Descriptor descriptor() {
-    return named(&quot;hello&quot;).withCalls(
-            namedCall(&quot;hello&quot;, this::sayHello)
-    );
-}</code></pre>
-<p>In this case, we&rsquo;ve named it <code>hello</code>, instead of the default of <code>sayHello</code>. When implemented using REST, this will mean this call will have a path of <code>/hello</code>.</p><h3 id="Path-based-identifiers"><a class="section-marker" href="#Path-based-identifiers">§</a><a href="#path-based-identifiers" name="path-based-identifiers">Path based identifiers</a></h3>
-<p>The second type of identifier is a path based identifier. This uses a URI path and query string to route calls, and from it dynamic path parameters can optionally be extracted out. They can be configured using the <a href="api/index.html?com/lightbend/lagom/javadsl/api/Service.html#pathCall-java.lang.String-java.util.function.Supplier-"><code>pathCall</code></a> method.</p>
-<p>Dynamic path parameters are extracted from the path by declaring dynamic parts in the path. These are prefixed with a colon, for example, a path of <code>/order/:id</code> has a dynamic part called <code>id</code>. Lagom will extract this parameter from the path, and pass it to the service call method. In order to convert it to the type accepted by the method, Lagom will use a <a href="api/index.html?com/lightbend/lagom/javadsl/api/deser/PathParamSerializer.html"><code>PathParamSerializer</code></a>. Lagom includes many <code>PathParamSerializer</code>&rsquo;s out of the box, such as for <code>String</code>, <code>Long</code>, <code>Integer</code> and <code>Boolean</code>. Here&rsquo;s an example of extracting a <code>long</code> parameter from the path and passing it to a service call:</p>
-<pre class="prettyprint"><code class="language-java">ServiceCall&lt;NotUsed, Order&gt; getOrder(long id);
-
-default Descriptor descriptor() {
-    return named(&quot;orders&quot;).withCalls(
-            pathCall(&quot;/order/:id&quot;, this::getOrder)
-    );
-}</code></pre>
-<p>Multiple parameters can of course be extracted out, these will be passed to your service call method in the order they are extracted from the URL:</p>
-<pre class="prettyprint"><code class="language-java">ServiceCall&lt;NotUsed, Item&gt; getItem(long orderId, String itemId);
-
-default Descriptor descriptor() {
-    return named(&quot;orders&quot;).withCalls(
-            pathCall(&quot;/order/:orderId/item/:itemId&quot;, this::getItem)
-    );
-}</code></pre>
-<p>Query string parameters can also be extracted from the path, using a <code>&amp;</code> separated list after a <code>?</code> at the end of the path. For example, the following service call uses query string parameters to implement paging:</p>
-<pre class="prettyprint"><code class="language-java">ServiceCall&lt;NotUsed, PSequence&lt;Item&gt;&gt; getItems(long orderId, int pageNo, int pageSize);
-
-default Descriptor descriptor() {
-    return named(&quot;orders&quot;).withCalls(
-            pathCall(&quot;/order/:orderId/items?pageNo&amp;pageSize&quot;, this::getItems)
-    );
-}</code></pre>
-<p>When you use <code>call</code>, <code>namedCall</code> or <code>pathCall</code>, if Lagom maps that down to REST, Lagom will make a best effort attempt to map it down to REST in a semantic fashion, so that means if there is a request message, it will use <code>POST</code>, if there&rsquo;s none, it will use <code>GET</code>.</p><h3 id="REST-identifiers"><a class="section-marker" href="#REST-identifiers">§</a><a href="#rest-identifiers" name="rest-identifiers">REST identifiers</a></h3>
-<p>The final type of identifier is a REST identifier. REST identifiers are designed to be used when creating semantic REST APIs. They use both a path, as with the path based identifier, and a request method, to identify them. They can be configured using the <a href="api/index.html?com/lightbend/lagom/javadsl/api/Service.html#restCall-com.lightbend.lagom.javadsl.api.transport.Method-java.lang.String-java.util.function.Supplier-"><code>restCall</code></a> method:</p>
-<pre class="prettyprint"><code class="language-java">ServiceCall&lt;Item, NotUsed&gt; addItem(long orderId);
-ServiceCall&lt;NotUsed, Item&gt; getItem(long orderId, String itemId);
-ServiceCall&lt;NotUsed, NotUsed&gt; deleteItem(long orderId, String itemId);
-
-default Descriptor descriptor() {
-    return named(&quot;orders&quot;).withCalls(
-            restCall(Method.POST,   &quot;/order/:orderId/item&quot;,         this::addItem),
-            restCall(Method.GET,    &quot;/order/:orderId/item/:itemId&quot;, this::getItem),
-            restCall(Method.DELETE, &quot;/order/:orderId/item/:itemId&quot;, this::deleteItem)
-    );
-}</code></pre><h2 id="Messages"><a class="section-marker" href="#Messages">§</a><a href="#messages" name="messages">Messages</a></h2>
-<p>Every service call in Lagom has a request message type and a response message type. When the request or response message isn&rsquo;t used, the <code>akka.NotUsed</code> can be used in their place. Request and response message types fall into two categories, strict and streamed.</p><h3 id="Strict-messages"><a class="section-marker" href="#Strict-messages">§</a><a href="#strict-messages" name="strict-messages">Strict messages</a></h3>
-<p>A strict message is a single message that can be represented by a simple Java object. The message will be buffered into memory, and then parsed, for example, as json. When both message types are strict, the call is said to be a synchronous call, that is, a request is sent and received, then a response is sent and received. The caller and callee have synchronized in their communication.</p>
-<p>So far, all of the service call examples we&rsquo;ve seen have used strict messages, for example, the order service descriptors above accept and return items and orders. The input value is passed directly to the service call, and returned directly from the service call, and these values are serialized to a JSON buffer in memory before being sent, and read entirely into memory before being deserialized back from JSON.</p><h3 id="Streamed-messages"><a class="section-marker" href="#Streamed-messages">§</a><a href="#streamed-messages" name="streamed-messages">Streamed messages</a></h3>
-<p>A streamed message is a message of type <a href="http://doc.akka.io/japi/akka/2.4.4/akka/stream/javadsl/Source.html"><code>Source</code></a>. <code>Source</code> is an <a href="http://doc.akka.io/docs/akka/2.4/java.html">Akka streams</a> API that allows asynchronous streaming and handling of messages. Here&rsquo;s an example streamed service call:</p>
-<pre class="prettyprint"><code class="language-java">ServiceCall&lt;String, Source&lt;String, ?&gt;&gt; tick(int interval);
-
-default Descriptor descriptor() {
-    return named(&quot;clock&quot;).withCalls(
-        pathCall(&quot;/tick/:interval&quot;, this::tick)
-    );
-}</code></pre>
-<p>This service call has a strict request type and a streamed response type. An implementation of this might return a <code>Source</code> that sends the input tick message <code>String</code> at the specified interval.</p>
-<p>A bidirectional streamed call might look like this:</p>
-<pre class="prettyprint"><code class="language-java">ServiceCall&lt;Source&lt;String, ?&gt;, Source&lt;String, ?&gt;&gt; sayHello();
-
-default Descriptor descriptor() {
-    return named(&quot;hello&quot;).withCalls(
-        call(this::sayHello)
-    );
-}</code></pre>
-<p>In this case, the server might return a <code>Source</code> that converts every message received in the request stream to messages prefixed with <code>Hello</code>.</p>
-<p>Lagom will choose an appropriate transport for the stream, typically, this will be WebSockets. WebSockets support bidirectional streaming, and so are a good general purpose option for streaming. When only one of the request or response message is streamed, Lagom will implement the sending and receiving of the strict message by sending or receiving a single message, and then leaving the WebSocket open until the other direction closes. Otherwise, Lagom will close the WebSocket when either direction closes.</p><h3 id="Message-serialization"><a class="section-marker" href="#Message-serialization">§</a><a href="#message-serialization" name="message-serialization">Message serialization</a></h3>
-<p>By default, Lagom will choose an appropriate serializer for request and response serialization and deserialization. Out of the box, Lagom will use JSON for communication, using Jackson to serialize and deserialize messages.</p>
-<p>For details on message serializers, including how to write and configure custom message serializers, see <a href="MessageSerializers.html">Message Serializers</a>.</p>
+  return named(&quot;echo&quot;).withCalls(
+      namedCall(&quot;echo&quot;, this::echo)
+  )
+      .withHeaderFilter(HeaderFilter.composite(new FooFilter(), new BarFilter()))
+      .withAutoAcl(true);</code></pre>
+<p>and then called the service, then we would get the following on the server output logs:</p>
+<pre class="prettyprint"><code>[debug] Bar - transforming Server Request
+[debug] Foo - transforming Server Request
+[debug] Foo - transforming Server Response
+[debug] Bar - transforming Server Response
+</code></pre>
                 </article>
 
                 
                     <p class="edit-source">Found an error in this documentation? The source code for this page can be found
-                        <a href="https://github.com/lagom/lagom/tree/1.2.x/docs/manual/guide/services/ServiceDescriptors.md">here</a>. Please feel free to edit and contribute a pull request.</p>
+                        <a href="https://github.com/lagom/lagom/tree/1.2.x/docs/manual/guide/services/HeaderFilters.md">here</a>. Please feel free to edit and contribute a pull request.</p>
                 
             </div>
             <aside class="small-12 large-4 columns">
@@ -234,11 +196,11 @@ default Descriptor descriptor() {
                     <label for="docs-version">Version:</label>
                     <select id="docs-version">
                     
-                        <option value="/documentation/1.0.x/java/ServiceDescriptors.html">1.0.x</option>
+                        <option value="/documentation/1.0.x/java/Home.html">1.0.x</option>
                     
-                        <option value="/documentation/1.1.x/java/ServiceDescriptors.html">1.1.x</option>
+                        <option value="/documentation/1.1.x/java/HeaderFilters.html">1.1.x</option>
                     
-                        <option value="/documentation/1.2.x/java/ServiceDescriptors.html" selected="selected">1.2.x</option>
+                        <option value="/documentation/1.2.x/java/HeaderFilters.html" selected="selected">1.2.x</option>
                     
                     </select>
 
@@ -249,7 +211,7 @@ default Descriptor descriptor() {
                         <ul>
                         
                             
-                                <li class="current-page"><a href="ServiceDescriptors.html">Service descriptors</a></li>
+                                <li><a href="ServiceDescriptors.html">Service descriptors</a></li>
                             
                         
                             
@@ -269,7 +231,7 @@ default Descriptor descriptor() {
                             
                         
                             
-                                <li><a href="HeaderFilters.html">Header Filters</a></li>
+                                <li class="current-page"><a href="HeaderFilters.html">Header Filters</a></li>
                             
                         
                             
