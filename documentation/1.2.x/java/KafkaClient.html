@@ -127,7 +127,7 @@
                 <article>
                 <h1 id="Lagom-Kafka-Client"><a class="section-marker" href="#Lagom-Kafka-Client">§</a><a href="#lagom-kafka-client" name="lagom-kafka-client">Lagom Kafka Client</a></h1>
 <p>Lagom provides an implementation of the Message Broker API that uses Kafka. In the remainder you will learn how to add the dependency in your build, and how to configure and tune topic&rsquo;s publishers and subscribers.</p><h2 id="Dependency"><a class="section-marker" href="#Dependency">§</a><a href="#dependency" name="dependency">Dependency</a></h2>
-<p>To use this feature add the following in your project&rsquo;s build.</p>
+<p>To use this feature add the following in your project&rsquo;s build. </p>
 <p>In Maven:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
     &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
@@ -136,7 +136,8 @@
 &lt;/dependency&gt;
 </code></pre>
 <p>In sbt:</p>
-<pre class="prettyprint"><code class="language-sbt">libraryDependencies += lagomJavadslKafkaBroker</code></pre><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a><a href="#configuration" name="configuration">Configuration</a></h2>
+<pre class="prettyprint"><code class="language-sbt">libraryDependencies += lagomJavadslKafkaBroker</code></pre>
+<p>When importing the Lagom Kafka Broker module keep in mind that the Lagom Kafka Broker module requires one implementation of a Lagom Persistence so make sure your dependencies include either <a href="PersistentEntityCassandra.html">Lagom Persistence Cassandra</a> or <a href="PersistentEntityRDBMS.html">Lagom Persistence JDBC</a></p><h2 id="Configuration"><a class="section-marker" href="#Configuration">§</a><a href="#configuration" name="configuration">Configuration</a></h2>
 <p>The Lagom Kafka Client implementation is built using <a href="https://github.com/akka/reactive-kafka">akka-stream-kafka</a>. The akka-stream-kafka library wraps the official <a href="http://kafka.apache.org/documentation.html">Apache Java Kafka client</a> and exposes a (Akka) stream based API to publish/consume messages to/from Kafka. Therefore, we have effectively three libraries at play, with each of them exposing its own configuration. Let&rsquo;s explore the configuration keys exposed by each layer, starting with the one sitting at the top, i.e., the Lagom Kafka Client.</p><h3 id="Lagom-Kafka-Client1"><a class="section-marker" href="#Lagom-Kafka-Client1">§</a><a href="#lagom-kafka-client" name="lagom-kafka-client">Lagom Kafka Client</a></h3>
 <pre class="prettyprint"><code class="language-conf">lagom.broker.kafka {
   # The URLs of the Kafka brokers. Separate each URL with a comma.
@@ -190,7 +191,19 @@
 <pre class="prettyprint"><code class="language-conf">akka.kafka.producer.kafka-clients {
   request.timeout.ms = 30000
 }
+</code></pre><h2 id="Subscriber-only-Services"><a class="section-marker" href="#Subscriber-only-Services">§</a><a href="#subscriber-only-services" name="subscriber-only-services">Subscriber only Services</a></h2>
+<p>Sometimes you will implement a Lagom Service that will only consume from the Kafka Topic. In that case you can import the Lagom Kafka Client alone (instead of importing the Lagom Kafka Broker and a Lagom Persistence implementation).</p>
+<p>In Maven:</p>
+<pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.lightbend.lagom&lt;/groupId&gt;
+    &lt;artifactId&gt;lagom-javadsl-kafka-client_2.11&lt;/artifactId&gt;
+    &lt;version&gt;${lagom.version}&lt;/version&gt;
+&lt;/dependency&gt;
 </code></pre>
+<p>In sbt:</p>
+<pre class="prettyprint"><code class="language-sbt">libraryDependencies += lagomJavadslKafkaClient</code></pre>
+<p>If/when your subscriber-only service evolves to include features that publish data to a topic, you will need to depend on Lagom Kafka Broker and remove the dependency to Lagom Kafka Client. The Lagom Kafka Broker module includes the Lagom Kafka Client module. </p><h3 id="Consuming-Topics-from-3rd-parties"><a class="section-marker" href="#Consuming-Topics-from-3rd-parties">§</a><a href="#consuming-topics-from-3rd-parties" name="consuming-topics-from-3rd-parties">Consuming Topics from 3rd parties</a></h3>
+<p>You may want your Lagom service to consume data produced on services not implemented in Lagom. In that case, as described in the <a href="ServiceClients.html">Service Clients</a> section, you can create a <code>third-party-service-api</code> module in your Lagom project. That module will contain a Service Descriptor <a href="MessageBrokerApi.html#Declaring-a-topic">declaring the topic</a> you will consume from. Once you have your <code>ThirdPartyService</code> interface and related classes implemented, you should add <code>third-party-service-api</code> as a dependency on your <code>fancy-service-impl</code>. Finally, you can consume from the topic described in <code>ThirdPartyService</code> as documented in the <a href="MessageBrokerApi.html#Subscribe-to-a-topic">Subscribe to a topic</a> section.</p>
                 </article>
 
                 
