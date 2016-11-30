@@ -116,10 +116,9 @@ extends Object</pre>
  Dependencies to other services must be replaced by stub or mock implementations by
  overriding the bindings of the <code>GuiceApplicationBuilder</code> in the <code>Setup</code>.
  <p>
- The server is by default running with persistence, pubsub and cluster features
- enabled. Cassandra is also started before the test server is started. If your service
- does not use these features you can disable them in the <code>Setup</code>, which will reduce
- the startup time.
+ The server is ran standalone without persistence, pubsub or cluster features
+ enabled. Cassandra is also disabled by default. If your service require either of these features you
+ can enable them in the <code>Setup</code>.
  <p>
  There are two different styles that can be used. It is most convenient to use <a href="../../../../../com/lightbend/lagom/javadsl/testkit/ServiceTest.html#withServer-com.lightbend.lagom.javadsl.testkit.ServiceTest.Setup-akka.japi.function.Procedure-"><code>withServer</code></a>,
  since it automatically starts and stops the server before and after the given lambda.
